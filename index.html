@@ -33,12 +33,15 @@
                   <div class="col-xs-12 col-sm-12 col-lg-12">
                      <div class="row title-div" ng-click="menuDrop1();">
                         <span class="number-wrapper">1</span>
-                        <span class="title-wrapper">Your Details</span>
+                        <span class="title-wrapper">Personal Details</span>
+                        <div class="img-btn-div">
+                          <button type="button" class="button img-btn" onclick="menuDrop1();"></button>             
+                        </div>
                         <div class="otrp-clear"></div>
                      </div>
                      <form name="ttrForm" class="form-1" ng-class="{menuDrop: isMenuDrop1}" novalidate ng-submit="submitForm(ttrForm.$valid)">
                         
-                        <div class="row">
+                        <div class="row first-row-mobile">
                         <div class="col-xs-8 col-sm-4 form-heading">
                           Date Of Birth
                           <div class="row">
@@ -90,44 +93,36 @@
 
                         <div class="row second-row-mobile">
                         <div class="col-xs-12 col-sm-6 form-heading">
-                        <!-- <span class="visible-xs">Current Salary</span> -->
-                          <!-- <span class="hidden-xs">Current Salary Excluding SGC</span> -->
-                          Current Salary Excluding Super
                           <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="csesInput" name="csesInput" ng-model="cses" >
-                             </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="csesSlider" style="margin-top:8px;"></div>
-                           </div>
+                           <div class="col-xs-12">
+                            Gender
+                            <button class="option-l-btn btn btn-primary " ng-click="genderOption = true" ng-disabled="genderOption" ng-class="{genderOption: btn-disbld}">Male</button>
+                            <button class="option-r-btn btn btn-primary " ng-click="genderOption = false" ng-disabled="!genderOption" >Female</button>
+                            </div>
                            </div>  
                         </div>
                         <div class="col-xs-12 col-sm-6 form-heading">
-                          <!-- <span class="visible-xs">Desired Take Home Salary</span> -->
-                          <!-- <span class="hidden-xs">Desired Minimum Take Home Salary Per Annum</span> -->
-                          Desired Minimum Take Home Salary Per Annum
                           <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="thpInput" name="thpInput" ng-model="thp" >
-                             </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="thpSlider" style="margin-top:8px;"></div>
-                           </div>
+                           <div class="col-xs-12">
+                            Smoker
+                            <button class="option-l-btn btn btn-primary " ng-click="smokeOption = true" ng-disabled="smokeOption">Yes</button>
+                            <button class="option-r-btn btn btn-primary " ng-click="smokeOption = false" ng-disabled="!smokeOption" >No</button>
+                            </div>
                            </div>  
                         </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <button class="btn btn-primary next-btn" ng-click="nextDiv(1)" >Next</button>
+                          </div>
                         </div>
                      </form>
                      <div class="row title-div" ng-click="menuDrop2();">
                         <span class="number-wrapper">1</span>
                         <span class="title-wrapper">Your Details</span>
+                        <div class="img-btn-div">
+                          <button type="button" class="button img-btn" onclick="menuDrop2();"></button>             
+                        </div>
                         <div class="otrp-clear"></div>
                      </div>
                      <form name="ttrForm" class="form-2" ng-class="{menuDrop: isMenuDrop2}" novalidate ng-submit="submitForm(ttrForm.$valid)">
@@ -186,14 +181,11 @@
                         <div class="col-xs-12 col-sm-6 form-heading">
                         <!-- <span class="visible-xs">Current Salary</span> -->
                           <!-- <span class="hidden-xs">Current Salary Excluding SGC</span> -->
-                          Current Salary Excluding Super
+                          
                           <div class="row">
                            <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="csesInput" name="csesInput" ng-model="cses" >
-                             </div>
-                             </div>
+                              Gender
+                            </div>
                            <div class="col-xs-8 col-sm-8 form-group">
                            <!-- <label></label> -->
                               <div id="csesSlider" style="margin-top:8px;"></div>
@@ -218,10 +210,18 @@
                            </div>  
                         </div>
                         </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <button class="btn btn-primary next-btn" ng-click="nextDiv(2)" >Next</button>
+                          </div>
+                        </div>                        
                      </form>
                      <div class="row title-div" ng-click="menuDrop3();">
                         <span class="number-wrapper">1</span>
                         <span class="title-wrapper">Your Details</span>
+                        <div class="img-btn-div">
+                          <button type="button" class="button img-btn" onclick="menuDrop3();"></button>             
+                        </div>
                         <div class="otrp-clear"></div>
                      </div>
                      <form name="ttrForm" class="form-3" ng-class="{menuDrop: isMenuDrop3}" novalidate ng-submit="submitForm(ttrForm.$valid)">
@@ -312,10 +312,18 @@
                            </div>  
                         </div>
                         </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <button class="btn btn-primary next-btn" ng-click="nextDiv(3)" >Next</button>
+                          </div>
+                        </div>
                      </form>
                      <div class="row title-div" ng-click="menuDrop4();">
                         <span class="number-wrapper">1</span>
                         <span class="title-wrapper">Your Details</span>
+                        <div class="img-btn-div">
+                          <button type="button" class="button img-btn" onclick="menuDrop4();"></button>             
+                        </div>
                         <div class="otrp-clear"></div>
                      </div>
                      <form name="ttrForm" class="form-4" ng-class="{menuDrop: isMenuDrop4}" novalidate ng-submit="submitForm(ttrForm.$valid)">
@@ -406,10 +414,18 @@
                            </div>  
                         </div>
                         </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <button class="btn btn-primary next-btn" ng-click="nextDiv(4)" >Next</button>
+                          </div>
+                        </div>
                      </form>
                      <div class="row title-div" ng-click="menuDrop5();">
                         <span class="number-wrapper">1</span>
                         <span class="title-wrapper">Your Details</span>
+                        <div class="img-btn-div">
+                          <button type="button" class="button img-btn" onclick="menuDrop5();"></button>             
+                        </div>
                         <div class="otrp-clear"></div>
                      </div>
                      <form name="ttrForm" class="form-5" ng-class="{menuDrop: isMenuDrop5}" novalidate ng-submit="submitForm(ttrForm.$valid)">
@@ -499,6 +515,11 @@
                            </div>
                            </div>  
                         </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <button class="btn btn-primary next-btn" ng-click="nextDiv(5)" >Next</button>
+                          </div>
                         </div>
                      </form>
                   </div>

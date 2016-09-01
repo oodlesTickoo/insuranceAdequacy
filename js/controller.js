@@ -20,6 +20,22 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     $scope.isMenuDrop5=$scope.isMenuDrop5?false:true;
   }
 
+  $scope.nextDiv=function(div_num){
+    switch(div_num){
+      case 1: $scope.isMenuDrop1=true; 
+      //setTimeout(function() {$scope.isMenuDrop2=$scope.isMenuDrop2?false:true;}, 10);
+      break;
+      case 2: $scope.isMenuDrop2=true;$scope.isMenuDrop3=$scope.isMenuDrop3?false:true;
+      break;
+      case 3: $scope.isMenuDrop3=true;$scope.isMenuDrop4=$scope.isMenuDrop4?false:true;
+      break;
+      case 4: $scope.isMenuDrop4=true;$scope.isMenuDrop5=$scope.isMenuDrop5?false:true;
+      break;
+      case 5: $scope.isMenuDrop5=true;
+      break;
+
+    }
+  }
   var initDate = new Date();
   initDate.setYear(1998);
   initDate.setMonth(6);
