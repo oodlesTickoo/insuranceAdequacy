@@ -1,7 +1,24 @@
 app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalculator','SGCRate','WithoutSSCalculator','WithSSCalculator','ChartServiceHc','DonutChartServiceHc',function($scope,$timeout,AgeCalculator,TaxRateCalculator,SGCRate,WithoutSSCalculator,WithSSCalculator,ChartServiceHc,DonutChartServiceHc){
 
+  $scope.isToush=false;
   $scope.resultWithSS=[0,0,0];
   $scope.resultWithoutSS=[0,0,0];
+  /*$scope.alert = alert.bind(window);*/
+  $scope.menuDrop1=function(){
+    $scope.isMenuDrop1=$scope.isMenuDrop1?false:true;
+  }
+  $scope.menuDrop2=function(){
+    $scope.isMenuDrop2=$scope.isMenuDrop2?false:true;
+  }
+  $scope.menuDrop3=function(){
+    $scope.isMenuDrop3=$scope.isMenuDrop3?false:true;
+  }
+  $scope.menuDrop4=function(){
+    $scope.isMenuDrop4=$scope.isMenuDrop4?false:true;
+  }
+  $scope.menuDrop5=function(){
+    $scope.isMenuDrop5=$scope.isMenuDrop5?false:true;
+  }
 
   var initDate = new Date();
   initDate.setYear(1998);

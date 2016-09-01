@@ -118,6 +118,7 @@
 .title-div{
     background: #efefef !important;
 		padding:5px !important;
+    border-bottom: 1px solid #CCCCCC;
 }
 .amount-header{
     font-size: 12px;
@@ -220,7 +221,20 @@ hr{
 }
 
 form.ttr-form{
-	//padding:10px;
+}
+form.form-1,form.form-2,form.form-3,form.form-4,form.form-5{
+  -webkit-transition: max-height 0.5s ease-in;
+  -o-transition: max-height 0.5s ease-in;
+  -moz-transition: max-height 0.5s ease-in;    
+  transition: max-height 0.5s ease-in;
+  max-height: 400px;
+  overflow: hidden;
+    
+}
+form.menuDrop{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
 }
 
 span.required{
@@ -838,4 +852,15 @@ float:right;
  #donutContainer .highcharts-container {
     margin-top: 50px;
     margin-left:10px;
+}
+form.f1{
+  -webkit-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+form.dipp{
+  height: 0;
+  display: none;
 }
