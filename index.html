@@ -35,81 +35,79 @@
                         <span class="number-wrapper">1</span>
                         <span class="title-wrapper">Personal Details</span>
                         <div class="img-btn-div">
-                          <button type="button" class="button img-btn" onclick="menuDrop1();"></button>             
+                          <button type="button" class="button img-btn"></button>             
                         </div>
                         <div class="otrp-clear"></div>
                      </div>
-                     <form name="ttrForm" class="form-1" ng-class="{menuDrop: isMenuDrop1}" novalidate ng-submit="submitForm(ttrForm.$valid)">
-                        
+                     <form name="ttrForm" class="form-1" ng-class="{menuDrop: isMenuDrop1}" novalidate ng-submit="submitForm(ttrForm.$valid)">              
                         <div class="row first-row-mobile">
-                        <div class="col-xs-8 col-sm-4 form-heading">
-                          Date Of Birth
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <div class="input-group">
-                              <!-- ng-class="{'err-border' : ttrForm.dob.$invalid }" -->
-                                 <input type="text" name="dob" id="dobText" onClick="this.select();"
-                                    class="standard-input form-control" show-button-bar="false"
-                                    uib-datepicker-popup="{{format}}" ng-model="dob" is-open="popup1.opened"
-                                    datepicker-options="dateOptions" required close-text="Close" ng-blur="ageChange()"
-                                    />
-                                 <span class="input-group-addon" ng-click="open1()">
-                                 <span class="glyphicon glyphicon-calendar"></span>
-                                 </span>
-                              </div>
-                              <!-- <span ng-show="ttrForm.dob.$invalid">Invalid Date Entered</span> -->
+                          <div class="col-xs-8 col-sm-4 form-heading">
+                            Date Of Birth
+                            <div class="row">
+                             <div class="col-xs-12">
+                               <div class="form-group">
+                               <div class="input-group">
+                                <!-- ng-class="{'err-border' : ttrForm.dob.$invalid }" -->
+                                   <input type="text" name="dob" id="dobText" onClick="this.select();"
+                                      class="standard-input form-control" show-button-bar="false"
+                                      uib-datepicker-popup="{{format}}" ng-model="dob" is-open="popup1.opened"
+                                      datepicker-options="dateOptions" required close-text="Close" ng-blur="ageChange()"
+                                      />
+                                   <span class="input-group-addon" ng-click="open1()">
+                                   <span class="glyphicon glyphicon-calendar"></span>
+                                   </span>
+                                </div>
+                                <!-- <span ng-show="ttrForm.dob.$invalid">Invalid Date Entered</span> -->
+                               </div>
+                               </div>
+                             </div>  
+                          </div>
+                          <div class="col-xs-4 col-sm-2 form-heading">
+                            Age
+                            <div class="row">
+                             <div class="col-xs-12">
+                               <div class="form-group">
+                               <!-- <label for="ageInput">Your Age</label> -->
+                               <input type="number"  onClick="this.select();" class="form-control" id="ageInput" name="ageInput" ng-model="age" disabled>
+                               </div>
+                               </div>
+                             </div>  
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Gross Income
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <!-- <label for="ageInput">Your Age</label> -->
+                               <input type="number"  onClick="this.select();" class="form-control" id="giInput" name="giInput" ng-model="gi" >
+                               </div>
+                               </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                             <!-- <label></label> -->
+                                <div id="giSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           </div>  
+                             </div>  
+                          </div>
                         </div>
-                        <div class="col-xs-4 col-sm-2 form-heading">
-                          Age
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="ageInput" name="ageInput" ng-model="age" disabled>
-                             </div>
-                             </div>
-                           </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          Gross Income
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="giInput" name="giInput" ng-model="gi" >
-                             </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="fySlider" style="margin-top:8px;"></div>
-                           </div>
-                           </div>  
-                        </div>
-                        </div>
-
                         <div class="row second-row-mobile">
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          <div class="row">
-                           <div class="col-xs-12">
-                            Gender
-                            <button class="option-l-btn btn btn-primary " ng-click="genderOption = true" ng-disabled="genderOption" ng-class="{genderOption: btn-disbld}">Male</button>
-                            <button class="option-r-btn btn btn-primary " ng-click="genderOption = false" ng-disabled="!genderOption" >Female</button>
-                            </div>
-                           </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          <div class="row">
-                           <div class="col-xs-12">
-                            Smoker
-                            <button class="option-l-btn btn btn-primary " ng-click="smokeOption = true" ng-disabled="smokeOption">Yes</button>
-                            <button class="option-r-btn btn btn-primary " ng-click="smokeOption = false" ng-disabled="!smokeOption" >No</button>
-                            </div>
-                           </div>  
-                        </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            <div class="row">
+                             <div class="col-xs-12">
+                              Gender
+                              <button class="option-l-btn btn btn-primary " ng-click="genderOption = true" ng-disabled="genderOption" ng-class="{genderOption: btn-disbld}">Male</button>
+                              <button class="option-r-btn btn btn-primary " ng-click="genderOption = false" ng-disabled="!genderOption" >Female</button>
+                              </div>
+                             </div>  
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            <div class="row">
+                             <div class="col-xs-12">
+                              Smoker
+                              <button class="option-l-btn btn btn-primary " ng-click="smokeOption = true" ng-disabled="smokeOption">Yes</button>
+                              <button class="option-r-btn btn btn-primary " ng-click="smokeOption = false" ng-disabled="!smokeOption" >No</button>
+                              </div>
+                             </div>  
+                          </div>
                         </div>
                         <div class="row">
                           <div class="col-xs-12">
@@ -118,97 +116,69 @@
                         </div>
                      </form>
                      <div class="row title-div" ng-click="menuDrop2();">
-                        <span class="number-wrapper">1</span>
-                        <span class="title-wrapper">Your Details</span>
+                        <span class="number-wrapper">2</span>
+                        <span class="title-wrapper">Assets</span>
                         <div class="img-btn-div">
                           <button type="button" class="button img-btn" onclick="menuDrop2();"></button>             
                         </div>
                         <div class="otrp-clear"></div>
                      </div>
-                     <form name="ttrForm" class="form-2" ng-class="{menuDrop: isMenuDrop2}" novalidate ng-submit="submitForm(ttrForm.$valid)">
-                        
+                     <form name="ttrForm" class="form-2" ng-class="{menuDrop: isMenuDrop2}" novalidate ng-submit="submitForm(ttrForm.$valid)">                        
                         <div class="row">
-                        <div class="col-xs-8 col-sm-4 form-heading">
-                          Date Of Birth
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <div class="input-group">
-                              <!-- ng-class="{'err-border' : ttrForm.dob.$invalid }" -->
-                                 <input type="text" name="dob" id="dobText" onClick="this.select();"
-                                    class="standard-input form-control" show-button-bar="false"
-                                    uib-datepicker-popup="{{format}}" ng-model="dob" is-open="popup1.opened"
-                                    datepicker-options="dateOptions" required close-text="Close" ng-blur="ageChange()"
-                                    />
-                                 <span class="input-group-addon" ng-click="open1()">
-                                 <span class="glyphicon glyphicon-calendar"></span>
-                                 </span>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Home Value
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="hvInput" name="hvInput" ng-model="hv" >
+                               </div>
                               </div>
-                              <!-- <span ng-show="ttrForm.dob.$invalid">Invalid Date Entered</span> -->
-                             </div>
-                             </div>
-                           </div>  
-                        </div>
-                        <div class="col-xs-4 col-sm-2 form-heading">
-                          Age
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="ageInput" name="ageInput" ng-model="age" disabled>
-                             </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="hvSlider" style="margin-top:8px;"></div>
                              </div>
                            </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          Financial Year/Tax Year
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="fyInput" name="fyInput" ng-model="fy" >
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Cash at bank
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="cabInput" name="cabInput" ng-model="cab" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="cabSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="fySlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
+                          </div>
                         </div>
-                        </div>
-
                         <div class="row second-row-mobile">
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                        <!-- <span class="visible-xs">Current Salary</span> -->
-                          <!-- <span class="hidden-xs">Current Salary Excluding SGC</span> -->
-                          
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                              Gender
-                            </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="csesSlider" style="margin-top:8px;"></div>
-                           </div>
-                           </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          <!-- <span class="visible-xs">Desired Take Home Salary</span> -->
-                          <!-- <span class="hidden-xs">Desired Minimum Take Home Salary Per Annum</span> -->
-                          Desired Minimum Take Home Salary Per Annum
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="thpInput" name="thpInput" ng-model="thp" >
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Other Investment
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="oiInput" name="oiInput" ng-model="oi" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="oiSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="thpSlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
-                        </div>
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Super balance
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="sbInput" name="sbInput" ng-model="sb" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="sbSlider" style="margin-top:8px;"></div>
+                             </div>
+                           </div>  
+                          </div>
                         </div>
                         <div class="row">
                           <div class="col-xs-12">
@@ -217,100 +187,97 @@
                         </div>                        
                      </form>
                      <div class="row title-div" ng-click="menuDrop3();">
-                        <span class="number-wrapper">1</span>
-                        <span class="title-wrapper">Your Details</span>
+                        <span class="number-wrapper">3</span>
+                        <span class="title-wrapper">Liability</span>
                         <div class="img-btn-div">
                           <button type="button" class="button img-btn" onclick="menuDrop3();"></button>             
                         </div>
                         <div class="otrp-clear"></div>
                      </div>
                      <form name="ttrForm" class="form-3" ng-class="{menuDrop: isMenuDrop3}" novalidate ng-submit="submitForm(ttrForm.$valid)">
-                        
                         <div class="row">
-                        <div class="col-xs-8 col-sm-4 form-heading">
-                          Date Of Birth
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <div class="input-group">
-                              <!-- ng-class="{'err-border' : ttrForm.dob.$invalid }" -->
-                                 <input type="text" name="dob" id="dobText" onClick="this.select();"
-                                    class="standard-input form-control" show-button-bar="false"
-                                    uib-datepicker-popup="{{format}}" ng-model="dob" is-open="popup1.opened"
-                                    datepicker-options="dateOptions" required close-text="Close" ng-blur="ageChange()"
-                                    />
-                                 <span class="input-group-addon" ng-click="open1()">
-                                 <span class="glyphicon glyphicon-calendar"></span>
-                                 </span>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Home Mortgage
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="hmInput" name="hmInput" ng-model="hm" >
+                               </div>
                               </div>
-                              <!-- <span ng-show="ttrForm.dob.$invalid">Invalid Date Entered</span> -->
-                             </div>
-                             </div>
-                           </div>  
-                        </div>
-                        <div class="col-xs-4 col-sm-2 form-heading">
-                          Age
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="ageInput" name="ageInput" ng-model="age" disabled>
-                             </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="hmSlider" style="margin-top:8px;"></div>
                              </div>
                            </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          Financial Year/Tax Year
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="fyInput" name="fyInput" ng-model="fy" >
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Investment Property Mortgage
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="ipmInput" name="ipmInput" ng-model="ipm" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="ipmSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="fySlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
+                          </div>
                         </div>
-                        </div>
-
                         <div class="row second-row-mobile">
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                        <!-- <span class="visible-xs">Current Salary</span> -->
-                          <!-- <span class="hidden-xs">Current Salary Excluding SGC</span> -->
-                          Current Salary Excluding Super
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="csesInput" name="csesInput" ng-model="cses" >
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Credit Card Debt
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="ccdInput" name="ccdInput" ng-model="ccd" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="ccdSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="csesSlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          <!-- <span class="visible-xs">Desired Take Home Salary</span> -->
-                          <!-- <span class="hidden-xs">Desired Minimum Take Home Salary Per Annum</span> -->
-                          Desired Minimum Take Home Salary Per Annum
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="thpInput" name="thpInput" ng-model="thp" >
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Car Loan
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="clInput" name="clInput" ng-model="cl" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="clSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="thpSlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
+                          </div>
                         </div>
+                        <div class="row second-row-mobile">
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Personal Loan
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="plInput" name="plInput" ng-model="pl" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="plSlider" style="margin-top:8px;"></div>
+                             </div>
+                           </div>  
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Other Loan
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="olInput" name="olInput" ng-model="ol" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="olSlider" style="margin-top:8px;"></div>
+                             </div>
+                           </div>  
+                          </div>
                         </div>
                         <div class="row">
                           <div class="col-xs-12">
@@ -319,206 +286,187 @@
                         </div>
                      </form>
                      <div class="row title-div" ng-click="menuDrop4();">
-                        <span class="number-wrapper">1</span>
-                        <span class="title-wrapper">Your Details</span>
+                        <span class="number-wrapper">4</span>
+                        <span class="title-wrapper">Other Expense</span>
                         <div class="img-btn-div">
                           <button type="button" class="button img-btn" onclick="menuDrop4();"></button>             
                         </div>
                         <div class="otrp-clear"></div>
                      </div>
                      <form name="ttrForm" class="form-4" ng-class="{menuDrop: isMenuDrop4}" novalidate ng-submit="submitForm(ttrForm.$valid)">
-                        
                         <div class="row">
-                        <div class="col-xs-8 col-sm-4 form-heading">
-                          Date Of Birth
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <div class="input-group">
-                              <!-- ng-class="{'err-border' : ttrForm.dob.$invalid }" -->
-                                 <input type="text" name="dob" id="dobText" onClick="this.select();"
-                                    class="standard-input form-control" show-button-bar="false"
-                                    uib-datepicker-popup="{{format}}" ng-model="dob" is-open="popup1.opened"
-                                    datepicker-options="dateOptions" required close-text="Close" ng-blur="ageChange()"
-                                    />
-                                 <span class="input-group-addon" ng-click="open1()">
-                                 <span class="glyphicon glyphicon-calendar"></span>
-                                 </span>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Number of Financially Dependent Children
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="ncInput" name="ncInput" ng-model="nc" >
+                               </div>
                               </div>
-                              <!-- <span ng-show="ttrForm.dob.$invalid">Invalid Date Entered</span> -->
-                             </div>
-                             </div>
-                           </div>  
-                        </div>
-                        <div class="col-xs-4 col-sm-2 form-heading">
-                          Age
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="ageInput" name="ageInput" ng-model="age" disabled>
-                             </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="ncSlider" style="margin-top:8px;"></div>
                              </div>
                            </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          Financial Year/Tax Year
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="fyInput" name="fyInput" ng-model="fy" >
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Funeral Cost
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="fcInput" name="fcInput" ng-model="fc" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="fcSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="fySlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
+                          </div>
                         </div>
-                        </div>
-
                         <div class="row second-row-mobile">
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                        <!-- <span class="visible-xs">Current Salary</span> -->
-                          <!-- <span class="hidden-xs">Current Salary Excluding SGC</span> -->
-                          Current Salary Excluding Super
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="csesInput" name="csesInput" ng-model="cses" >
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Education Expense per year per child
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="eeInput" name="eeInput" ng-model="ee" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="eeSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="csesSlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          <!-- <span class="visible-xs">Desired Take Home Salary</span> -->
-                          <!-- <span class="hidden-xs">Desired Minimum Take Home Salary Per Annum</span> -->
-                          Desired Minimum Take Home Salary Per Annum
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="thpInput" name="thpInput" ng-model="thp" >
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Family Living Cost per year
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="flInput" name="flInput" ng-model="fl" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="flSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="thpSlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
-                        </div>
+                          </div>
                         </div>
                         <div class="row">
                           <div class="col-xs-12">
                             <button class="btn btn-primary next-btn" ng-click="nextDiv(4)" >Next</button>
                           </div>
-                        </div>
+                        </div>                              
                      </form>
                      <div class="row title-div" ng-click="menuDrop5();">
-                        <span class="number-wrapper">1</span>
-                        <span class="title-wrapper">Your Details</span>
+                        <span class="number-wrapper">5</span>
+                        <span class="title-wrapper">Existing Cover</span>
                         <div class="img-btn-div">
                           <button type="button" class="button img-btn" onclick="menuDrop5();"></button>             
                         </div>
                         <div class="otrp-clear"></div>
                      </div>
                      <form name="ttrForm" class="form-5" ng-class="{menuDrop: isMenuDrop5}" novalidate ng-submit="submitForm(ttrForm.$valid)">
-                        
                         <div class="row">
-                        <div class="col-xs-8 col-sm-4 form-heading">
-                          Date Of Birth
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <div class="input-group">
-                              <!-- ng-class="{'err-border' : ttrForm.dob.$invalid }" -->
-                                 <input type="text" name="dob" id="dobText" onClick="this.select();"
-                                    class="standard-input form-control" show-button-bar="false"
-                                    uib-datepicker-popup="{{format}}" ng-model="dob" is-open="popup1.opened"
-                                    datepicker-options="dateOptions" required close-text="Close" ng-blur="ageChange()"
-                                    />
-                                 <span class="input-group-addon" ng-click="open1()">
-                                 <span class="glyphicon glyphicon-calendar"></span>
-                                 </span>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Life
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="lifeInput" name="lifeInput" ng-model="life" >
+                               </div>
                               </div>
-                              <!-- <span ng-show="ttrForm.dob.$invalid">Invalid Date Entered</span> -->
-                             </div>
-                             </div>
-                           </div>  
-                        </div>
-                        <div class="col-xs-4 col-sm-2 form-heading">
-                          Age
-                          <div class="row">
-                           <div class="col-xs-12">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="ageInput" name="ageInput" ng-model="age" disabled>
-                             </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="lifeSlider" style="margin-top:8px;"></div>
                              </div>
                            </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          Financial Year/Tax Year
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="number"  onClick="this.select();" class="form-control" id="fyInput" name="fyInput" ng-model="fy" >
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            TPD
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="tpdInput" name="tpdInput" ng-model="tpd" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="tpdSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="fySlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
+                          </div>
                         </div>
-                        </div>
-
                         <div class="row second-row-mobile">
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                        <!-- <span class="visible-xs">Current Salary</span> -->
-                          <!-- <span class="hidden-xs">Current Salary Excluding SGC</span> -->
-                          Current Salary Excluding Super
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="csesInput" name="csesInput" ng-model="cses" >
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Income Protection
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="ipInput" name="ipInput" ng-model="ip" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="ipSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="csesSlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
-                        </div>
-                        <div class="col-xs-12 col-sm-6 form-heading">
-                          <!-- <span class="visible-xs">Desired Take Home Salary</span> -->
-                          <!-- <span class="hidden-xs">Desired Minimum Take Home Salary Per Annum</span> -->
-                          Desired Minimum Take Home Salary Per Annum
-                          <div class="row">
-                           <div class="col-xs-4 col-sm-4">
-                             <div class="form-group">
-                             <!-- <label for="ageInput">Your Age</label> -->
-                             <input type="text"  onClick="this.select();" class="form-control" id="thpInput" name="thpInput" ng-model="thp" >
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Trauma
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="traumaInput" name="traumaInput" ng-model="trauma" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="traumaSlider" style="margin-top:8px;"></div>
                              </div>
-                             </div>
-                           <div class="col-xs-8 col-sm-8 form-group">
-                           <!-- <label></label> -->
-                              <div id="thpSlider" style="margin-top:8px;"></div>
-                           </div>
                            </div>  
-                        </div>
+                          </div>
                         </div>
                         <div class="row">
                           <div class="col-xs-12">
                             <button class="btn btn-primary next-btn" ng-click="nextDiv(5)" >Next</button>
+                          </div>
+                        </div>
+                     </form>
+                     <div class="row title-div" ng-click="menuDrop6();">
+                        <span class="number-wrapper">6</span>
+                        <span class="title-wrapper">Assumptions</span>
+                        <div class="img-btn-div">
+                          <button type="button" class="button img-btn" onclick="menuDrop6();"></button>             
+                        </div>
+                        <div class="otrp-clear"></div>
+                     </div>
+                     <form name="ttrForm" class="form-6" ng-class="{menuDrop: isMenuDrop6}" novalidate ng-submit="submitForm(ttrForm.$valid)">
+                        <div class="row">
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Wage/living cost inflation
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="wiInput" name="wiInput" ng-model="wi" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="wiSlider" style="margin-top:8px;"></div>
+                             </div>
+                           </div>  
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Rate of Return
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="number"  onClick="this.select();" class="form-control" id="rrInput" name="rrInput" ng-model="rr" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="rrSlider" style="margin-top:8px;"></div>
+                             </div>
+                           </div>  
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <button class="btn btn-primary next-btn" ng-click="nextDiv(6)" >Next</button>
                           </div>
                         </div>
                      </form>

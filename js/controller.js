@@ -1,9 +1,7 @@
 app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalculator','SGCRate','WithoutSSCalculator','WithSSCalculator','ChartServiceHc','DonutChartServiceHc',function($scope,$timeout,AgeCalculator,TaxRateCalculator,SGCRate,WithoutSSCalculator,WithSSCalculator,ChartServiceHc,DonutChartServiceHc){
 
   $scope.isToush=false;
-  $scope.resultWithSS=[0,0,0];
-  $scope.resultWithoutSS=[0,0,0];
-  /*$scope.alert = alert.bind(window);*/
+
   $scope.menuDrop1=function(){
     $scope.isMenuDrop1=$scope.isMenuDrop1?false:true;
   }
@@ -19,11 +17,14 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
   $scope.menuDrop5=function(){
     $scope.isMenuDrop5=$scope.isMenuDrop5?false:true;
   }
+  $scope.menuDrop6=function(){
+    $scope.isMenuDrop5=$scope.isMenuDrop6?false:true;
+  }
 
   $scope.nextDiv=function(div_num){
     switch(div_num){
       case 1: $scope.isMenuDrop1=true; 
-      //setTimeout(function() {$scope.isMenuDrop2=$scope.isMenuDrop2?false:true;}, 10);
+      setTimeout(function() { $scope.isMenuDrop2=$scope.isMenuDrop2?false:true; console.log("kart");}, 1000);
       break;
       case 2: $scope.isMenuDrop2=true;$scope.isMenuDrop3=$scope.isMenuDrop3?false:true;
       break;
@@ -31,8 +32,9 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       break;
       case 4: $scope.isMenuDrop4=true;$scope.isMenuDrop5=$scope.isMenuDrop5?false:true;
       break;
-      case 5: $scope.isMenuDrop5=true;
+      case 5: $scope.isMenuDrop5=true;$scope.isMenuDrop6=$scope.isMenuDrop6?false:true;
       break;
+      case 6: $scope.isMenuDrop6=true;
 
     }
   }
@@ -41,10 +43,6 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
   initDate.setMonth(6);
   initDate.setDate(1);
   $scope.dob = initDate;
-
-   // $('#kartik').tooltip();
-
-  $scope.chartOneOpen = true;
   
   $scope.infoShow=function(value){
     if(value){
@@ -56,7 +54,6 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       document.getElementsByClassName("information-overlay")[0].style.visibility="hidden";
     }
   }
-  // $scope.unattainableTHP = false;
 
   $scope.firstDP = function(){
         $scope.dateOptions.maxDate = new Date(1998,11,31);
@@ -70,7 +67,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
 
   $scope.today = function(){
       $scope.dt = new Date();
-    };
+  };
     $scope.today();
 
     $scope.clear = function() {
@@ -79,25 +76,14 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
 
     $scope.inlineOptions = {
       customClass: getDayClass,
-      // minDate: new Date(),
       showWeeks: true
     };
 
     $scope.dateOptions = {
-      // dateDisabled: disabled,
       formatYear: 'yy',
-      // maxDate: new Date(2020, 5, 22),
-      // minDate: new Date(),
       startingDay: 1,
       showWeeks: false
     };
-
-    // $scope.toggleMin = function() {
-    //   $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
-    //   $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
-    // };
-
-    // $scope.toggleMin();
 
     $scope.open1 = function() {
       $scope.popup1.opened = true;
@@ -115,7 +101,6 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
 
     $scope.formats = ['dd-MMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate','dd/MM/yyyy','d!/M!/yyyy'];
     $scope.format = $scope.formats[5];
-    // $scope.altInputFormats = ['d!/M!/yyyy'];
 
     $scope.popup1 = {
       opened: false
@@ -158,59 +143,67 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       return '';
     }
 
-
-    $scope.unattainableTHP = false;
-
-    $scope.attainableTHP = false;
-
-    $scope.unattainableTHPS = false;
-
-    $scope.optimisedSS;
-
-    $scope.needSS = true;
-
-
-    $scope.overlay = false;
-
-
-    // $scope.age = 42;
-
-    $scope.fy = 2017;
-
-    $scope.cses = 80000;
-
-    $scope.thp = 45000;
-
-    $scope.maxTHP2 = 0;
-
     $scope.age = AgeCalculator.getAge($scope.dob,$scope.fy);
+
+
+
+    $scope.gi = 10000;
+    $scope.hm = 10000;
+    $scope.ipm = 10000;
+    $scope.ccd = 10000;
+    $scope.cl = 10000;
+    $scope.pl = 10000;
+    $scope.ol = 10000;
+    $scope.hv = 10000;
+    $scope.cab = 10000;
+    $scope.oi = 10000;
+    $scope.sb = 10000;
+    $scope.life = 10000;
+    $scope.tpd = 10000;
+    $scope.ip = 10000;
+    $scope.trauma = 10000;
+    $scope.nc = 5;
+    $scope.fc = 10000;
+    $scope.ee = 10000;
+    $scope.fl = 10000;
+    $scope.wi = 10;
+    $scope.rr = 10;
+
 
     
 
-    // var ageSlider = document.getElementById('ageSlider'),
-    var fySlider = document.getElementById('fySlider'),
-    csesSlider = document.getElementById('csesSlider'),
-    thpSlider = document.getElementById('thpSlider');
+    var giSlider = document.getElementById('giSlider'),
+    hmSlider = document.getElementById('hmSlider'),
+    ipmSlider = document.getElementById('ipmSlider'),
+    ccdSlider = document.getElementById('ccdSlider'),
+    clSlider = document.getElementById('clSlider'),
+    plSlider = document.getElementById('plSlider'),
+    olSlider = document.getElementById('olSlider'),
+    hvSlider = document.getElementById('hvSlider'),
+    cabSlider = document.getElementById('cabSlider'),
+    oiSlider = document.getElementById('oiSlider'),
+    sbSlider = document.getElementById('sbSlider'),
+    lifeSlider = document.getElementById('lifeSlider'),
+    tpdSlider = document.getElementById('tpdSlider'),
+    ipSlider = document.getElementById('ipSlider'),
+    traumaSlider = document.getElementById('traumaSlider'),
+    ncSlider = document.getElementById('ncSlider'),
+    fcSlider = document.getElementById('fcSlider'),
+    eeSlider = document.getElementById('eeSlider'),
+    flSlider = document.getElementById('flSlider'),
+    wiSlider = document.getElementById('wiSlider'),
+    rrSlider = document.getElementById('rrSlider');
+    /*vpSlider = document.getElementById('vpSlider'),
+    mbSlider = document.getElementById('mbSlider');
+*/
 
 
-    // noUiSlider.create(ageSlider, {
-    //  start: [$scope.age],
-    //  range: {
-    //   'min': [  18 ],
-    //   'max': [ 65 ]
-    //  },
-    // step : 1,
-    // format: wNumb({
-    //  decimals: 0,
-    // }),
-    // connect : 'lower'
-    // });
 
-    noUiSlider.create(fySlider, {
-     start: [$scope.fy],
+    noUiSlider.create(giSlider, {
+     start: [$scope.gi],
      range: {
-      'min': [ 2017 ],
-      'max': [ 2025 ]
+      'min': [ 20 ],
+      'max': [ 1000000 ]
      },
     step : 1,
     format: wNumb({
@@ -219,11 +212,11 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     connect : 'lower'
     });
 
-    noUiSlider.create(csesSlider, {
-     start: [$scope.cses],
+    noUiSlider.create(hmSlider, {
+     start: [$scope.hm],
      range: {
-      'min': [10000],
-      'max': [300000]
+      'min': [0],
+      'max': [5000000]
      },
     step : 500,
     format: wNumb({
@@ -235,11 +228,11 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     connect : 'lower'
     });
 
-    noUiSlider.create(thpSlider, {
-     start: [$scope.thp],
+    noUiSlider.create(ipmSlider, {
+     start: [$scope.ipm],
      range: {
-      'min': [1000],
-      'max': [61000]
+      'min': [0],
+      'max': [10000000]
      },
     step : 500,
     format: wNumb({
@@ -250,182 +243,562 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     connect : 'lower'
     });
 
-    $scope.calculateMaxTHP2 = function(){
-      var cses1=$scope.cses.replace("$","").replace(",","");
-      var thp1=$scope.thp.replace("$","").replace(",","");
-    $scope.maxTHP2 =  Math.floor(WithoutSSCalculator.getFinalAmount($scope.age,$scope.fy,Number(cses1),Number(thp1),true));
-    console.log($scope.maxTHP2)
-    }
+    noUiSlider.create(plSlider, {
+     start: [$scope.pl],
+     range: {
+      'min': [0],
+      'max': [1000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
 
+    noUiSlider.create(ccdSlider, {
+     start: [$scope.ccd],
+     range: {
+      'min': [0],
+      'max': [200000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(clSlider, {
+     start: [$scope.cl],
+     range: {
+      'min': [0],
+      'max': [1000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(olSlider, {
+     start: [$scope.ol],
+     range: {
+      'min': [0],
+      'max': [1000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+
+    noUiSlider.create(hvSlider, {
+     start: [$scope.hv],
+     range: {
+      'min': [0],
+      'max': [10000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(cabSlider, {
+     start: [$scope.cab],
+     range: {
+      'min': [0],
+      'max': [1000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(oiSlider, {
+     start: [$scope.oi],
+     range: {
+      'min': [0],
+      'max': [10000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(sbSlider, {
+     start: [$scope.sb],
+     range: {
+      'min': [0],
+      'max': [10000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(lifeSlider, {
+     start: [$scope.life],
+     range: {
+      'min': [0],
+      'max': [10000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(tpdSlider, {
+     start: [$scope.tpd],
+     range: {
+      'min': [0],
+      'max': [10000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(ipSlider, {
+     start: [$scope.ip],
+     range: {
+      'min': [0],
+      'max': [20000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(traumaSlider, {
+     start: [$scope.trauma],
+     range: {
+      'min': [0],
+      'max': [100000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(ncSlider, {
+     start: [$scope.nc],
+     range: {
+      'min': [0],
+      'max': [8]
+     },
+    step : 1,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(fcSlider, {
+     start: [$scope.fc],
+     range: {
+      'min': [0],
+      'max': [200000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(eeSlider, {
+     start: [$scope.ee],
+     range: {
+      'min': [0],
+      'max': [5000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(flSlider, {
+     start: [$scope.fl],
+     range: {
+      'min': [0],
+      'max': [5000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(wiSlider, {
+     start: [$scope.wi],
+     range: {
+      'min': [0],
+      'max': [100]
+     },
+    step : 1,
+    format: wNumb({
+      decimals: 0,
+      postfix: '%'
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(rrSlider, {
+     start: [$scope.rr],
+     range: {
+      'min': [0],
+      'max': [100]
+     },
+    step : 1,
+    format: wNumb({
+      decimals: 0,
+      postfix: '%'
+    }),
+    connect : 'lower'
+    }); 
+
+    /*noUiSlider.create(vpSlider, {
+     start: [$scope.vp],
+     range: {
+      'min': [0],
+      'max': [5000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });
+
+    noUiSlider.create(mbSlider, {
+     start: [$scope.mb],
+     range: {
+      'min': [0],
+      'max': [5000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+    }),
+    connect : 'lower'
+    });   
+*/
     var ageInput = document.getElementById('ageInput'),
-    fyInput = document.getElementById('fyInput'),
-    csesInput = document.getElementById('csesInput'),
-    thpInput = document.getElementById('thpInput');
-
-    // ageSlider.noUiSlider.on('update', function( values, handle ) {
-    // ageInput.value = values[handle];
-    // $scope.age = Number(values[handle]);
-    // });
-
-    fySlider.noUiSlider.on('update', function( values, handle ) {
-    fyInput.value = values[handle];
-    $scope.fy = Number(values[handle]);
+    giInput = document.getElementById('giInput'),
+    hmInput = document.getElementById('hmInput'),
+    ipmInput = document.getElementById('ipmInput'),
+    ccdInput = document.getElementById('ccdInput'),
+    clInput = document.getElementById('clInput'),
+    plInput = document.getElementById('plInput'),
+    olInput = document.getElementById('olInput'),
+    hvInput = document.getElementById('hvInput'),
+    cabInput = document.getElementById('cabInput'),
+    oiInput = document.getElementById('oiInput'),
+    sbInput = document.getElementById('sbInput'),
+    lifeInput = document.getElementById('lifeInput'),
+    tpdInput = document.getElementById('tpdInput'),
+    ipInput = document.getElementById('ipInput'),
+    traumaInput = document.getElementById('traumaInput'),
+    ncInput = document.getElementById('ncInput'),
+    fcInput = document.getElementById('fcInput'),
+    eeInput = document.getElementById('eeInput'),
+    flInput = document.getElementById('flInput'),
+    wiInput = document.getElementById('wiInput'),
+    rrInput = document.getElementById('rrInput');
+    /*vpInput = document.getElementById('vpInput'),
+    mbInput = document.getElementById('mbInput');
+*/
+    giSlider.noUiSlider.on('update', function( values, handle ) {
+    giInput.value = values[handle];
+    $scope.gi = Number(values[handle]);
     });
 
-    csesSlider.noUiSlider.on('update', function( values, handle ) {
-    csesInput.value = values[handle];
-    $scope.cses = (values[handle]);
+    hmSlider.noUiSlider.on('update', function( values, handle ) {
+    hmInput.value = values[handle];
+    $scope.hm = Number(values[handle]);
     });
 
-    thpSlider.noUiSlider.on('update', function( values, handle ) {
-    thpInput.value = values[handle];
-    $scope.thp = (values[handle]);
+    ipmSlider.noUiSlider.on('update', function( values, handle ) {
+    ipmInput.value = values[handle];
+    $scope.ipm = Number(values[handle]);
+    });
+
+    ccdSlider.noUiSlider.on('update', function( values, handle ) {
+    ccdInput.value = values[handle];
+    $scope.ccd = Number(values[handle]);
+    });
+
+    clSlider.noUiSlider.on('update', function( values, handle ) {
+    clInput.value = values[handle];
+    $scope.cl = Number(values[handle]);
+    });
+
+    plSlider.noUiSlider.on('update', function( values, handle ) {
+    plInput.value = values[handle];
+    $scope.pl = Number(values[handle]);
+    });
+
+    olSlider.noUiSlider.on('update', function( values, handle ) {
+    olInput.value = values[handle];
+    $scope.ol = Number(values[handle]);
+    });
+
+    hvSlider.noUiSlider.on('update', function( values, handle ) {
+    hvInput.value = values[handle];
+    $scope.hv = Number(values[handle]);
+    });
+
+    cabSlider.noUiSlider.on('update', function( values, handle ) {
+    cabInput.value = values[handle];
+    $scope.cab = Number(values[handle]);
+    });
+
+    oiSlider.noUiSlider.on('update', function( values, handle ) {
+    oiInput.value = values[handle];
+    $scope.oi = Number(values[handle]);
+    });
+
+    sbSlider.noUiSlider.on('update', function( values, handle ) {
+    sbInput.value = values[handle];
+    $scope.sb = Number(values[handle]);
+    });
+
+    lifeSlider.noUiSlider.on('update', function( values, handle ) {
+    lifeInput.value = values[handle];
+    $scope.life = Number(values[handle]);
+    });
+
+    tpdSlider.noUiSlider.on('update', function( values, handle ) {
+    tpdInput.value = values[handle];
+    $scope.tpd = Number(values[handle]);
+    });
+
+    ipSlider.noUiSlider.on('update', function( values, handle ) {
+    ipInput.value = values[handle];
+    $scope.ip = Number(values[handle]);
+    });
+
+    traumaSlider.noUiSlider.on('update', function( values, handle ) {
+    traumaInput.value = values[handle];
+    $scope.trauma = Number(values[handle]);
+    });
+
+    ncSlider.noUiSlider.on('update', function( values, handle ) {
+    ncInput.value = values[handle];
+    $scope.nc = Number(values[handle]);
     });
 
 
-    $scope.submitForm2 = function(isValid){
-      if(isValid){
-
-      var cses1=$scope.cses.replace("$","").replace(",","");
-      var thp1=$scope.thp.replace("$","").replace(",","");
-
-
-
-
-        $scope.needSS = true;
-        $scope.calculationsDone = true;
-        $scope.resultWithoutSS = WithoutSSCalculator.getFinalAmount($scope.age,$scope.fy,Number(cses1),Number(thp1),false);
-        console.log("rw/oss",$scope.resultWithoutSS.toString());
-        $scope.thpWithoutSS = $scope.resultWithoutSS[0];
-        $scope.taxWithoutSS = $scope.resultWithoutSS[1];
-        $scope.finalAmountWithoutSS = $scope.resultWithoutSS[2];
-        $scope.unattainableTHPS = $scope.resultWithoutSS[3];
-        $scope.resultWithSS = WithSSCalculator.getFinalAmount($scope.age,$scope.fy,Number(cses1),Number(thp1),$scope.taxWithoutSS);
-        console.log("rwss",$scope.resultWithSS.toString());
-        $scope.thpWithSS = $scope.resultWithSS[0];
-        $scope.taxWithSS = $scope.resultWithSS[1];
-        $scope.finalAmountWithSS = $scope.resultWithSS[2];
-        // $scope.finalSS = $scope.resultWithSS[3];
-        $scope.optimisedSS = $scope.resultWithSS[3];
-        $scope.unattainableTHP = $scope.resultWithSS[4];
-        $scope.attainableTHP = !$scope.unattainableTHP;
-        if(($scope.resultWithoutSS[2] - $scope.resultWithSS[2]) > 0){
-          $scope.needSS = false;
-        }
-        if($scope.attainableTHP && !$scope.unattainableTHPS){
-          // ChartService.createChart(Number($scope.thpWithoutSS.toFixed(2)),Number($scope.thpWithSS.toFixed(2)),Number(($scope.taxWithoutSS - $scope.taxWithSS).toFixed(2)), Number($scope.optimisedSS.toFixed(2)));
-          ChartServiceHc.createChart(Number($scope.thpWithoutSS.toFixed(2)),Number($scope.thpWithSS.toFixed(2)),Number(($scope.taxWithoutSS - $scope.taxWithSS).toFixed(2)), Number($scope.optimisedSS.toFixed(2)));
-          DonutChartServiceHc.createChart(Number($scope.thpWithoutSS.toFixed(2)),Number($scope.thpWithSS.toFixed(2)),Number(($scope.taxWithoutSS - $scope.taxWithSS).toFixed(2)), Number($scope.optimisedSS.toFixed(2)));
-
-        }
-        $timeout(0);
-        console.log("complete2");
-      }
-      else{
-        console.log("has errors");
-      }
-    }
-
-    $scope.ageChange =  function(){
-       var dobText = document.getElementById("dobText"); 
-       // console.log("dobText",new Date(dobText.value));
-       var dateString = dobText.value;
-       var dateArr = dateString.split("/");
-      
-       var date_regex = /^([1-9]|0[1-9]|1\d|2\d|3[01])\/(0[1-9]|[1-9]|1[0-2])\/(19[5-9][0-8])$/;
-       var correct =  date_regex.test(dobText.value);
-       var fd = new Date(dateArr[2],dateArr[1]-1,dateArr[0]);
-       // console.log("fd",fd);
-       console.log("correct",correct);
-       // console.log("ins of",fd instanceof Date);
-       // console.log("is Finite",isFinite(fd));
-       
-       // console.log("date",new Date(dateArr[2],dateArr[1]-1,dateArr[0]));
-       // console.log(finalDs instanceof Date);
-       console.log("c1",(fd.getMonth() + 1),Number(dateArr[1]));
-       console.log("c2",fd.getDate(),Number(dateArr[0]));
-       if(((fd.getMonth() + 1) === Number(dateArr[1]) && fd.getDate() === Number(dateArr[0])) && correct ){
-        $scope.dob = fd;
-       }else{
-        $scope.dob = initDate;
-       }
-       $scope.age = AgeCalculator.getAge($scope.dob,$scope.fy);
-    $scope.submitForm2(true);
-    }
-
-    csesInput.addEventListener("change",function(){
-      // if(this.value < 10000){
-      //   this.value = 10000;
-      // }
-      csesSlider.noUiSlider.set($scope.cses);
-    })
-
-    $('#thpInput').on("change",function(){
-      // if(this.value < 1000){
-      //   this.value = 1000;
-      // }
-      thpSlider.noUiSlider.set($scope.thp);
-      console.log("thp changes input",typeof($scope.thp));
-    })
-
-    // $('#ageInput').on("change",function(){
-    //   if(this.value <= 0){
-    //     this.value = 18;
-    //   }
-    //   ageSlider.noUiSlider.set($scope.age);
-    // })
-
-    $('#fyInput').on("change",function(){
-      if(this.value < 2017){
-        $scope.fy = 2017;
-      }
-      fySlider.noUiSlider.set($scope.fy);
-    })
-
-    csesSlider.noUiSlider.on('set', function( values, handle ) {
-    csesInput.value = values[handle];
-    $scope.cses = (values[handle]);
-
-    $scope.calculateMaxTHP2();
-
-       thpSlider.noUiSlider.updateOptions({
-    range: {
-      'min': 1000,
-      'max': Math.floor($scope.maxTHP2)-1
-    },
-    // step :500,
-    // start: Math.floor($scope.maxTHP2) >= $scope.thp ? $scope.thp : $scope.maxTHP2
-  });
-       $scope.submitForm2(true);
+    fcSlider.noUiSlider.on('update', function( values, handle ) {
+    fcInput.value = values[handle];
+    $scope.fc = Number(values[handle]);
     });
 
-    // ageSlider.noUiSlider.on('set', function( values, handle ) {
-    // ageInput.value = values[handle];
-    // $scope.age = Number(values[handle]);
-    // $scope.submitForm2(true);
-    // });
-
-    fySlider.noUiSlider.on('set', function( values, handle ) {
-    fyInput.value = values[handle];
-    $scope.fy = Number(values[handle]);
-    $scope.ageChange();
-    // $scope.submitForm2(true);
+    eeSlider.noUiSlider.on('update', function( values, handle ) {
+    eeInput.value = values[handle];
+    $scope.ee = Number(values[handle]);
     });
 
-    thpSlider.noUiSlider.on('set', function( values, handle ) {
-    thpInput.value = values[handle];
-    $scope.thp = (values[handle]);
-    $scope.submitForm2(true);
+    flSlider.noUiSlider.on('update', function( values, handle ) {
+    flInput.value = values[handle];
+    $scope.fl = Number(values[handle]);
     });
 
-    $scope.submitForm2(true);
+    wiSlider.noUiSlider.on('update', function( values, handle ) {
+    wiInput.value = values[handle];
+    $scope.wi = Number(values[handle]);
+    });
 
-    // $scope.$watch("formData", function(){
-    // $scope.unattainableTHP = false;
-    // $scope.attainableTHP = false;
-    // }, true);
-    
+    rrSlider.noUiSlider.on('update', function( values, handle ) {
+    rrInput.value = values[handle];
+    $scope.rr = Number(values[handle]);
+    });
+
+    /*vpSlider.noUiSlider.on('update', function( values, handle ) {
+    vpInput.value = values[handle];
+    $scope.vp = Number(values[handle]);
+    });
+
+    mbSlider.noUiSlider.on('update', function( values, handle ) {
+    mbInput.value = values[handle];
+    $scope.mb = Number(values[handle]);
+    });*/
+
+    giSlider.noUiSlider.on('set', function( values, handle ) {
+    giInput.value = values[handle];
+    $scope.gi = Number(values[handle]);
+    });
+
+    hmSlider.noUiSlider.on('set', function( values, handle ) {
+    hmInput.value = values[handle];
+    $scope.hm = Number(values[handle]);
+    });
+
+    ipmSlider.noUiSlider.on('set', function( values, handle ) {
+    ipmInput.value = values[handle];
+    $scope.ipm = Number(values[handle]);
+    });
+
+    ccdSlider.noUiSlider.on('set', function( values, handle ) {
+    ccdInput.value = values[handle];
+    $scope.ccd = Number(values[handle]);
+    });
+
+    clSlider.noUiSlider.on('set', function( values, handle ) {
+    clInput.value = values[handle];
+    $scope.cl = Number(values[handle]);
+    });
+
+    plSlider.noUiSlider.on('set', function( values, handle ) {
+    plInput.value = values[handle];
+    $scope.pl = Number(values[handle]);
+    });
+
+    olSlider.noUiSlider.on('set', function( values, handle ) {
+    olInput.value = values[handle];
+    $scope.ol = Number(values[handle]);
+    });
+
+    hvSlider.noUiSlider.on('set', function( values, handle ) {
+    hvInput.value = values[handle];
+    $scope.hv = Number(values[handle]);
+    });
+
+    cabSlider.noUiSlider.on('set', function( values, handle ) {
+    cabInput.value = values[handle];
+    $scope.cab = Number(values[handle]);
+    });
+
+    oiSlider.noUiSlider.on('set', function( values, handle ) {
+    oiInput.value = values[handle];
+    $scope.oi = Number(values[handle]);
+    });
+
+    sbSlider.noUiSlider.on('set', function( values, handle ) {
+    sbInput.value = values[handle];
+    $scope.sb = Number(values[handle]);
+    });
+
+    lifeSlider.noUiSlider.on('set', function( values, handle ) {
+    lifeInput.value = values[handle];
+    $scope.life = Number(values[handle]);
+    });
+
+    tpdSlider.noUiSlider.on('set', function( values, handle ) {
+    tpdInput.value = values[handle];
+    $scope.tpd = Number(values[handle]);
+    });
+
+    ipSlider.noUiSlider.on('set', function( values, handle ) {
+    ipInput.value = values[handle];
+    $scope.ip = Number(values[handle]);
+    });
+
+    traumaSlider.noUiSlider.on('set', function( values, handle ) {
+    traumaInput.value = values[handle];
+    $scope.trauma = Number(values[handle]);
+    });
+
+    ncSlider.noUiSlider.on('set', function( values, handle ) {
+    ncInput.value = values[handle];
+    $scope.nc = Number(values[handle]);
+    });
 
 
+    fcSlider.noUiSlider.on('set', function( values, handle ) {
+    fcInput.value = values[handle];
+    $scope.fc = Number(values[handle]);
+    });
 
+    eeSlider.noUiSlider.on('set', function( values, handle ) {
+    eeInput.value = values[handle];
+    $scope.ee = Number(values[handle]);
+    });
+
+    flSlider.noUiSlider.on('set', function( values, handle ) {
+    flInput.value = values[handle];
+    $scope.fl = Number(values[handle]);
+    });
+
+    wiSlider.noUiSlider.on('set', function( values, handle ) {
+    wiInput.value = values[handle];
+    $scope.wi = Number(values[handle]);
+    });
+
+    rrSlider.noUiSlider.on('set', function( values, handle ) {
+    rrInput.value = values[handle];
+    $scope.rr = Number(values[handle]);
+    });
+
+    /*vpSlider.noUiSlider.on('set', function( values, handle ) {
+    vpInput.value = values[handle];
+    $scope.vp = Number(values[handle]);
+    });
+
+    mbSlider.noUiSlider.on('set', function( values, handle ) {
+    mbInput.value = values[handle];
+    $scope.mb = Number(values[handle]);
+    });*/
+
+
+    //$scope.submitForm2(true);
 }]);
