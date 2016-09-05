@@ -198,7 +198,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
 */
 
 
-
+/*
     noUiSlider.create(giSlider, {
      start: [$scope.gi],
      range: {
@@ -208,6 +208,22 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     step : 1,
     format: wNumb({
      decimals: 0,
+    }),
+    connect : 'lower'
+    });*/
+
+    noUiSlider.create(giSlider, {
+     start: [$scope.gi],
+     range: {
+      'min': [0],
+      'max': [5000000]
+     },
+    step : 500,
+    format: wNumb({
+      decimals: 0,
+      prefix: '$',
+      thousand: ','
+
     }),
     connect : 'lower'
     });
@@ -433,8 +449,6 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     step : 1,
     format: wNumb({
       decimals: 0,
-      prefix: '$',
-      thousand: ','
     }),
     connect : 'lower'
     });

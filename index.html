@@ -47,7 +47,6 @@
                              <div class="col-xs-12">
                                <div class="form-group">
                                <div class="input-group">
-                                <!-- ng-class="{'err-border' : ttrForm.dob.$invalid }" -->
                                    <input type="text" name="dob" id="dobText" onClick="this.select();"
                                       class="standard-input form-control" show-button-bar="false"
                                       uib-datepicker-popup="{{format}}" ng-model="dob" is-open="popup1.opened"
@@ -57,7 +56,6 @@
                                    <span class="glyphicon glyphicon-calendar"></span>
                                    </span>
                                 </div>
-                                <!-- <span ng-show="ttrForm.dob.$invalid">Invalid Date Entered</span> -->
                                </div>
                                </div>
                              </div>  
@@ -67,7 +65,6 @@
                             <div class="row">
                              <div class="col-xs-12">
                                <div class="form-group">
-                               <!-- <label for="ageInput">Your Age</label> -->
                                <input type="number"  onClick="this.select();" class="form-control" id="ageInput" name="ageInput" ng-model="age" disabled>
                                </div>
                                </div>
@@ -78,12 +75,10 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <!-- <label for="ageInput">Your Age</label> -->
-                               <input type="number"  onClick="this.select();" class="form-control" id="giInput" name="giInput" ng-model="gi" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="giInput" name="giInput" ng-model="gi" >
                                </div>
                                </div>
                              <div class="col-xs-8 col-sm-8 form-group">
-                             <!-- <label></label> -->
                                 <div id="giSlider" style="margin-top:8px;"></div>
                              </div>
                              </div>  
@@ -130,7 +125,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="hvInput" name="hvInput" ng-model="hv" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="hvInput" name="hvInput" ng-model="hv" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -143,7 +138,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="cabInput" name="cabInput" ng-model="cab" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="cabInput" name="cabInput" ng-model="cab" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -158,7 +153,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="oiInput" name="oiInput" ng-model="oi" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="oiInput" name="oiInput" ng-model="oi" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -171,7 +166,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="sbInput" name="sbInput" ng-model="sb" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="sbInput" name="sbInput" ng-model="sb" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -201,7 +196,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="hmInput" name="hmInput" ng-model="hm" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="hmInput" name="hmInput" ng-model="hm" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -214,7 +209,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="ipmInput" name="ipmInput" ng-model="ipm" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="ipmInput" name="ipmInput" ng-model="ipm" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -229,7 +224,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="ccdInput" name="ccdInput" ng-model="ccd" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="ccdInput" name="ccdInput" ng-model="ccd" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -242,7 +237,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="clInput" name="clInput" ng-model="cl" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="clInput" name="clInput" ng-model="cl" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -257,7 +252,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="plInput" name="plInput" ng-model="pl" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="plInput" name="plInput" ng-model="pl" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -270,7 +265,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="olInput" name="olInput" ng-model="ol" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="olInput" name="olInput" ng-model="ol" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -313,7 +308,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="fcInput" name="fcInput" ng-model="fc" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="fcInput" name="fcInput" ng-model="fc" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -328,7 +323,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="eeInput" name="eeInput" ng-model="ee" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="eeInput" name="eeInput" ng-model="ee" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -341,13 +336,48 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="flInput" name="flInput" ng-model="fl" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="flInput" name="flInput" ng-model="fl" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
                                 <div id="flSlider" style="margin-top:8px;"></div>
                              </div>
                            </div>  
+                          </div>
+                        </div>
+                        <div class="row second-row-mobile">
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            <div class="row">
+                             <div class="col-xs-12">
+                              Do you have a spouse?
+                              <button class="option-l-btn btn btn-primary " ng-click="genderOption = true" ng-disabled="genderOption" ng-class="{genderOption: btn-disbld}">Yes</button>
+                              <button class="option-r-btn btn btn-primary " ng-click="genderOption = false" ng-disabled="!genderOption" >No</button>
+                              </div>
+                             </div>  
+                          </div>
+                        </div>
+                        <div class="row second-row-mobile">
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            Age of Spouse
+                            <div class="row">
+                             <div class="col-xs-4 col-sm-4">
+                               <div class="form-group">
+                               <input type="text"  onClick="this.select();" class="form-control" id="eeInput" name="eeInput" ng-model="ee" >
+                               </div>
+                              </div>
+                             <div class="col-xs-8 col-sm-8 form-group">
+                                <div id="eeSlider" style="margin-top:8px;"></div>
+                             </div>
+                           </div>  
+                          </div>
+                          <div class="col-xs-12 col-sm-6 form-heading">
+                            <div class="row">
+                             <div class="col-xs-12">
+                              Does your spouse work?
+                              <button class="option-l-btn btn btn-primary " ng-click="genderOption = true" ng-disabled="genderOption" ng-class="{genderOption: btn-disbld}">Yes</button>
+                              <button class="option-r-btn btn btn-primary " ng-click="genderOption = false" ng-disabled="!genderOption" >No</button>
+                              </div>
+                             </div>  
                           </div>
                         </div>
                         <div class="row">
@@ -371,7 +401,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="lifeInput" name="lifeInput" ng-model="life" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="lifeInput" name="lifeInput" ng-model="life" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -384,7 +414,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="tpdInput" name="tpdInput" ng-model="tpd" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="tpdInput" name="tpdInput" ng-model="tpd" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -399,7 +429,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="ipInput" name="ipInput" ng-model="ip" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="ipInput" name="ipInput" ng-model="ip" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -412,7 +442,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="traumaInput" name="traumaInput" ng-model="trauma" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="traumaInput" name="traumaInput" ng-model="trauma" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -442,7 +472,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="wiInput" name="wiInput" ng-model="wi" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="wiInput" name="wiInput" ng-model="wi" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
@@ -455,7 +485,7 @@
                             <div class="row">
                              <div class="col-xs-4 col-sm-4">
                                <div class="form-group">
-                               <input type="number"  onClick="this.select();" class="form-control" id="rrInput" name="rrInput" ng-model="rr" >
+                               <input type="text"  onClick="this.select();" class="form-control" id="rrInput" name="rrInput" ng-model="rr" >
                                </div>
                               </div>
                              <div class="col-xs-8 col-sm-8 form-group">
