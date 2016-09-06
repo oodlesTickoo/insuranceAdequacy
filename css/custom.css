@@ -11,6 +11,59 @@
 {
 	clear: both;
 }
+
+
+.option-r-btn{
+    height: 22px !important;
+    width: 66px;
+    padding: 0;
+    font-size: 12px;
+    border-radius: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+     
+  font-weight: bold;
+  border: 1px solid #ccc;
+
+  background-color: white !important;
+  color:black; 
+  opacity: 1;
+}
+.option-l-btn[disabled], .option-r-btn[disabled]{
+     background-color: #6F7070 !important;
+  color:white; 
+  opacity: 1;
+}
+
+.option-btn-disabled{
+    background-color: white !important;
+  color:black; 
+  opacity: 1;
+}
+.option-l-btn{
+    height: 22px !important;
+        margin-left: 15px;
+    width: 51px;
+    padding: 0;
+    font-size: 12px;
+    border-radius: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+          
+  font-weight: bold;
+  border: 1px solid #ccc;
+
+  background-color: white !important;
+  color:black; 
+  opacity: 1;
+}
+.option-l-btn:hover, .option-r-btn:hover{
+  border-color: #6F7070;
+  background-color: #6F7070 !important;
+  cursor: -webkit-grab;
+  color:white;
+}
+
 .title{
     padding: 11px 0px;
     position: relative;
@@ -227,7 +280,7 @@ form.form-1,form.form-2,form.form-3,form.form-4,form.form-5{
   -o-transition: max-height 0.5s ease-in;
   -moz-transition: max-height 0.5s ease-in;    
   transition: max-height 0.5s ease-in;
-  max-height: 400px;
+  max-height: 800px;
   overflow: hidden;
     
 }
@@ -834,6 +887,46 @@ float:right;
 }
 
 
+.second-row-mobile{
+    padding-top:0 !important;
+}
+.first-row-mobile{
+  padding-bottom:0 !important;
+  padding-top:25px !important;
+}
+
+.next-btn{
+      background-color: #91B6BE !important;
+          border-radius: 0;
+    border-color: #91B6BE;
+    width: 60px;
+    height: 25px;
+    float: right;
+    padding:0;
+    font-size: 12px;
+    font-weight: bold;
+}
+.next-btn:hover{
+  border-color: #91B6BE;
+}
+.next-btn:active{
+  border-color: #91B6BE;
+}
+
+.img-btn{
+  background:  url("../images/chevron-up.png") no-repeat;
+
+  width: 18px;
+  height: 11px;
+
+}
+
+.img-btn-div{
+  height: 22px;
+    display: inline-block;
+      float: right;
+
+}
 
 .form-heading{
   font-family: "Roboto", Helvetica, Verdana, Arial, Sans-serif;
@@ -853,14 +946,15 @@ float:right;
     margin-top: 50px;
     margin-left:10px;
 }
-form.f1{
-  -webkit-transition: height 0.5s;
-  -o-transition: height 0.5s;
-  -moz-transition: height 0.5s;
-    transition: height 0.5s;
 }
 
-form.dipp{
-  height: 0;
-  display: none;
+
+
+.optionDrop{
+  /*max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.5s ease-out !important;
+  padding-top: 0 !important;
+    padding-bottom: 0 !important;*/
+    display: none;
 }
