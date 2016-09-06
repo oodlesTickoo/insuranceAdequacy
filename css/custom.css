@@ -21,31 +21,41 @@
     border-radius: 0;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-      background-color: #6F7070 !important;
-  color:white; 
-  opacity: 1;
+     
   font-weight: bold;
   border: 1px solid #ccc;
+
+  background-color: white !important;
+  color:black; 
+  opacity: 1;
 }
 .option-l-btn[disabled], .option-r-btn[disabled]{
+     background-color: #6F7070 !important;
+  color:white; 
+  opacity: 1;
+}
+
+.option-btn-disabled{
     background-color: white !important;
   color:black; 
   opacity: 1;
 }
 .option-l-btn{
     height: 22px !important;
-        margin-left: 25px;
+        margin-left: 15px;
     width: 51px;
     padding: 0;
     font-size: 12px;
     border-radius: 0;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-          background-color: #6F7070 !important;
+          
   font-weight: bold;
-  color:white; 
-  opacity: 1;
   border: 1px solid #ccc;
+
+  background-color: white !important;
+  color:black; 
+  opacity: 1;
 }
 .option-l-btn:hover, .option-r-btn:hover{
   border-color: #6F7070;
@@ -270,7 +280,7 @@ form.form-1,form.form-2,form.form-3,form.form-4,form.form-5{
   -o-transition: max-height 0.5s ease-in;
   -moz-transition: max-height 0.5s ease-in;    
   transition: max-height 0.5s ease-in;
-  max-height: 400px;
+  max-height: 800px;
   overflow: hidden;
     
 }
@@ -936,32 +946,15 @@ float:right;
     margin-top: 50px;
     margin-left:10px;
 }
-form.f1{
-  -webkit-transition: height 0.5s;
-  -o-transition: height 0.5s;
-  -moz-transition: height 0.5s;
-    transition: height 0.5s;
-}
-
-form.dipp{
-  height: 0;
-  display: none;
 }
 
 
-.option-r-btn{
-    height: 20px !important;
-    width: 51px;
-    padding: 0;
-    font-size: 12px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-}
-.option-l-btn{
-    height: 20px;
-    width: 51px;
-    padding: 0;
-    font-size: 12px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+
+.optionDrop{
+  /*max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.5s ease-out !important;
+  padding-top: 0 !important;
+    padding-bottom: 0 !important;*/
+    display: none;
 }
