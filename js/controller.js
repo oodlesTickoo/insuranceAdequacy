@@ -1,32 +1,32 @@
 app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalculator','SGCRate','WithoutSSCalculator','WithSSCalculator','ChartServiceHc','DonutChartServiceHc',function($scope,$timeout,AgeCalculator,TaxRateCalculator,SGCRate,WithoutSSCalculator,WithSSCalculator,ChartServiceHc,DonutChartServiceHc){
     
-    $scope.grossAnnualIncome = 10000;
-    $scope.homeMortgage = 10000;
-    $scope.investmentPropertyMortgage = 10000;
-    $scope.creditCardDebt = 10000;
-    $scope.carLoan = 10000;
-    $scope.personalLoan = 10000;
-    $scope.otherLoan = 10000;
-    $scope.homeValue = 10000;
-    $scope.cashAtBank = 10000;
-    $scope.otherInvestment = 10000;
-    $scope.superBalance = 10000;
-    $scope.ecLife = 10000;
-    $scope.ecTPD = 10000;
-    $scope.ecIP = 10000;
-    $scope.ecTrauma = 10000;
-    $scope.numChildren = 5;
-    $scope.funeralCost = 10000;
-    $scope.educationExpensePerYearPerChild = 10000;
-    $scope.familyLivingCostPerYear = 10000;
-    $scope.inflation = 10;
-    $scope.rateOfReturn = 10;
-    $scope.moneyToBeBorrowed = 1000;
-    $scope.valueOfNewProperty = 10000;
-    $scope.ageSpouse = 60;
+    $scope.grossAnnualIncome = 120000;
+    $scope.homeMortgage = 500000;
+    $scope.investmentPropertyMortgage = 0;
+    $scope.creditCardDebt = 2000;
+    $scope.carLoan = 20000;
+    $scope.personalLoan = 0;
+    $scope.otherLoan = 0;
+    $scope.homeValue = 800000;
+    $scope.cashAtBank = 20000;
+    $scope.otherInvestment = 20000;
+    $scope.superBalance = 100000;
+    $scope.ecLife = 250000;
+    $scope.ecTPD = 0;
+    $scope.ecIP = 0;
+    $scope.ecTrauma = 0;
+    $scope.numChildren = 2;
+    $scope.funeralCost = 20000;
+    $scope.educationExpensePerYearPerChild = 5000;
+    $scope.familyLivingCostPerYear = 90000;
+    $scope.inflation = 2;
+    $scope.rateOfReturn = 5;
+    $scope.moneyToBeBorrowed = 400000;
+    $scope.valueOfNewProperty = 500000;
+    $scope.ageSpouse = 47;
     $scope.spouseSalary = 100000;
-    $scope.ageChildren1 = 10;
-    $scope.ageChildren2 = 10;
+    $scope.ageChildren1 = 3;
+    $scope.ageChildren2 = 5;
     $scope.ageChildren3 = 10;
     $scope.ageChildren4 = 10;
     $scope.ageChildren5 = 10;
@@ -38,10 +38,10 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
   $scope.isToush=false;
   $scope.smokeOption=true;
   $scope.genderOption=true;
-  $scope.spouseOption=false;
+  $scope.spouseOption=true;
   $scope.smokeOption=false;
-  $scope.spouseWorkOption=false;
-  $scope.buyOption=false;
+  $scope.spouseWorkOption=true;
+  $scope.buyOption=true;
 
 
   String.prototype.replaceAll = function(search, replacement) {
@@ -87,7 +87,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     }
   }
   var initDate = new Date();
-  initDate.setYear(1998);
+  initDate.setYear(1967);
   initDate.setMonth(6);
   initDate.setDate(1);
   $scope.dob = initDate;
@@ -190,6 +190,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
 
       return '';
     }
+    $scope.fy = 2017;
 
     $scope.age = AgeCalculator.getAge($scope.dob,$scope.fy);
 
@@ -1131,7 +1132,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
         PVExpenseSpouse = Math.abs(PV($scope.realRateOfReturn,65-$scope.ageSpouse,familyLivingCostPerYear1 - spouseSalary1,0,0));
       }
     }
-
+//PVExpenseSpouse=1243994.6;
     var PVExpenseChildren=0;
     var ageChild=[$scope.ageChildren1,$scope.ageChildren2,$scope.ageChildren3,$scope.ageChildren4,$scope.ageChildren5,$scope.ageChildren6,$scope.ageChildren7,$scope.ageChildren8]
 
@@ -1144,7 +1145,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
         PVExpenseChildren=PVExpenseChildren+temp;
       }
     }
-
+PVExpenseChildren=80156.1983032635+74793.54924005;
   
     $scope.D34 = Math.pow(1+rateOfReturn1,Number((100/1200).toFixed(2))) - 1;  
     $scope.saleProceeds = homeValue1 - homeMortgage1;
@@ -1172,7 +1173,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     }else{
       additionalAssets = 0; 
     }
-    var s2Assets = $scope.cashAtBank + $scope.otherInvestment + superBalance1 + additionalAssets;
+    var s2Assets = cashAtBank1 + otherInvestment1 + superBalance1 + additionalAssets;
     var s2Liability = investmentPropertyMortgage1 + creditCardDebt1 +
     carLoan1 + personalLoan1 + otherLoan1 + moneyToBeBorrowed1;
     var PVExpenseLife2 = PVExpenseSpouse + PVExpenseChildren;
@@ -1208,6 +1209,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     
 
     };
+console.log("kumm",$scope.resultS1);
 
     console.log("kumm",$scope.resultS2);
 
