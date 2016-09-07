@@ -23,7 +23,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     $scope.rateOfReturn = 10;
     $scope.moneyToBeBorrowed = 1000;
     $scope.valueOfNewProperty = 10000;
-    $scope.ageSpouse = 10;
+    $scope.ageSpouse = 60;
     $scope.spouseSalary = 100000;
     $scope.ageChildren1 = 10;
     $scope.ageChildren2 = 10;
@@ -903,9 +903,9 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     $scope.ageChildren8 = Number(values[handle]);
     });
 
-    ncInput.addEventListener("change",function(){
-      ncSlider.noUiSlider.set($scope.nc);
-      noChildren($scope.nc);
+    numChildrenInput.addEventListener("change",function(){
+      numChildrenSlider.noUiSlider.set($scope.numChildren);
+      noChildren($scope.numChildren);
     })
 
 
@@ -1070,22 +1070,22 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     });
 
     function PV(rate, periods, payment, future, type) {
-    // Initialize type
-    var type = (typeof type === 'undefined') ? 0 : type;
+      // Initialize type
+      var type = (typeof type === 'undefined') ? 0 : type;
 
-    // Evaluate rate and periods (TODO: repersonalLoanace with secure expression evaluator)
-    rate = eval(rate);
-    periods = eval(periods);
+      // Evaluate rate and periods (TODO: repersonalLoanace with secure expression evaluator)
+      rate = eval(rate);
+      periods = eval(periods);
 
-    // Return present value
-    if (rate === 0) {
-    return - payment * periods - future;
-    } else {
-      return (((1 - Math.pow(1 + rate, periods)) / rate) * payment * (1 +rate * type) - future) / Math.pow(1 + rate, periods);
+      // Return present value
+      if (rate === 0) {
+        return - payment * periods - future;
+      } else {
+        return (((1 - Math.pow(1 + rate, periods)) / rate) * payment * (1 +rate * type) - future) / Math.pow(1 + rate, periods);
+      }
     }
-  }
 
-var PVExpenseSpouse;
+    var PVExpenseSpouse;
 
     if(!$scope.haveSpouse){
       PVExpenseSpouse = 0;
@@ -1098,31 +1098,36 @@ var PVExpenseSpouse;
     }
 
     var PVExpenseChildren;
+    var ageChild=[$scope.ageChildren1,$scope.ageChildren2,$scope.ageChildren3,$scope.ageChildren4,$scope.ageChildren5,$scope.ageChildren6,$scope.ageChildren7,$scope.ageChildren8]
 
     if($scope.numChildren == 0){
       PVExpenseChildren = 0;
     }else{
-      PVExpenseChildren = Math.abs(PV($scope.realRateOfReturn,25-$scope.ageChildren1,$scope.educationExpensePerYearPerChild,0,0));
+
+      for(var i=0;i<$scope.numChildren;i++){
+        var temp=Math.abs(PV($scope.realRateOfReturn,25-ageChild[i],$scope.educationExpensePerYearPerChild,0,0));
+        PVExpenseChildren=PVExpenseChildren+temp;
       }
+    }
 
-$scope.realRateOfReturn = (1 + $scope.rateOfReturn)/(1+$scope.inflation)-1;
-    $scope.D34 = Math.power(1+$scope.rateOfReturn,Number(100/1200.toFixed(2)) - 1;  
-$scope.saleProceeds = $scope.homeValue - $scope.homeMortgage;
+    $scope.realRateOfReturn = (1 + $scope.rateOfReturn)/(1+$scope.inflation)-1;
+    $scope.D34 = Math.pow(1+$scope.rateOfReturn,Number((100/1200).toFixed(2))) - 1;  
+    $scope.saleProceeds = $scope.homeValue - $scope.homeMortgage;
 
 
-//ScenarioOneInputs
+    //ScenarioOneInputs
     var sAssets = $scope.cashAtBank + $scope.otherInvestment + $scope.superBalance;
     var sLiability = $scope.homeMortgage + $scope.investmentPropertyMortgage + $scope.creditCardDebt +
     $scope.carLoan + $scope.personalLoan + $scope.otherLoan;
     var PVExpenseLife = PVExpenseSpouse + PVExpenseChildren + $scope.funeralCost;
     var PVExpenseTPD = PVExpenseLife - $scope.funeralCost;
-    var IP1 = Number(($scope.grossAnnualIncome * 0.75)/12.toFixed(2));
+    var IP1 = Number((($scope.grossAnnualIncome * 0.75)/12).toFixed(2));
     var IP2 = Math.abs(PV($scope.D34,(65-$scope.age)*12,IP1,0,0));
     var Trauma1 = 225000;
     var Trauma2 = Math.abs(PV($scope.D34,24,0.25*$scope.grossAnnualIncome/12,0,0));
 
     $scope.resultS1 = calculateResult(sAssets,sLiability,PVExpenseLife,PVExpenseTPD,IP1,IP2,Trauma1,Trauma2,$scope.ecLife,
-      $scope.ecTPD,$scope.ecIP,$scope.ecTrauma);
+    $scope.ecTPD,$scope.ecIP,$scope.ecTrauma);
 
 
     //ScenarioTwo
@@ -1136,17 +1141,19 @@ $scope.saleProceeds = $scope.homeValue - $scope.homeMortgage;
     var s2Liability = $scope.investmentPropertyMortgage + $scope.creditCardDebt +
     $scope.carLoan + $scope.personalLoan + $scope.otherLoan + $scope.moneyToBeBorrowed;
     var PVExpenseLife2 = PVExpenseSpouse + PVExpenseChildren;
-    var PVExpenseTPD2 = PVExpenseLifeife2;
+    var PVExpenseTPD2 = PVExpenseLife2;
     // var IP1 = Number(($scope.grossAnnualIncome * 0.75)/12.toFixed(2));
     // var IP2 = Math.abs(PV($scope.D34,(65-$scope.age)*12,IP1,0,0));
     // var Trauma1 = 225000;
     // var Trauma2 = Math.abs(PV($scope.D34,24,0.25*$scope.grossAnnualIncome/12,0,0));
 
+console.log("kumm");
     $scope.resultS2 = calculateResult(s2Assets,s2Liability,PVExpenseLife2,PVExpenseTPD2,IP1,IP2,Trauma1,Trauma2,$scope.ecLife,
-      $scope.ecTPD,$scope.ecIP,$scope.ecTrauma);    
+    $scope.ecTPD,$scope.ecIP,$scope.ecTrauma);    
 
     function calculateResult(asset,liability,PVExpenseLife,PVExpenseTPD,IP1,IP2,Trauma1,Trauma2,
       ecLife,ecTPD,ecIP,ecTrauma){
+      console.log("kumm");
 
     var requiredLifeCover = PVExpenseLife + liability - asset - ecLife;
 
@@ -1164,11 +1171,13 @@ $scope.saleProceeds = $scope.homeValue - $scope.homeMortgage;
       waiting : 30
     }; 
 
+    
+
     };
 
 
 
-
+console.log("kumm",$scope.resultS2);
 
 
 
