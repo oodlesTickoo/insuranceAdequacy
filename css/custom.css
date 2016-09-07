@@ -280,7 +280,7 @@ form.form-1,form.form-2,form.form-3,form.form-4,form.form-5{
   -o-transition: max-height 0.5s ease-in;
   -moz-transition: max-height 0.5s ease-in;    
   transition: max-height 0.5s ease-in;
-  max-height: 800px;
+  max-height: 1600px;
   overflow: hidden;
     
 }
