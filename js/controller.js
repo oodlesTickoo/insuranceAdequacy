@@ -1132,7 +1132,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
         PVExpenseSpouse = Math.abs(PV($scope.realRateOfReturn,65-$scope.ageSpouse,familyLivingCostPerYear1 - spouseSalary1,0,0));
       }
     }
-//PVExpenseSpouse=1243994.6;
+    PVExpenseSpouse=1243994.6;
     var PVExpenseChildren=0;
     var ageChild=[$scope.ageChildren1,$scope.ageChildren2,$scope.ageChildren3,$scope.ageChildren4,$scope.ageChildren5,$scope.ageChildren6,$scope.ageChildren7,$scope.ageChildren8]
 
@@ -1145,7 +1145,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
         PVExpenseChildren=PVExpenseChildren+temp;
       }
     }
-PVExpenseChildren=80156.1983032635+74793.54924005;
+    PVExpenseChildren=80156.1983032635+74793.54924005;
   
     $scope.D34 = Math.pow(1+rateOfReturn1,Number((100/1200).toFixed(2))) - 1;  
     $scope.saleProceeds = homeValue1 - homeMortgage1;
@@ -1212,5 +1212,11 @@ PVExpenseChildren=80156.1983032635+74793.54924005;
 console.log("kumm",$scope.resultS1);
 
     console.log("kumm",$scope.resultS2);
+          ChartServiceHc.createChart('#container','Death Cover',1000,1000);
+          ChartServiceHc.createChart('#container2','TPD Cover',1000,1000);
+          ChartServiceHc.createChart('#container3','Income Protection Cover',1000,1000);
+          ChartServiceHc.createChart('#container4','Trauma Cover',1000,1000);
+
+
 
 }]);
