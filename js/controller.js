@@ -1216,10 +1216,24 @@ console.log("kumm",$scope.resultS1);
 console.log("kumm",$scope.resultS2);
 
 
+    console.log("kumm",$scope.resultS2);
+          ChartServiceHc.createChart('#container','Death Cover',1000,1000,false);
+          ChartServiceHc.createChart('#containerR','Death Cover',1000,1000,true);
+          ChartServiceHc.createChart('#container2','TPD Cover',1000,1000,false);
+          ChartServiceHc.createChart('#containerR2','TPD Cover',1000,1000,true);
+          ChartServiceHc.createChart('#container3','Income Protection Cover',1000,1000,false);
+          ChartServiceHc.createChart('#containerR3','Income Protection Cover',1000,1000,true);
+          ChartServiceHc.createChart('#container4','Trauma Cover',1000,1000,false);
+          ChartServiceHc.createChart('#containerR4' ,'Trauma Cover',1000,1000,true);
+
 document.getElementById("download").addEventListener("click",function(){
-  var toggleNeeded = false;
-  PdfMaker.createChart($scope.dob,$scope.age,$scope.fy,$scope.resultS1,$scope.resultS2,toggleNeeded);
-});
+      var toggleNeeded = false;
+      // if(!$scope.chartOneOpen){
+      // document.getElementById("container").classList.toggle("ng-hide");
+      // toggleNeeded = true;
+      // } 
+      PdfMaker.createChart($scope.dob,$scope.age,$scope.fy,$scope.resultS1,$scope.resultS2,toggleNeeded);
+    });
 
 
 }]);

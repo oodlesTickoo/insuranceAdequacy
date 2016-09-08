@@ -1,5 +1,16 @@
 app.service('ChartServiceHc',function(){
-  this.createChart = function(containerCC,title,Now,Required){
+  this.createChart = function(containerCC,title,thpWithoutSS,optimisedSS,changeTheme){
+
+    var HCDefaults = $.extend(true, {}, Highcharts.getOptions(), {});
+    
+    if(changeTheme){
+        Highcharts.theme.chart.style.fontFamily='sans-serif';
+        Highcharts.setOptions(Highcharts.theme);
+    }else{
+        Highcharts.theme.chart.style.fontFamily='Dosis, sans-serif';
+        Highcharts.setOptions(Highcharts.theme);
+    }
+
     
     Highcharts.setOptions({lang: {
             thousandsSep: ','
