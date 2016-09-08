@@ -280,7 +280,7 @@ form.form-1,form.form-2,form.form-3,form.form-4,form.form-5{
   -o-transition: max-height 0.5s ease-in;
   -moz-transition: max-height 0.5s ease-in;    
   transition: max-height 0.5s ease-in;
-  max-height: 800px;
+  max-height: 1600px;
   overflow: hidden;
     
 }
@@ -515,7 +515,6 @@ input[type=number] {
     margin: 10px 0px;
     padding: 10px;
     color: #666;
-    font-size: 11px;
     font-weight: bold;
     margin-top: 15px;
 }
@@ -532,7 +531,7 @@ input[type=number] {
     padding: 5px 5px 5px 0;
 }
 .divider{
-    border-top: 1px solid #444;
+    border-top: 1px solid #a3a3a3;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -541,6 +540,7 @@ input[type=number] {
         /*text-align: right;*/
         padding-left: 0;
         padding-right: 5px;
+        text-align: right;
 }
 .res-diff{
     /*font-size: 36px;*/
@@ -553,6 +553,9 @@ input[type=number] {
     /*padding-bottom: 3px;*/
     padding-left: 0;
     padding-right: 5px;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: normal;
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -562,8 +565,20 @@ input[type=number] {
     text-transform: capitalize;
 }
 .res-2 strong{
-    font-size: 14px;
+    font-size: 18px;
     text-transform: capitalize;
+    font-weight: normal;
+}
+.res-head-value{
+      font-size: 25px;
+        /*text-align: right;*/
+        padding-left: 0;
+        padding-right: 5px;
+}
+.res-des{
+  font-size: 13px;
+  text-transform: capitalize;
+  font-weight: normal;
 }
 #container .highcharts-container{
     margin-top:0px;
@@ -957,4 +972,13 @@ float:right;
   padding-top: 0 !important;
     padding-bottom: 0 !important;*/
     display: none;
+}
+
+i.fa-floppy-o{
+      background-color: #fff;
+    color: #91b6be;
+    font-size:28px;
+}
+.save-button{
+  padding:0px !important;
 }
