@@ -973,3 +973,12 @@ float:right;
     padding-bottom: 0 !important;*/
     display: none;
 }
+
+i.fa-floppy-o{
+      background-color: #fff;
+    color: #91b6be;
+    font-size:28px;
+}
+.save-button{
+  padding:0px !important;
+}

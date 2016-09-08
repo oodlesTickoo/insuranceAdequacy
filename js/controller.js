@@ -1,4 +1,4 @@
-app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalculator','SGCRate','WithoutSSCalculator','WithSSCalculator','ChartServiceHc','DonutChartServiceHc',function($scope,$timeout,AgeCalculator,TaxRateCalculator,SGCRate,WithoutSSCalculator,WithSSCalculator,ChartServiceHc,DonutChartServiceHc){
+app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalculator','SGCRate','WithoutSSCalculator','WithSSCalculator','ChartServiceHc','DonutChartServiceHc','PdfMaker',function($scope,$timeout,AgeCalculator,TaxRateCalculator,SGCRate,WithoutSSCalculator,WithSSCalculator,ChartServiceHc,DonutChartServiceHc,PdfMaker){
     
     $scope.grossAnnualIncome = 120000;
     $scope.homeMortgage = 500000;
@@ -1217,6 +1217,14 @@ console.log("kumm",$scope.resultS1);
           ChartServiceHc.createChart('#container3','Income Protection Cover',1000,1000);
           ChartServiceHc.createChart('#container4','Trauma Cover',1000,1000);
 
+document.getElementById("download").addEventListener("click",function(){
+      var toggleNeeded = false;
+      if(!$scope.chartOneOpen){
+      document.getElementById("container").classList.toggle("ng-hide");
+      toggleNeeded = true;
+      } 
+      PdfMaker.createChart($scope.dob,$scope.age,$scope.fy,$scope.resultS1,$scope.resultS2,toggleNeeded);
+    });
 
 
 }]);
