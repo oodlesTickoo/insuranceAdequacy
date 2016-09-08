@@ -1,5 +1,5 @@
 app.service('ChartServiceHc',function(){
-  this.createChart = function(containerCC,title,thpWithoutSS,optimisedSS,changeTheme){
+  this.createChart = function(containerCC,title,Now,Required,changeTheme){
 
     var HCDefaults = $.extend(true, {}, Highcharts.getOptions(), {});
     
@@ -64,11 +64,11 @@ app.service('ChartServiceHc',function(){
             colorByPoint: true,
             data: [{
                 name: 'Now',
-                y: thpWithoutSS,
+                y: Now,
                 // drilldown: 'Microsoft Internet Explorer'
             }, {
                 name: 'Required',
-                y: optimisedSS,
+                y: Required,
                 // drilldown: 'Safari'
             }]
         }],
