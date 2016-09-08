@@ -1,5 +1,5 @@
 app.service('ChartServiceHc',function(){
-  this.createChart = function(containerCC,title,thpWithoutSS,optimisedSS,changeTheme){
+  this.createChart = function(containerCC,title,Now,Required,changeTheme){
 
     var HCDefaults = $.extend(true, {}, Highcharts.getOptions(), {});
     
