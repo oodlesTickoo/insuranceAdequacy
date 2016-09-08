@@ -15,7 +15,7 @@
 
 .option-r-btn{
     height: 22px !important;
-    width: 66px;
+    width: 51px;
     padding: 0;
     font-size: 12px;
     border-radius: 0;
@@ -42,7 +42,7 @@
 }
 .option-l-btn{
     height: 22px !important;
-        margin-left: 15px;
+    margin-left: 10px;
     width: 51px;
     padding: 0;
     font-size: 12px;
@@ -126,7 +126,7 @@
 	margin-left: 10px;
 	color: #666666 !important;
     background-color: #efefef !important;
-    font-size: 20px;
+    font-size: 17px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
@@ -195,7 +195,7 @@
     margin: 0;
     color: #666666 !important;
     background-color: #efefef !important;
-    font-size: 20px;
+    font-size: 17px;
 }
 .result-div{
     background-color: #FFF;
@@ -275,11 +275,11 @@ hr{
 
 form.ttr-form{
 }
-form.form-1,form.form-2,form.form-3,form.form-4,form.form-5{
-  -webkit-transition: max-height 0.5s ease-in;
-  -o-transition: max-height 0.5s ease-in;
-  -moz-transition: max-height 0.5s ease-in;    
-  transition: max-height 0.5s ease-in;
+form.form-1,form.form-2,form.form-3,form.form-4,form.form-5,form.form-6{
+  -webkit-transition: max-height 1s ease-in;
+  -o-transition: max-height 1s ease-in;
+  -moz-transition: max-height 1s ease-in;    
+  transition: max-height 1s ease-in;
   max-height: 1600px;
   overflow: hidden;
     
@@ -287,7 +287,7 @@ form.form-1,form.form-2,form.form-3,form.form-4,form.form-5{
 form.menuDrop{
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 1s ease-out;
 }
 
 span.required{

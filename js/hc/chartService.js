@@ -1,5 +1,5 @@
 app.service('ChartServiceHc',function(){
-  this.createChart = function(containerCC,title,thpWithoutSS,optimisedSS){
+  this.createChart = function(containerCC,title,Now,Required){
     
     Highcharts.setOptions({lang: {
             thousandsSep: ','
@@ -53,11 +53,11 @@ app.service('ChartServiceHc',function(){
             colorByPoint: true,
             data: [{
                 name: 'Now',
-                y: thpWithoutSS,
+                y: Now,
                 // drilldown: 'Microsoft Internet Explorer'
             }, {
                 name: 'Required',
-                y: optimisedSS,
+                y: Required,
                 // drilldown: 'Safari'
             }]
         }],

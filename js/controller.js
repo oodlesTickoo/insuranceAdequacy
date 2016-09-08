@@ -24,7 +24,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     $scope.moneyToBeBorrowed = 400000;
     $scope.valueOfNewProperty = 500000;
     $scope.ageSpouse = 47;
-    $scope.spouseSalary = 100000;
+    $scope.spouseSalary = 50000;
     $scope.ageChildren1 = 3;
     $scope.ageChildren2 = 5;
     $scope.ageChildren3 = 10;
@@ -66,7 +66,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     $scope.isMenuDrop5=$scope.isMenuDrop5?false:true;
   }
   $scope.menuDrop6=function(){
-    $scope.isMenuDrop5=$scope.isMenuDrop6?false:true;
+    $scope.isMenuDrop6=$scope.isMenuDrop6?false:true;
   }
 
   $scope.nextDiv=function(div_num){
@@ -613,7 +613,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       'min': [0],
       'max': [75]
      },
-    step : 10,
+    step : 1,
     format: wNumb({
       decimals: 0
     }),
@@ -625,7 +625,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       'min': [0],
       'max': [75]
      },
-    step : 10,
+    step : 1,
     format: wNumb({
       decimals: 0
     }),
@@ -637,7 +637,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       'min': [0],
       'max': [75]
      },
-    step : 10,
+    step : 1,
     format: wNumb({
       decimals: 0
     }),
@@ -649,7 +649,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       'min': [0],
       'max': [75]
      },
-    step : 10,
+    step : 1,
     format: wNumb({
       decimals: 0
     }),
@@ -661,7 +661,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       'min': [0],
       'max': [75]
      },
-    step : 10,
+    step : 1,
     format: wNumb({
       decimals: 0
     }),
@@ -673,7 +673,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       'min': [0],
       'max': [75]
      },
-    step : 10,
+    step : 1,
     format: wNumb({
       decimals: 0
     }),
@@ -685,7 +685,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       'min': [0],
       'max': [75]
      },
-    step : 10,
+    step : 1,
     format: wNumb({
       decimals: 0
     }),
@@ -697,7 +697,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
       'min': [0],
       'max': [75]
      },
-    step : 10,
+    step : 1,
     format: wNumb({
       decimals: 0
     }),
@@ -919,6 +919,7 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     grossAnnualIncomeSlider.noUiSlider.on('set', function( values, handle ) {
     grossAnnualIncomeInput.value = values[handle];
     $scope.grossAnnualIncome = (values[handle]);
+    calculateFinal();
     });
 
     homeMortgageSlider.noUiSlider.on('set', function( values, handle ) {
@@ -1076,7 +1077,9 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     $scope.ageChildren8 = Number(values[handle]);
     });
 
-    var grossAnnualIncome1 = Number($scope.grossAnnualIncome.replaceAll("$","").replaceAll(",",""));
+
+function calculateFinal(){
+  var grossAnnualIncome1 = Number($scope.grossAnnualIncome.replaceAll("$","").replaceAll(",",""));
     var homeMortgage1= Number($scope.homeMortgage.replaceAll("$","").replaceAll(",",""));
     var investmentPropertyMortgage1= Number($scope.investmentPropertyMortgage.replaceAll("$","").replaceAll(",",""));
     var creditCardDebt1= Number($scope.creditCardDebt.replaceAll("$","").replaceAll(",",""));
@@ -1121,7 +1124,8 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     }
 
     var PVExpenseSpouse;
-      $scope.realRateOfReturn = (1 + rateOfReturn1)/(1+inflation1)-1;
+    $scope.realRateOfReturn = (1 + (rateOfReturn1/100))/(1+(inflation1/100))-1;
+
 
     if(!$scope.spouseOption){
       PVExpenseSpouse = 0;
@@ -1132,7 +1136,8 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
         PVExpenseSpouse = Math.abs(PV($scope.realRateOfReturn,65-$scope.ageSpouse,familyLivingCostPerYear1 - spouseSalary1,0,0));
       }
     }
-    PVExpenseSpouse=1243994.6;
+    //PVExpenseSpouse=1243994.6;
+    console.log("PVExpenseSpouse",PVExpenseSpouse);
     var PVExpenseChildren=0;
     var ageChild=[$scope.ageChildren1,$scope.ageChildren2,$scope.ageChildren3,$scope.ageChildren4,$scope.ageChildren5,$scope.ageChildren6,$scope.ageChildren7,$scope.ageChildren8]
 
@@ -1142,10 +1147,12 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
 
       for(var i=0;i<$scope.numChildren;i++){
         var temp=Math.abs(PV($scope.realRateOfReturn,25-ageChild[i],educationExpensePerYearPerChild1,0,0));
+        console.log("temp",temp);
         PVExpenseChildren=PVExpenseChildren+temp;
       }
     }
-    PVExpenseChildren=80156.1983032635+74793.54924005;
+    // PVExpenseChildren=80156.1983032635+74793.54924005;
+    console.log("PVExpenseChildren",PVExpenseChildren);
   
     $scope.D34 = Math.pow(1+rateOfReturn1,Number((100/1200).toFixed(2))) - 1;  
     $scope.saleProceeds = homeValue1 - homeMortgage1;
@@ -1178,53 +1185,41 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     carLoan1 + personalLoan1 + otherLoan1 + moneyToBeBorrowed1;
     var PVExpenseLife2 = PVExpenseSpouse + PVExpenseChildren;
     var PVExpenseTPD2 = PVExpenseLife2;
-    // var IP1 = Number((grossAnnualIncome1 * 0.75)/12.toFixed(2));
-    // var IP2 = Math.abs(PV($scope.D34,(65-$scope.age)*12,IP1,0,0));
-    // var Trauma1 = 225000;
-    // var Trauma2 = Math.abs(PV($scope.D34,24,0.25*grossAnnualIncome1/12,0,0));
 
-    console.log("kumm");
     $scope.resultS2 = calculateResult(s2Assets,s2Liability,PVExpenseLife2,PVExpenseTPD2,IP1,IP2,Trauma1,Trauma2,ecLife1,
     ecTPD1,ecIP1,ecTrauma1);    
 
     function calculateResult(asset,liability,PVExpenseLife,PVExpenseTPD,IP1,IP2,Trauma1,Trauma2,
       ecLife,ecTPD,ecIP,ecTrauma){
-
-    var requiredLifeCover = PVExpenseLife + liability - asset - ecLife;
-
-    var requiredTPDCover = PVExpenseTPD + liability - asset - IP2 - ecTPD;
-
-    var requiredIPCover = IP1 - ecIP;
-
-    var requiredTraumaCover = Trauma1 + Trauma2 - ecTrauma;
-
-    return {
-      life : requiredLifeCover,
-      TPD : requiredTPDCover,
-      IP : requiredIPCover,
-      trauma :requiredTraumaCover,
-      waiting : 30
-    }; 
-
-    
-
+        var requiredLifeCover = PVExpenseLife + liability - asset - ecLife;
+        var requiredTPDCover = PVExpenseTPD + liability - asset - IP2 - ecTPD;
+        var requiredIPCover = IP1 - ecIP;
+        var requiredTraumaCover = Trauma1 + Trauma2 - ecTrauma;
+        return {
+          life : requiredLifeCover,
+          TPD : requiredTPDCover,
+          IP : requiredIPCover,
+          trauma :requiredTraumaCover,
+          waiting : 30
+        }; 
     };
 console.log("kumm",$scope.resultS1);
+console.log("kumm",$scope.resultS2);
 
-    console.log("kumm",$scope.resultS2);
-          ChartServiceHc.createChart('#container','Death Cover',1000,1000);
-          ChartServiceHc.createChart('#container2','TPD Cover',1000,1000);
-          ChartServiceHc.createChart('#container3','Income Protection Cover',1000,1000);
-          ChartServiceHc.createChart('#container4','Trauma Cover',1000,1000);
+ChartServiceHc.createChart('#container','Death Cover',$scope.resultS1.life,$scope.resultS2.life);
+ChartServiceHc.createChart('#container2','TPD Cover',$scope.resultS1.TPD,$scope.resultS2.TPD);
+ChartServiceHc.createChart('#container3','Income Protection Cover',$scope.resultS1.IP,$scope.resultS2.IP);
+ChartServiceHc.createChart('#container4','Trauma Cover',$scope.resultS1.trauma,$scope.resultS2.trauma);
+}
+calculateFinal();
+console.log("kumm",$scope.resultS1);
+console.log("kumm",$scope.resultS2);
+
 
 document.getElementById("download").addEventListener("click",function(){
-      var toggleNeeded = false;
-      if(!$scope.chartOneOpen){
-      document.getElementById("container").classList.toggle("ng-hide");
-      toggleNeeded = true;
-      } 
-      PdfMaker.createChart($scope.dob,$scope.age,$scope.fy,$scope.resultS1,$scope.resultS2,toggleNeeded);
-    });
+  var toggleNeeded = false;
+  PdfMaker.createChart($scope.dob,$scope.age,$scope.fy,$scope.resultS1,$scope.resultS2,toggleNeeded);
+});
 
 
 }]);
