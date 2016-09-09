@@ -276,10 +276,10 @@ hr{
 form.ttr-form{
 }
 form.form-1,form.form-2,form.form-3,form.form-4,form.form-5,form.form-6{
-  -webkit-transition: max-height 1s ease-in;
-  -o-transition: max-height 1s ease-in;
-  -moz-transition: max-height 1s ease-in;    
-  transition: max-height 1s ease-in;
+  -webkit-transition: max-height 0.9s ease-in;
+  -o-transition: max-height 0.9s ease-in;
+  -moz-transition: max-height 0.9s ease-in;    
+  transition: max-height 0.9s ease-in;
   max-height: 1600px;
   overflow: hidden;
     
@@ -287,7 +287,7 @@ form.form-1,form.form-2,form.form-3,form.form-4,form.form-5,form.form-6{
 form.menuDrop{
   max-height: 0;
   overflow: hidden;
-  transition: max-height 1s ease-out;
+  transition: max-height 0.9s ease-out;
 }
 
 span.required{
