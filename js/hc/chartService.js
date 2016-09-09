@@ -4,10 +4,20 @@ app.service('ChartServiceHc',function(){
     var HCDefaults = $.extend(true, {}, Highcharts.getOptions(), {});
     
     if(changeTheme){
-        Highcharts.theme.chart.style.fontFamily='sans-serif';
+        Highcharts.theme.chart.style.fontFamily='Arial';
+        Highcharts.theme.title.style.fontWeight='normal';
+        Highcharts.theme.title.style.fontSize='15px';
+        Highcharts.theme.xAxis.labels.style.fontWeight='normal';
+        Highcharts.theme.yAxis.labels.style.fontWeight='normal';
+        Highcharts.theme.yAxis.title.style.fontWeight='normal';
         Highcharts.setOptions(Highcharts.theme);
     }else{
         Highcharts.theme.chart.style.fontFamily='Dosis, sans-serif';
+        Highcharts.theme.title.style.fontWeight='bold';
+        Highcharts.theme.title.style.fontSize='20px';
+        Highcharts.theme.xAxis.labels.style.fontWeight='bold';
+        Highcharts.theme.yAxis.labels.style.fontWeight='bold';
+        Highcharts.theme.yAxis.title.style.fontWeight='bold';
         Highcharts.setOptions(Highcharts.theme);
     }
 
