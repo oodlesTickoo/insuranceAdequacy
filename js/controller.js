@@ -1225,31 +1225,36 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         $timeout(0);
     });
 
+    var grossAnnualIncome1,homeMortgage1,investmentPropertyMortgage1,creditCardDebt1,carLoan1,personalLoan1,
+        otherLoan1,homeValue1,cashAtBank1,otherInvestment1,superBalance1,ecLife1,ecTPD1,ecIP1,ecTrauma1,
+        funeralCost1,educationExpensePerYearPerChild1,familyLivingCostPerYear1,inflation1,rateOfReturn1,
+        moneyToBeBorrowed1,valueOfNewProperty1,spouseSalary1
+
 
     function calculateFinal() {
-        var grossAnnualIncome1 = Number($scope.grossAnnualIncome.replaceAll("$", "").replaceAll(",", ""));
-        var homeMortgage1 = Number($scope.homeMortgage.replaceAll("$", "").replaceAll(",", ""));
-        var investmentPropertyMortgage1 = Number($scope.investmentPropertyMortgage.replaceAll("$", "").replaceAll(",", ""));
-        var creditCardDebt1 = Number($scope.creditCardDebt.replaceAll("$", "").replaceAll(",", ""));
-        var carLoan1 = Number($scope.carLoan.replaceAll("$", "").replaceAll(",", ""));
-        var personalLoan1 = Number($scope.personalLoan.replaceAll("$", "").replaceAll(",", ""));
-        var otherLoan1 = Number($scope.otherLoan.replaceAll("$", "").replaceAll(",", ""));
-        var homeValue1 = Number($scope.homeValue.replaceAll("$", "").replaceAll(",", ""));
-        var cashAtBank1 = Number($scope.cashAtBank.replaceAll("$", "").replaceAll(",", ""));
-        var otherInvestment1 = Number($scope.otherInvestment.replaceAll("$", "").replaceAll(",", ""));
-        var superBalance1 = Number($scope.superBalance.replaceAll("$", "").replaceAll(",", ""));
-        var ecLife1 = Number($scope.ecLife.replaceAll("$", "").replaceAll(",", ""));
-        var ecTPD1 = Number($scope.ecTPD.replaceAll("$", "").replaceAll(",", ""));
-        var ecIP1 = Number($scope.ecIP.replaceAll("$", "").replaceAll(",", ""));
-        var ecTrauma1 = Number($scope.ecTrauma.replaceAll("$", "").replaceAll(",", ""));
-        var funeralCost1 = Number($scope.funeralCost.replaceAll("$", "").replaceAll(",", ""));
-        var educationExpensePerYearPerChild1 = Number($scope.educationExpensePerYearPerChild.replaceAll("$", "").replaceAll(",", ""));
-        var familyLivingCostPerYear1 = Number($scope.familyLivingCostPerYear.replaceAll("$", "").replaceAll(",", ""));
-        var inflation1 = Number($scope.inflation.replaceAll("%", "").replaceAll(",", ""));
-        var rateOfReturn1 = Number($scope.rateOfReturn.replaceAll("%", "").replaceAll(",", ""));
-        var moneyToBeBorrowed1 = Number($scope.moneyToBeBorrowed.replaceAll("$", "").replaceAll(",", ""));
-        var valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
-        var spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
+         grossAnnualIncome1 = Number($scope.grossAnnualIncome.replaceAll("$", "").replaceAll(",", ""));
+         homeMortgage1 = Number($scope.homeMortgage.replaceAll("$", "").replaceAll(",", ""));
+         investmentPropertyMortgage1 = Number($scope.investmentPropertyMortgage.replaceAll("$", "").replaceAll(",", ""));
+         creditCardDebt1 = Number($scope.creditCardDebt.replaceAll("$", "").replaceAll(",", ""));
+         carLoan1 = Number($scope.carLoan.replaceAll("$", "").replaceAll(",", ""));
+         personalLoan1 = Number($scope.personalLoan.replaceAll("$", "").replaceAll(",", ""));
+          otherLoan1 = Number($scope.otherLoan.replaceAll("$", "").replaceAll(",", ""));
+          homeValue1 = Number($scope.homeValue.replaceAll("$", "").replaceAll(",", ""));
+          cashAtBank1 = Number($scope.cashAtBank.replaceAll("$", "").replaceAll(",", ""));
+          otherInvestment1 = Number($scope.otherInvestment.replaceAll("$", "").replaceAll(",", ""));
+          superBalance1 = Number($scope.superBalance.replaceAll("$", "").replaceAll(",", ""));
+          ecLife1 = Number($scope.ecLife.replaceAll("$", "").replaceAll(",", ""));
+          ecTPD1 = Number($scope.ecTPD.replaceAll("$", "").replaceAll(",", ""));
+          ecIP1 = Number($scope.ecIP.replaceAll("$", "").replaceAll(",", ""));
+          ecTrauma1 = Number($scope.ecTrauma.replaceAll("$", "").replaceAll(",", ""));
+          funeralCost1 = Number($scope.funeralCost.replaceAll("$", "").replaceAll(",", ""));
+          educationExpensePerYearPerChild1 = Number($scope.educationExpensePerYearPerChild.replaceAll("$", "").replaceAll(",", ""));
+          familyLivingCostPerYear1 = Number($scope.familyLivingCostPerYear.replaceAll("$", "").replaceAll(",", ""));
+          inflation1 = Number($scope.inflation.replaceAll("%", "").replaceAll(",", ""));
+          rateOfReturn1 = Number($scope.rateOfReturn.replaceAll("%", "").replaceAll(",", ""));
+          moneyToBeBorrowed1 = Number($scope.moneyToBeBorrowed.replaceAll("$", "").replaceAll(",", ""));
+          valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
+          spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
 
 
 
@@ -1385,17 +1390,17 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
             $scope.needTrauma=false;
         }
 
-        ChartServiceHc.createChart('#container', 'Death Cover', ecLife1, $scope.lifeTemp, false);
-        ChartServiceHc.createChart('#containerR', 'Death Cover', ecLife1, $scope.lifeTemp, true);
+        ChartServiceHc.createChart('#container', 'Death Cover', ecLife1, $scope.resultTemp.life, false);
+        ChartServiceHc.createChart('#containerR', 'Death Cover', ecLife1, $scope.resultTemp.life, true);
 
-        ChartServiceHc.createChart('#container2', 'TPD Cover', ecTPD1, $scope.TPDTemp, false);
-        ChartServiceHc.createChart('#containerR2', 'TPD Cover', ecTPD1, $scope.TPDTemp, true);
+        ChartServiceHc.createChart('#container2', 'TPD Cover', ecTPD1, $scope.resultTemp.TPD, false);
+        ChartServiceHc.createChart('#containerR2', 'TPD Cover', ecTPD1, $scope.resultTemp.TPD, true);
 
-        ChartServiceHc.createChart('#container3', 'Income Protection Cover', ecIP1, $scope.IPTemp, false);
-        ChartServiceHc.createChart('#containerR3', 'Income Protection Cover', ecIP1, $scope.IPTemp, true);
+        ChartServiceHc.createChart('#container3', 'Income Protection Cover', ecIP1, $scope.resultTemp.IP, false);
+        ChartServiceHc.createChart('#containerR3', 'Income Protection Cover', ecIP1, $scope.resultTemp.IP, true);
 
-        ChartServiceHc.createChart('#container4', 'Trauma Cover', ecTrauma1, $scope.traumaTemp, false);
-        ChartServiceHc.createChart('#containerR4', 'Trauma Cover', ecTrauma1, $scope.traumaTemp, true);
+        ChartServiceHc.createChart('#container4', 'Trauma Cover', ecTrauma1, $scope.resultTemp.trauma, false);
+        ChartServiceHc.createChart('#containerR4', 'Trauma Cover', ecTrauma1, $scope.resultTemp.trauma, true);
 
     }
     calculateFinal();
@@ -1404,45 +1409,45 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
 
     document.getElementById("download").addEventListener("click", function() {
         var liabilitiesObject = {
-            homeMortgage: $scope.homeMortgage,
-            investmentPropertyMortgage: $scope.investmentPropertyMortgage,
-            creditCardDebt: $scope.creditCardDebt,
-            carLoan: $scope.carLoan,
-            personalLoan: $scope.personalLoan,
-            otherLoan: $scope.otherLoan
+            homeMortgage: homeMortgage1,
+            investmentPropertyMortgage: investmentPropertyMortgage1,
+            creditCardDebt: creditCardDebt1,
+            carLoan: carLoan1,
+            personalLoan: personalLoan1,
+            otherLoan: otherLoan1
         };
 
         var assetsObject = {
-            homeValue: $scope.homeValue,
-            cashAtBank: $scope.cashAtBank,
-            otherInvestment: $scope.otherInvestment,
-            superBalance: $scope.superBalance
+            homeValue: homeValue1,
+            cashAtBank: cashAtBank1,
+            otherInvestment: otherInvestment1,
+            superBalance: superBalance1
         };
 
         var otherExpenses ={
-            funeralCost : $scope.funeralCost,
-            educationExpense : $scope.educationExpensePerYearPerChild,
-            familyLivingCost : $scope.familyLivingCostPerYear,
+            funeralCost : funeralCost1,
+            educationExpense : educationExpensePerYearPerChild1,
+            familyLivingCost : familyLivingCostPerYear1,
             moveProperty : $scope.buyOption  ? "Yes" : "No",
-            newPropertyValue : $scope.valueOfNewProperty,
-            moneyBorrowed : $scope.moneyToBeBorrowed,
-            saleProceeds : $scope.saleProceeds  
+            newPropertyValue : valueOfNewProperty1,
+            moneyBorrowed : moneyToBeBorrowed1,
+            saleProceeds : $scope.saleProceeds 
         };
 
         var existingCovers ={
-            ecLife : $scope.ecLife,
-            ecTPD : $scope.ecTPD,
-            ecIP: $scope.ecIP,
-            ecTrauma : $scope.ecTrauma 
+            ecLife : ecLife1,
+            ecTPD : ecTPD1,
+            ecIP: ecIP1,
+            ecTrauma : ecTrauma1 
         };
 
         var assumptions = {
-            inflation : $scope.inflation,
-            rateOfReturn : $scope.rateOfReturn,
+            inflation : inflation1,
+            rateOfReturn : rateOfReturn1,
             realRate : $scope.realRateOfReturn
         }
 
-        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, assetsObject, liabilitiesObject,otherExpenses, existingCovers, assumptions, $scope.resultS1, $scope.resultS2);
+        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, assetsObject, liabilitiesObject,otherExpenses, existingCovers, assumptions, $scope.resultTemp);
     });
 
 
