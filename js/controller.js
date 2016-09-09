@@ -1403,8 +1403,46 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
     console.log("kumm", $scope.resultS2);
 
     document.getElementById("download").addEventListener("click", function() {
+        var liabilitiesObject = {
+            homeMortgage: $scope.homeMortgage,
+            investmentPropertyMortgage: $scope.investmentPropertyMortgage,
+            creditCardDebt: $scope.creditCardDebt,
+            carLoan: $scope.carLoan,
+            personalLoan: $scope.personalLoan,
+            otherLoan: $scope.otherLoan
+        };
 
-        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, $scope.resultS1, $scope.resultS2);
+        var assetsObject = {
+            homeValue: $scope.homeValue,
+            cashAtBank: $scope.cashAtBank,
+            otherInvestment: $scope.otherInvestment,
+            superBalance: $scope.superBalance
+        };
+
+        var otherExpenses ={
+            funeralCost : $scope.funeralCost,
+            educationExpense : $scope.educationExpensePerYearPerChild,
+            familyLivingCost : $scope.familyLivingCostPerYear,
+            moveProperty : $scope.buyOption  ? "Yes" : "No",
+            newPropertyValue : $scope.valueOfNewProperty,
+            moneyBorrowed : $scope.moneyToBeBorrowed,
+            saleProceeds : $scope.saleProceeds  
+        };
+
+        var existingCovers ={
+            ecLife : $scope.ecLife,
+            ecTPD : $scope.ecTPD,
+            ecIP: $scope.ecIP,
+            ecTrauma : $scope.ecTrauma 
+        };
+
+        var assumptions = {
+            inflation : $scope.inflation,
+            rateOfReturn : $scope.rateOfReturn,
+            realRate : $scope.realRateOfReturn
+        }
+
+        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, assetsObject, liabilitiesObject,otherExpenses, existingCovers, assumptions, $scope.resultS1, $scope.resultS2);
     });
 
 
