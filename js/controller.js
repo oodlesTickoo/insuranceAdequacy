@@ -43,6 +43,19 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
   $scope.spouseWorkOption=true;
   $scope.buyOption=true;
 
+  $scope.isMenuDrop1=false;
+  $scope.isMenuDrop2=false;
+  $scope.isMenuDrop3=false;
+  $scope.isMenuDrop4=false;
+  $scope.isMenuDrop5=false;
+  $scope.isMenuDrop6=false;
+
+  $scope.next1=false;
+  $scope.next2=false;
+  $scope.next3=false;
+  $scope.next4=false;
+  $scope.next5=false;
+
 
   String.prototype.replaceAll = function(search, replacement) {
         var target = this;
@@ -69,18 +82,57 @@ app.controller("TTRController",['$scope','$timeout','AgeCalculator','TaxRateCalc
     $scope.isMenuDrop6=$scope.isMenuDrop6?false:true;
   }
 
+  $(".form-1").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+    if($scope.isMenuDrop1 && $scope.next1){
+      $scope.isMenuDrop2=false;
+      $timeout(0);
+      $scope.next1=false;
+    }
+  });
+  $(".form-2").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+    if($scope.isMenuDrop2 && $scope.next2){
+      $scope.isMenuDrop3=false;
+      $timeout(0);
+      $scope.next2=false;
+    }
+  });
+  $(".form-3").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+    if($scope.isMenuDrop3 && $scope.next3){
+      $scope.isMenuDrop4=false;
+      $timeout(0);
+      $scope.next3=false;
+    }
+  });
+  $(".form-4").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+    if($scope.isMenuDrop4 && $scope.next4){
+      $scope.isMenuDrop5=false;
+      $timeout(0);
+      $scope.next4=false;
+    }
+  });
+  $(".form-5").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+    if($scope.isMenuDrop5 && $scope.next5){
+      $scope.isMenuDrop6=false;
+      $timeout(0);
+      $scope.next5=false;
+    }
+  });
+
+
+
+
   $scope.nextDiv=function(div_num){
     switch(div_num){
-      case 1: $scope.isMenuDrop1=true; 
-      setTimeout(function() { $scope.isMenuDrop2=$scope.isMenuDrop2?false:true; console.log("kart");}, 1000);
+      case 1: $scope.isMenuDrop1=true; $scope.next1=true;
+      //setTimeout(function() { $scope.isMenuDrop2=$scope.isMenuDrop2?false:true; console.log("kart");}, 1000);
       break;
-      case 2: $scope.isMenuDrop2=true;$scope.isMenuDrop3=$scope.isMenuDrop3?false:true;
+      case 2: $scope.isMenuDrop2=true;$scope.next2=true;
       break;
-      case 3: $scope.isMenuDrop3=true;$scope.isMenuDrop4=$scope.isMenuDrop4?false:true;
+      case 3: $scope.isMenuDrop3=true;$scope.next3=true;
       break;
-      case 4: $scope.isMenuDrop4=true;$scope.isMenuDrop5=$scope.isMenuDrop5?false:true;
+      case 4: $scope.isMenuDrop4=true;$scope.next4=true;
       break;
-      case 5: $scope.isMenuDrop5=true;$scope.isMenuDrop6=$scope.isMenuDrop6?false:true;
+      case 5: $scope.isMenuDrop5=true;$scope.next5=true;
       break;
       case 6: $scope.isMenuDrop6=true;
 
