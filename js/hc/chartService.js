@@ -32,8 +32,8 @@ app.service('ChartServiceHc',function(){
         },
         title: {
             text: title,
-             marginLeft: 0,
-             marginRight: 0
+            widthAdjust: 100,
+            align: 'center'
         },
         exporting:{
             enabled:false
