@@ -692,26 +692,26 @@
 
                           <div class="row">
                             <div class="col-xs-6 res-des">Estimated cover</div>
-                            <div class="col-xs-6 res-value" >{{ resultS1.life | currency }}</div>
+                            <div class="col-xs-6 res-value" >{{ resultTemp.life | currency }}</div>
                           </div>
                           <div class="row divider"></div> 
 
                           <div class="row">
                             <div class="col-xs-6 res-des">Existing cover</div>
-                            <div class="col-xs-6 res-value">{{ resultS2.life | currency }}</div>
+                            <div class="col-xs-6 res-value">{{ ecLife  }}</div>
                           </div>
                                                  
                        </div>
                      </div>
                      <div class="row res-1">
                         <div class="col-xs-12">
-                           <div class="row dd" ng-show="needSS">
+                           <div class="row dd" ng-show="needLife">
                               <div class="col-xs-8 col-sm-12 res-head">Estimated shortfall</div>
-                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ resultS1.life-resultS2.life | currency }}</div>
+                              <div class="col-xs-4 col-sm-12 res-head-value">{{ lifeTemp | currency }}</div>
                            </div>
-                           <div class="row dd" ng-show="!needSS">
+                           <div class="row dd" ng-show="!needLife">
                               <div class="col-xs-8 col-sm-12 res-head">Estimated excess</div>
-                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ resultS2.life-resultS1.life | currency }}</div>
+                              <div class="col-xs-4 col-sm-12 res-head-value">{{ lifeTemp | currency }}</div>
                            </div>                        
                          </div>
                      </div>
@@ -734,26 +734,26 @@
 
                           <div class="row">
                             <div class="col-xs-6 res-des">Estimated cover</div>
-                            <div class="col-xs-6 res-value" >{{ resultS1.TPD | currency }}</div>
+                            <div class="col-xs-6 res-value" >{{ resultTemp.TPD | currency }}</div>
                           </div>
                           <div class="row divider"></div> 
 
                           <div class="row">
                             <div class="col-xs-6 res-des">Existing cover</div>
-                            <div class="col-xs-6 res-value">{{ resultS2.TPD | currency }}</div>
+                            <div class="col-xs-6 res-value">{{ ecTPD }}</div>
                           </div>
                                                  
                        </div>
                      </div>
                      <div class="row res-1">
                         <div class="col-xs-12">
-                           <div class="row dd" ng-show="needSS">
+                           <div class="row dd" ng-show="needTPD">
                               <div class="col-xs-8 col-sm-12 res-head">Estimated shortfall</div>
-                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ resultS1.TPD-resultS2.TPD | currency }}</div>
+                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ TPDTemp | currency }}</div>
                            </div>
-                           <div class="row dd" ng-show="!needSS">
+                           <div class="row dd" ng-show="!needTPD">
                               <div class="col-xs-8 col-sm-12 res-head">Estimated excess</div>
-                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ resultS2.TPD-resultS1.TPD | currency }}</div>
+                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ TPDTemp | currency }}</div>
                            </div>                        
                          </div>
                      </div>
@@ -763,7 +763,7 @@
                     <div class="col-xs-12 col-sm-7 col-md-7">
                        <div class="row">
                           <div class="col-xs-12" id="chartBox">
-                             <div id="container3" style="margin:0 auto;width: 327px; height: 250px; margin-top:15px;" ng-show="true"  ></div>
+                             <div id="container3" style="margin:0 auto;width: 327px; height: 220px; margin-top:15px;" ng-show="true"  ></div>
                              <div id="containerR3" style="display:none;margin:0 auto;width: 327px; height: 300px; margin-top:15px;" ng-show="true" ></div>
                           </div>
                        </div>
@@ -776,26 +776,26 @@
 
                           <div class="row">
                             <div class="col-xs-6 res-des">Estimated cover</div>
-                            <div class="col-xs-6 res-value" >{{ resultS1.IP | currency }}</div>
+                            <div class="col-xs-6 res-value" >{{ resultTemp.IP | currency }}</div>
                           </div>
                           <div class="row divider"></div> 
 
                           <div class="row">
                             <div class="col-xs-6 res-des">Existing cover</div>
-                            <div class="col-xs-6 res-value">{{ resultS2.IP | currency }}</div>
+                            <div class="col-xs-6 res-value">{{ ecIP }}</div>
                           </div>
                                                  
                        </div>
                      </div>
                      <div class="row res-1">
                         <div class="col-xs-12">
-                           <div class="row dd" ng-show="needSS">
+                           <div class="row dd" ng-show="needIP">
                               <div class="col-xs-8 col-sm-12 res-head">Estimated shortfall</div>
-                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ resultS1.IP-resultS2.IP | currency }}</div>
+                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ IPTemp | currency }}</div>
                            </div>
-                           <div class="row dd" ng-show="!needSS">
+                           <div class="row dd" ng-show="!needIP">
                               <div class="col-xs-8 col-sm-12 res-head">Estimated excess</div>
-                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ resultS2.IP-resultS1.IP | currency }}</div>
+                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ IPTemp | currency }}</div>
                            </div>                        
                          </div>
                      </div>
@@ -805,7 +805,7 @@
                     <div class="col-xs-12 col-sm-7 col-md-7">
                        <div class="row">
                           <div class="col-xs-12" id="chartBox">
-                             <div id="container4" style="margin:0 auto;width: 327px; height: 250px; margin-top:15px;" ng-show="true"  ></div>
+                             <div id="container4" style="margin:0 auto;width: 327px; height: 220px; margin-top:15px;" ng-show="true"  ></div>
                              <div id="containerR4" style="display:none;margin:0 auto;width: 327px; height: 300px; margin-top:15px;" ng-show="true" ></div>
                           </div>
                        </div>
@@ -818,26 +818,26 @@
 
                           <div class="row">
                             <div class="col-xs-6 res-des">Estimated cover</div>
-                            <div class="col-xs-6 res-value" >{{ resultS2.trauma | currency }}</div>
+                            <div class="col-xs-6 res-value" >{{ resultTemp.trauma | currency }}</div>
                           </div>
                           <div class="row divider"></div> 
 
                           <div class="row">
                             <div class="col-xs-6 res-des">Existing cover</div>
-                            <div class="col-xs-6 res-value">{{ resultS2.trauma | currency }}</div>
+                            <div class="col-xs-6 res-value">{{ ecTrauma  }}</div>
                           </div>
                                                  
                        </div>
                      </div>
                      <div class="row res-1">
                         <div class="col-xs-12">
-                           <div class="row dd" ng-show="needSS">
+                           <div class="row dd" ng-show="needTrauma">
                               <div class="col-xs-8 col-sm-12 res-head">Estimated shortfall</div>
-                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ resultS1.trauma-resultS2.trauma | currency }}</div>
+                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ traumaTemp | currency }}</div>
                            </div>
-                           <div class="row dd" ng-show="!needSS">
+                           <div class="row dd" ng-show="!needTrauma">
                               <div class="col-xs-8 col-sm-12 res-head">Estimated excess</div>
-                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ resultS2.trauma-resultS1.trauma | currency }}</div>
+                              <div class="col-xs-4 col-sm-12 res-head-value" >{{ traumaTemp | currency }}</div>
                            </div>                        
                          </div>
                      </div>

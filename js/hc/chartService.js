@@ -22,9 +22,8 @@ app.service('ChartServiceHc', function() {
         }
 
 
-        Highcharts.setOptions({
-            lang: {
-                thousandsSep: ','
+    
+    Highcharts.setOptions({lang: {
             }
         });
 
