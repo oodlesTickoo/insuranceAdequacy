@@ -1,7 +1,7 @@
 app.service('PdfMaker', [function(){
 
 //this.createChart = function(dob,age,fy,cses,thp,resultWithoutSS,resultWithSS,needSS,optimisedSS,toggleNeeded){
-this.createChart = function(dob,age,fy,resultS1,resultS2,toggleNeeded){
+this.createChart = function(dob,age,genderOption,spouseOption,numChildren,resultS1,resultS2){
 
   var cdob = dob.toString().split(" ")[1] + " " + dob.toString().split(" ")[2] + " " + dob.toString().split(" ")[3];
   console.log(resultS1.trauma);
@@ -29,7 +29,7 @@ this.createChart = function(dob,age,fy,resultS1,resultS2,toggleNeeded){
     var rows1 = [
     { "name": "Date Of Birth", "country":cdob},
     { "name": "Age", "country": age},
-    { "name": "Financial Year/Tax Year", "country": fy},
+    // { "name": "Financial Year/Tax Year", "country": fy},
     { "name": "Current Salary Exclude Super", "country": moneyFormat.to(resultS1.trauma)},
     // { "name": "Net Return In Accumulation Phase", "country": nra},
     // { "name": "Tax Free Percentage Of Your Current Superannuation Balance", "country":tfp},
@@ -66,6 +66,14 @@ this.createChart = function(dob,age,fy,resultS1,resultS2,toggleNeeded){
     };
 
       var doc = new jsPDF('p','pt');
+
+      doc.setFontSize(20);
+      
+      doc.text(40, 30, "Insurance Adequacy Calculations");
+
+      doc.autoTable(columns1,rows1,{
+            margin:{top:50},
+          });
 
       var canvas = document.createElement("canvas");     
 
