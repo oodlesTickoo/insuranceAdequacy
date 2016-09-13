@@ -33,9 +33,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
     $scope.ageChildren6 = 10;
     $scope.ageChildren7 = 10;
     $scope.ageChildren8 = 10;
+    
 
-
-    $scope.smokeOption = true;
     $scope.genderOption = true;
     $scope.spouseOption = true;
     $scope.smokeOption = false;
@@ -61,6 +60,10 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         return target.split(search).join(replacement);
     };
 
+    $scope.spouseOptionChange = function(spouse){
+        $scope.spouseOption = spouse;
+        calculateFinal();
+    }
 
     $scope.menuDrop1 = function() {
         $scope.isMenuDrop1 = $scope.isMenuDrop1 ? false : true;
@@ -254,30 +257,30 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
     $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
 
 
- $scope.ageChange =  function(){
-       var dobText = document.getElementById("dobText"); 
-       // console.log("dobText",new Date(dobText.value));
-       var dateString = dobText.value;
-       var dateArr = dateString.split("/");
-      
-       var date_regex = /^([1-9]|0[1-9]|1\d|2\d|3[01])\/(0[1-9]|[1-9]|1[0-2])\/(19[5-9][0-8])$/;
-       var correct =  date_regex.test(dobText.value);
-       var fd = new Date(dateArr[2],dateArr[1]-1,dateArr[0]);
-       // console.log("fd",fd);
-       console.log("correct",correct);
-       // console.log("ins of",fd instanceof Date);
-       // console.log("is Finite",isFinite(fd));
-       
-       // console.log("date",new Date(dateArr[2],dateArr[1]-1,dateArr[0]));
-       // console.log(finalDs instanceof Date);
-       console.log("c1",(fd.getMonth() + 1),Number(dateArr[1]));
-       console.log("c2",fd.getDate(),Number(dateArr[0]));
-       if(((fd.getMonth() + 1) === Number(dateArr[1]) && fd.getDate() === Number(dateArr[0])) && correct ){
-        $scope.dob = fd;
-       }else{
-        $scope.dob = initDate;
-       }
-       $scope.age = AgeCalculator.getAge($scope.dob,$scope.fy);
+    $scope.ageChange = function() {
+        var dobText = document.getElementById("dobText");
+        // console.log("dobText",new Date(dobText.value));
+        var dateString = dobText.value;
+        var dateArr = dateString.split("/");
+
+        var date_regex = /^([1-9]|0[1-9]|1\d|2\d|3[01])\/(0[1-9]|[1-9]|1[0-2])\/(19[5-9][0-8])$/;
+        var correct = date_regex.test(dobText.value);
+        var fd = new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+        // console.log("fd",fd);
+        console.log("correct", correct);
+        // console.log("ins of",fd instanceof Date);
+        // console.log("is Finite",isFinite(fd));
+
+        // console.log("date",new Date(dateArr[2],dateArr[1]-1,dateArr[0]));
+        // console.log(finalDs instanceof Date);
+        console.log("c1", (fd.getMonth() + 1), Number(dateArr[1]));
+        console.log("c2", fd.getDate(), Number(dateArr[0]));
+        if (((fd.getMonth() + 1) === Number(dateArr[1]) && fd.getDate() === Number(dateArr[0])) && correct) {
+            $scope.dob = fd;
+        } else {
+            $scope.dob = initDate;
+        }
+        $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
     }
 
 
@@ -787,7 +790,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         connect: 'lower'
     });
 
-
     var ageInput = document.getElementById('ageInput'),
         grossAnnualIncomeInput = document.getElementById('grossAnnualIncomeInput'),
         homeMortgageInput = document.getElementById('homeMortgageInput'),
@@ -823,6 +825,133 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
     ageChildren7Input = document.getElementById('ageChildren7Input');
     ageChildren8Input = document.getElementById('ageChildren8Input');
 
+    inflationInput.addEventListener("change", function() {
+        inflationSlider.noUiSlider.set($scope.inflation);
+    });
+
+    rateOfReturnInput.addEventListener("change", function() {
+        rateOfReturnSlider.noUiSlider.set($scope.rateOfReturn);
+    });
+
+    valueOfNewPropertyInput.addEventListener("change", function() {
+        valueOfNewPropertySlider.noUiSlider.set($scope.valueOfNewProperty);
+    });
+
+    moneyToBeBorrowedInput.addEventListener("change", function() {
+        moneyToBeBorrowedSlider.noUiSlider.set($scope.moneyToBeBorrowed);
+    });
+
+    ageSpouseInput.addEventListener("change", function() {
+        ageSpouseSlider.noUiSlider.set($scope.ageSpouse);
+    });
+
+    spouseSalaryInput.addEventListener("change", function() {
+        spouseSalarySlider.noUiSlider.set($scope.spouseSalary);
+    });
+
+    ageChildren1Input.addEventListener("change", function() {
+        ageChildren1Slider.noUiSlider.set($scope.ageChildren1);
+    });
+
+    ageChildren2Input.addEventListener("change", function() {
+        ageChildren2Slider.noUiSlider.set($scope.ageChildren2);
+    });
+
+    ageChildren3Input.addEventListener("change", function() {
+        ageChildren3Slider.noUiSlider.set($scope.ageChildren3);
+    });
+
+    ageChildren4Input.addEventListener("change", function() {
+        ageChildren4Slider.noUiSlider.set($scope.ageChildren4);
+    });
+
+    ageChildren5Input.addEventListener("change", function() {
+        ageChildren5Slider.noUiSlider.set($scope.ageChildren5);
+    });
+
+    ageChildren6Input.addEventListener("change", function() {
+        ageChildren6Slider.noUiSlider.set($scope.ageChildren6);
+    });
+
+    ageChildren7Input.addEventListener("change", function() {
+        ageChildren7Slider.noUiSlider.set($scope.ageChildren7);
+    });
+
+    ageChildren8Input.addEventListener("change", function() {
+        ageChildren8Slider.noUiSlider.set($scope.ageChildren8);
+    });
+
+    homeMortgageInput.addEventListener("change", function() {
+        homeMortgageSlider.noUiSlider.set($scope.homeMortgage);
+    });
+
+    investmentPropertyMortgageInput.addEventListener("change", function() {
+        investmentPropertyMortgageSlider.noUiSlider.set($scope.investmentPropertyMortgage);
+    });
+
+    creditCardDebtInput.addEventListener("change", function() {
+        creditCardDebtSlider.noUiSlider.set($scope.creditCardDebt);
+    });
+
+    carLoanInput.addEventListener("change", function() {
+        carLoanSlider.noUiSlider.set($scope.carLoan);
+    });
+
+    personalLoanInput.addEventListener("change", function() {
+        personalLoanSlider.noUiSlider.set($scope.personalLoan);
+    });
+
+    otherLoanInput.addEventListener("change", function() {
+        otherLoanSlider.noUiSlider.set($scope.otherLoan);
+    });
+
+    homeValueInput.addEventListener("change", function() {
+        homeValueSlider.noUiSlider.set($scope.homeValue);
+    });
+
+    cashAtBankInput.addEventListener("change", function() {
+        cashAtBankSlider.noUiSlider.set($scope.cashAtBank);
+    });
+
+    otherInvestmentInput.addEventListener("change", function() {
+        otherInvestmentSlider.noUiSlider.set($scope.otherInvestment);
+    });
+
+    superBalanceInput.addEventListener("change", function() {
+        superBalanceSlider.noUiSlider.set($scope.superBalance);
+    });
+
+    ecLifeInput.addEventListener("change", function() {
+        ecLifeSlider.noUiSlider.set($scope.ecLife);
+    });
+
+    ecTPDInput.addEventListener("change", function() {
+        ecTPDSlider.noUiSlider.set($scope.ecTPD);
+    });
+
+    ecIPInput.addEventListener("change", function() {
+        ecIPSlider.noUiSlider.set($scope.ecIP);
+    });
+
+    ecTraumaInput.addEventListener("change", function() {
+        ecTraumaSlider.noUiSlider.set($scope.ecTrauma);
+    });
+
+    funeralCostInput.addEventListener("change", function() {
+        funeralCostSlider.noUiSlider.set($scope.funeralCost);
+    });
+
+    educationExpensePerYearPerChildInput.addEventListener("change", function() {
+        educationExpensePerYearPerChildSlider.noUiSlider.set($scope.educationExpensePerYearPerChild);
+    });
+
+    familyLivingCostPerYearInput.addEventListener("change", function() {
+        familyLivingCostPerYearSlider.noUiSlider.set($scope.familyLivingCostPerYear);
+    });
+
+    grossAnnualIncomeInput.addEventListener("change", function() {
+        grossAnnualIncomeSlider.noUiSlider.set($scope.grossAnnualIncome);
+    });
 
     function noChildren(num) {
         for (var i = 1; i <= num; i++) {
@@ -1225,36 +1354,36 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         $timeout(0);
     });
 
-    var grossAnnualIncome1,homeMortgage1,investmentPropertyMortgage1,creditCardDebt1,carLoan1,personalLoan1,
-        otherLoan1,homeValue1,cashAtBank1,otherInvestment1,superBalance1,ecLife1,ecTPD1,ecIP1,ecTrauma1,
-        funeralCost1,educationExpensePerYearPerChild1,familyLivingCostPerYear1,inflation1,rateOfReturn1,
-        moneyToBeBorrowed1,valueOfNewProperty1,spouseSalary1
+    var grossAnnualIncome1, homeMortgage1, investmentPropertyMortgage1, creditCardDebt1, carLoan1, personalLoan1,
+        otherLoan1, homeValue1, cashAtBank1, otherInvestment1, superBalance1, ecLife1, ecTPD1, ecIP1, ecTrauma1,
+        funeralCost1, educationExpensePerYearPerChild1, familyLivingCostPerYear1, inflation1, rateOfReturn1,
+        moneyToBeBorrowed1, valueOfNewProperty1, spouseSalary1;
 
 
     function calculateFinal() {
-         grossAnnualIncome1 = Number($scope.grossAnnualIncome.replaceAll("$", "").replaceAll(",", ""));
-         homeMortgage1 = Number($scope.homeMortgage.replaceAll("$", "").replaceAll(",", ""));
-         investmentPropertyMortgage1 = Number($scope.investmentPropertyMortgage.replaceAll("$", "").replaceAll(",", ""));
-         creditCardDebt1 = Number($scope.creditCardDebt.replaceAll("$", "").replaceAll(",", ""));
-         carLoan1 = Number($scope.carLoan.replaceAll("$", "").replaceAll(",", ""));
-         personalLoan1 = Number($scope.personalLoan.replaceAll("$", "").replaceAll(",", ""));
-          otherLoan1 = Number($scope.otherLoan.replaceAll("$", "").replaceAll(",", ""));
-          homeValue1 = Number($scope.homeValue.replaceAll("$", "").replaceAll(",", ""));
-          cashAtBank1 = Number($scope.cashAtBank.replaceAll("$", "").replaceAll(",", ""));
-          otherInvestment1 = Number($scope.otherInvestment.replaceAll("$", "").replaceAll(",", ""));
-          superBalance1 = Number($scope.superBalance.replaceAll("$", "").replaceAll(",", ""));
-          ecLife1 = Number($scope.ecLife.replaceAll("$", "").replaceAll(",", ""));
-          ecTPD1 = Number($scope.ecTPD.replaceAll("$", "").replaceAll(",", ""));
-          ecIP1 = Number($scope.ecIP.replaceAll("$", "").replaceAll(",", ""));
-          ecTrauma1 = Number($scope.ecTrauma.replaceAll("$", "").replaceAll(",", ""));
-          funeralCost1 = Number($scope.funeralCost.replaceAll("$", "").replaceAll(",", ""));
-          educationExpensePerYearPerChild1 = Number($scope.educationExpensePerYearPerChild.replaceAll("$", "").replaceAll(",", ""));
-          familyLivingCostPerYear1 = Number($scope.familyLivingCostPerYear.replaceAll("$", "").replaceAll(",", ""));
-          inflation1 = Number($scope.inflation.replaceAll("%", "").replaceAll(",", ""));
-          rateOfReturn1 = Number($scope.rateOfReturn.replaceAll("%", "").replaceAll(",", ""));
-          moneyToBeBorrowed1 = Number($scope.moneyToBeBorrowed.replaceAll("$", "").replaceAll(",", ""));
-          valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
-          spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
+        grossAnnualIncome1 = Number($scope.grossAnnualIncome.replaceAll("$", "").replaceAll(",", ""));
+        homeMortgage1 = Number($scope.homeMortgage.replaceAll("$", "").replaceAll(",", ""));
+        investmentPropertyMortgage1 = Number($scope.investmentPropertyMortgage.replaceAll("$", "").replaceAll(",", ""));
+        creditCardDebt1 = Number($scope.creditCardDebt.replaceAll("$", "").replaceAll(",", ""));
+        carLoan1 = Number($scope.carLoan.replaceAll("$", "").replaceAll(",", ""));
+        personalLoan1 = Number($scope.personalLoan.replaceAll("$", "").replaceAll(",", ""));
+        otherLoan1 = Number($scope.otherLoan.replaceAll("$", "").replaceAll(",", ""));
+        homeValue1 = Number($scope.homeValue.replaceAll("$", "").replaceAll(",", ""));
+        cashAtBank1 = Number($scope.cashAtBank.replaceAll("$", "").replaceAll(",", ""));
+        otherInvestment1 = Number($scope.otherInvestment.replaceAll("$", "").replaceAll(",", ""));
+        superBalance1 = Number($scope.superBalance.replaceAll("$", "").replaceAll(",", ""));
+        ecLife1 = Number($scope.ecLife.replaceAll("$", "").replaceAll(",", ""));
+        ecTPD1 = Number($scope.ecTPD.replaceAll("$", "").replaceAll(",", ""));
+        ecIP1 = Number($scope.ecIP.replaceAll("$", "").replaceAll(",", ""));
+        ecTrauma1 = Number($scope.ecTrauma.replaceAll("$", "").replaceAll(",", ""));
+        funeralCost1 = Number($scope.funeralCost.replaceAll("$", "").replaceAll(",", ""));
+        educationExpensePerYearPerChild1 = Number($scope.educationExpensePerYearPerChild.replaceAll("$", "").replaceAll(",", ""));
+        familyLivingCostPerYear1 = Number($scope.familyLivingCostPerYear.replaceAll("$", "").replaceAll(",", ""));
+        inflation1 = Number($scope.inflation.replaceAll("%", "").replaceAll(",", ""));
+        rateOfReturn1 = Number($scope.rateOfReturn.replaceAll("%", "").replaceAll(",", ""));
+        moneyToBeBorrowed1 = Number($scope.moneyToBeBorrowed.replaceAll("$", "").replaceAll(",", ""));
+        valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
+        spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
 
 
 
@@ -1341,10 +1470,10 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         $scope.resultS2 = calculateResult(s2Assets, s2Liability, PVExpenseLife2, PVExpenseTPD2, IP1, IP2, Trauma1, Trauma2, ecLife1, ecTPD1, ecIP1, ecTrauma1);
 
         function calculateResult(asset, liability, PVExpenseLife, PVExpenseTPD, IP1, IP2, Trauma1, Trauma2, ecLife, ecTPD, ecIP, ecTrauma) {
-            var requiredLifeCover = PVExpenseLife + liability - asset ;
-            var requiredTPDCover = PVExpenseTPD + liability - asset - IP2 ;
-            var requiredIPCover = IP1 ;
-            var requiredTraumaCover = Trauma1 + Trauma2 ;
+            var requiredLifeCover = PVExpenseLife + liability - asset;
+            var requiredTPDCover = PVExpenseTPD + liability - asset - IP2;
+            var requiredIPCover = IP1;
+            var requiredTraumaCover = Trauma1 + Trauma2;
             return {
                 life: requiredLifeCover,
                 TPD: requiredTPDCover,
@@ -1358,36 +1487,36 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
 
         $scope.resultTemp = $scope.buyOption ? $scope.resultS2 : $scope.resultS1;
 
-        if($scope.resultTemp.life>ecLife1){
-            $scope.lifeTemp=$scope.resultTemp.life-ecLife1;
-            $scope.needLife=true;
-        }else{
-            $scope.lifeTemp=ecLife1-$scope.resultTemp.life;
-            $scope.needLife=false;
+        if ($scope.resultTemp.life > ecLife1) {
+            $scope.lifeTemp = $scope.resultTemp.life - ecLife1;
+            $scope.needLife = true;
+        } else {
+            $scope.lifeTemp = ecLife1 - $scope.resultTemp.life;
+            $scope.needLife = false;
         }
 
-        if($scope.resultTemp.TPD>ecTPD1){
-            $scope.TPDTemp=$scope.resultTemp.TPD-ecTPD1;
-            $scope.needTPD=true;
-        }else{
-            $scope.TPDTemp=ecTPD1-$scope.resultTemp.TPD;
-            $scope.needTPD=false;
+        if ($scope.resultTemp.TPD > ecTPD1) {
+            $scope.TPDTemp = $scope.resultTemp.TPD - ecTPD1;
+            $scope.needTPD = true;
+        } else {
+            $scope.TPDTemp = ecTPD1 - $scope.resultTemp.TPD;
+            $scope.needTPD = false;
         }
 
-        if($scope.resultTemp.IP>ecIP1){
-            $scope.IPTemp=$scope.resultTemp.IP-ecIP1;
-            $scope.needIP=true;
-        }else{
-            $scope.IPTemp=ecIP1-$scope.resultTemp.IP;
-            $scope.needIP=false;
+        if ($scope.resultTemp.IP > ecIP1) {
+            $scope.IPTemp = $scope.resultTemp.IP - ecIP1;
+            $scope.needIP = true;
+        } else {
+            $scope.IPTemp = ecIP1 - $scope.resultTemp.IP;
+            $scope.needIP = false;
         }
 
-        if($scope.resultTemp.trauma>ecTrauma1){
-            $scope.traumaTemp=$scope.resultTemp.trauma-ecTrauma1;
-            $scope.needTrauma=true;
-        }else{
-            $scope.traumaTemp=ecTrauma1-$scope.resultTemp.trauma;
-            $scope.needTrauma=false;
+        if ($scope.resultTemp.trauma > ecTrauma1) {
+            $scope.traumaTemp = $scope.resultTemp.trauma - ecTrauma1;
+            $scope.needTrauma = true;
+        } else {
+            $scope.traumaTemp = ecTrauma1 - $scope.resultTemp.trauma;
+            $scope.needTrauma = false;
         }
 
         ChartServiceHc.createChart('#container', 'Death Cover', ecLife1, $scope.resultTemp.life, false);
@@ -1400,7 +1529,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         ChartServiceHc.createChart('#containerR3', 'Income Protection Cover', ecIP1, $scope.resultTemp.IP, true);
 
         ChartServiceHc.createChart('#container4', 'Trauma Cover', ecTrauma1, $scope.resultTemp.trauma, false);
-        ChartServiceHc.createChart('#containerR4', 'Trauma Cover', ecTrauma1, $scope.resultTemp.trauma, true);
+        ChartServiceHc.createChart('#containerR4', 'Trauma Cover', ecTrauma1, $scope.resultTemp.truerauma, true);
 
     }
     calculateFinal();
@@ -1424,30 +1553,30 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
             superBalance: superBalance1
         };
 
-        var otherExpenses ={
-            funeralCost : funeralCost1,
-            educationExpense : educationExpensePerYearPerChild1,
-            familyLivingCost : familyLivingCostPerYear1,
-            moveProperty : $scope.buyOption  ? "Yes" : "No",
-            newPropertyValue : valueOfNewProperty1,
-            moneyBorrowed : moneyToBeBorrowed1,
-            saleProceeds : $scope.saleProceeds 
+        var otherExpenses = {
+            funeralCost: funeralCost1,
+            educationExpense: educationExpensePerYearPerChild1,
+            familyLivingCost: familyLivingCostPerYear1,
+            moveProperty: $scope.buyOption ? "Yes" : "No",
+            newPropertyValue: valueOfNewProperty1,
+            moneyBorrowed: moneyToBeBorrowed1,
+            saleProceeds: $scope.saleProceeds
         };
 
-        var existingCovers ={
-            ecLife : ecLife1,
-            ecTPD : ecTPD1,
+        var existingCovers = {
+            ecLife: ecLife1,
+            ecTPD: ecTPD1,
             ecIP: ecIP1,
-            ecTrauma : ecTrauma1 
+            ecTrauma: ecTrauma1
         };
 
         var assumptions = {
-            inflation : inflation1,
-            rateOfReturn : rateOfReturn1,
-            realRate : $scope.realRateOfReturn
+            inflation: inflation1,
+            rateOfReturn: rateOfReturn1,
+            realRate: $scope.realRateOfReturn
         }
 
-        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, assetsObject, liabilitiesObject,otherExpenses, existingCovers, assumptions, $scope.resultTemp);
+        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, assetsObject, liabilitiesObject, otherExpenses, existingCovers, assumptions, $scope.resultTemp);
     });
 
 
