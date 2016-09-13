@@ -1569,13 +1569,13 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
 
         $scope.sfIP2 = Math.abs($scope.resultS2.IP- ecIP1);
 
-        $scope.needTrauma1 = $scope.resultS1.trauma >= ecIP1 ? true : false;
+        $scope.needTrauma1 = $scope.resultS1.trauma >= ecTrauma1 ? true : false;
 
-        $scope.needTrauma2 = $scope.resultS2.trauma >= ecIP1 ? true : false; 
+        $scope.needTrauma2 = $scope.resultS2.trauma >= ecTrauma1 ? true : false; 
 
-        $scope.sfTrauma1 = Math.abs($scope.resultS1.trauma - ecIP1);
+        $scope.sfTrauma1 = Math.abs($scope.resultS1.trauma - ecTrauma1);
 
-        $scope.sfTrauma2 = Math.abs($scope.resultS2.trauma- ecIP1);
+        $scope.sfTrauma2 = Math.abs($scope.resultS2.trauma- ecTrauma1);
 
         // if ($scope.resultTemp.life > ecLife1) {
         //     $scope.lifeTemp = $scope.resultTemp.life - ecLife1;
@@ -1636,8 +1636,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         if($scope.buyOption){
            document.getElementById("containerS3").style.display = 'none';  
         document.getElementById("containerB3").style.display = 'block';
-        ChartServiceHc.createChart('#containerB3', 'Income Protection Cover', ecIP1, $scope.resultS1.IP, $scope.resultS2.TPD , false,true);
-        ChartServiceHc.createChart('#containerR3', 'Income Protection Cover', ecIP1, $scope.resultS1.IP, $scope.resultS2.TPD , true,true);
+        ChartServiceHc.createChart('#containerB3', 'Income Protection Cover', ecIP1, $scope.resultS1.IP, $scope.resultS2.IP , false,true);
+        ChartServiceHc.createChart('#containerR3', 'Income Protection Cover', ecIP1, $scope.resultS1.IP, $scope.resultS2.IP , true,true);
         }else{
           document.getElementById("containerB3").style.display = 'none'; 
             document.getElementById("containerS3").style.display = 'block';
@@ -1648,8 +1648,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         if($scope.buyOption){
            document.getElementById("containerS4").style.display = 'none';  
         document.getElementById("containerB4").style.display = 'block';
-        ChartServiceHc.createChart('#containerB4', 'Trauma Cover', ecTrauma1, $scope.resultS1.trauma, $scope.resultS2.TPD , false,true);
-        ChartServiceHc.createChart('#containerR4', 'Trauma Cover', ecTrauma1, $scope.resultS1.trauma, $scope.resultS2.TPD , true,true);
+        ChartServiceHc.createChart('#containerB4', 'Trauma Cover', ecTrauma1, $scope.resultS1.trauma, $scope.resultS2.trauma , false,true);
+        ChartServiceHc.createChart('#containerR4', 'Trauma Cover', ecTrauma1, $scope.resultS1.trauma, $scope.resultS2.trauma , true,true);
         }else{
            document.getElementById("containerB4").style.display = 'none'; 
             document.getElementById("containerS4").style.display = 'block';
