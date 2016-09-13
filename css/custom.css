@@ -539,7 +539,8 @@ input[type=number] {
     margin-bottom: 5px;
 }
 .res-value{
-    font-size: 16px;
+    /*font-size: 16px;*/
+    font-size:14px;
         /*text-align: right;*/
         padding-left: 0;
         padding-right: 5px;
@@ -550,6 +551,10 @@ input[type=number] {
         font-size: 28px;
     margin-top: 4px;
     margin-bottom: -8px;
+}
+.value2{
+  font-size:14px !important;
+  text-align:right;
 }
 .res-head{
     /*padding-top: 3px;*/
@@ -950,6 +955,7 @@ float:right;
   font-family: "Roboto", Helvetica, Verdana, Arial, Sans-serif;
   font-weight : 300;
   color : #444;
+  text-transform: capitalize;
 }
 
 .input-group-addon{
@@ -984,4 +990,8 @@ i.fa-floppy-o{
 }
 .save-button{
   padding:0px !important;
+}
+
+.mTop40{
+  margin-top:55px !important;
 }

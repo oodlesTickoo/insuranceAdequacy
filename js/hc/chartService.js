@@ -1,5 +1,5 @@
 app.service('ChartServiceHc', function() {
-    this.createChart = function(containerCC, title, Now, Required, changeTheme) {
+    this.createChart = function(containerCC, title, Now, Required,Required2,changeTheme,buyOption) {
 
         // var HCDefaults = $.extend(true, {}, Highcharts.getOptions(), {});
 
@@ -19,6 +19,29 @@ app.service('ChartServiceHc', function() {
             Highcharts.theme.yAxis.labels.style.fontWeight = 'bold';
             Highcharts.theme.yAxis.title.style.fontWeight = 'bold';
             Highcharts.setOptions(Highcharts.theme);
+        }
+
+        var series;
+
+        if(buyOption){
+                        series = [{
+                colorByPoint: true,
+                data: [{
+                    name: 'Scenario One',
+                    y: Required,
+                }, {
+                    name: 'Scenario Two',
+                    y: Required2,
+                }]
+            }];
+        }else{
+            series = [{
+                colorByPoint: true,
+                data: [{
+                    name: 'Scenario One',
+                    y: Required,
+                }]
+            }];
         }
 
 
@@ -71,19 +94,21 @@ app.service('ChartServiceHc', function() {
                 enabled: false
             },
 
-            series: [{
-                colorByPoint: true,
-                data: [{
-                    name: 'Existing Cover',
-                    y: Now,
-                    // drilldown: 'Microsoft Internet Explorer'
-                }, {
-                    name: 'Estimated Cover',
-                    y: Required,
-                    // drilldown: 'Safari'
-                }]
-            }],
+            series: series,
 
+        },
+        function(chart){
+            
+            if(!buyOption){
+           // chart.series[0].data[0].graphic.attr({
+           //      width:50  
+           //  });
+           // chart.xAxis.plotLines.label.attr({
+           //      x:0  
+           //  });
+                }
+           
+        
         });
 
     }
