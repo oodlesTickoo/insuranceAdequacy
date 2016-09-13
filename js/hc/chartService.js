@@ -74,11 +74,11 @@ app.service('ChartServiceHc', function() {
             series: [{
                 colorByPoint: true,
                 data: [{
-                    name: 'Now',
+                    name: 'Existing Cover',
                     y: Now,
                     // drilldown: 'Microsoft Internet Explorer'
                 }, {
-                    name: 'Required',
+                    name: 'Estimated Cover',
                     y: Required,
                     // drilldown: 'Safari'
                 }]
