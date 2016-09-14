@@ -1,7 +1,7 @@
 app.service('PdfMaker', [function() {
 
     //this.createChart = function(dob,age,fy,cses,thp,resultWithoutSS,resultWithSS,needSS,optimisedSS,toggleNeeded){
-    this.createChart = function(dob, age, genderOption, spouseOption, numChildren,assetsObject, liabilitiesObject,otherExpenses , existingCovers, assumptions, resultTemp) {
+    this.createChart = function(dob, age, genderOption, spouseOption, numChildren,assetsObject, liabilitiesObject,otherExpenses , existingCovers, assumptions, resultS1,resultS2,buyOption,wp) {
 
         var cdob = dob.toString().split(" ")[1] + " " + dob.toString().split(" ")[2] + " " + dob.toString().split(" ")[3];
        
@@ -31,14 +31,34 @@ app.service('PdfMaker', [function() {
             { title: "Final Results", dataKey: "info"},
         ];
 
+        var columnsP5 = [
+            { title: "Your Waiting Period For Income Protection is " + wp + " days.", dataKey: "info"},
+        ];
+
 
 
         var columnsP3 =[{ title: "Calculator Information", dataKey: "info"},];
 
+        // var rowsP3 =[
+        // { "info": "1) The total estimated level of Death cover you need is calculated by taking two times your pre-tax annual income plus an amount for each child under 18 years of age plus debt repayments plus funeral costs plus other expenses minus the total of your assets (including any existing death cover)."},
+        // { "info": "2) The total estimated level of Total and Permanent Disablement cover you need is calculated by taking two times your pre-tax annual income plus an amount for each child under 18 years of age plus your current debt plus other expenses minus the total of your assets (including any existing TPD cover)."},
+        // { "info": "3) The total estimated level of Trauma cover you need is based on the total of your current debt reduced by any emergency funds and any existing Trauma cover."},
+        // ];
+
         var rowsP3 =[
-        { "info": "1) The total estimated level of Death cover you need is calculated by taking two times your pre-tax annual income plus an amount for each child under 18 years of age plus debt repayments plus funeral costs plus other expenses minus the total of your assets (including any existing death cover)."},
-        { "info": "2) The total estimated level of Total and Permanent Disablement cover you need is calculated by taking two times your pre-tax annual income plus an amount for each child under 18 years of age plus your current debt plus other expenses minus the total of your assets (including any existing TPD cover)."},
-        { "info": "3) The total estimated level of Trauma cover you need is based on the total of your current debt reduced by any emergency funds and any existing Trauma cover."},
+        { "info": "1) Home value is the gross valuation of your residential property, you don’t need to reduce it by the mortgage."},
+        { "info": "2) Cash at bank equals to the saving your family has in place."},
+        { "info": "3) Other investment includes but not limit to shares, managed funds, investment property and so on."},
+        { "info": "4) Super balance refers to your superannuation only."},
+        { "info": "5) Home mortgage is the outstanding borrowing on your own property."},
+        { "info": "6) All the other debt refers to the current outstanding you have yet to repay to the lender."},
+        { "info": "7) Financially dependent children are assumed to rely on your support till they turn 25."},
+        { "info": "8) Family living expense is assumed to be supported by you till you turn 65."},
+        { "info": "9) If the client selects to downsize the property in the event of death, the property would be sold at the price that the client indicated in the asset valuation, and the home mortgage will be fully repaid."},
+        { "info": "10) If the new mortgage upon downsize plus the sale proceeds exceed the valuation of the new property that the spouse is going to buy, the surplus will be kept as an additional asset."},
+        { "info": "11) Real rate of return and effective rate of return are used in the calculation."},
+        { "info": "12) Asset excludes the home valuation since the family is assumed to continue living there and cannot cash out the equity."},
+        { "info": "13) Scenario Two comes into account only when the client has a spouse who would like to move to a smaller property in case the insured event occurs."}
         ];
 
         var columns1 = [
@@ -112,6 +132,8 @@ app.service('PdfMaker', [function() {
             { "assumption": "Real Rate Of Return", "value": moneyFormat.to(assumptions.realRate)},
         ];
 
+
+        if(!buyOption){
         var columns7 = [
             { title: "Covers", dataKey: "cover"},
             { title: "Estimated Value", dataKey: "est" },
@@ -119,11 +141,26 @@ app.service('PdfMaker', [function() {
             { title: "Excess/Shortfall", dataKey: "excess" },
         ];
         var rows7 = [
-            { "cover": "Death Cover", "est": moneyFormat.to(resultTemp.life),"existing":moneyFormat.to(existingCovers.ecLife), "excess" : moneyFormat.to(Math.abs(resultTemp.life-existingCovers.ecLife))},
-            { "cover": "TPD Cover", "est": moneyFormat.to(resultTemp.TPD) ,"existing":moneyFormat.to(existingCovers.ecTPD), "excess" : moneyFormat.to(Math.abs(resultTemp.TPD-existingCovers.ecTPD))},
-            { "cover": "Income Protection Cover", "est": moneyFormat.to(resultTemp.IP) ,"existing":moneyFormat.to(existingCovers.ecIP), "excess" : moneyFormat.to(Math.abs(resultTemp.IP-existingCovers.ecIP))},
-            { "cover": "Trauma Cover", "est": moneyFormat.to(resultTemp.trauma),"existing": moneyFormat.to(existingCovers.ecTrauma), "excess" : moneyFormat.to(Math.abs(resultTemp.trauma-existingCovers.ecTrauma))},
+            { "cover": "Death Cover", "est": moneyFormat.to(resultS1.life),"existing":moneyFormat.to(existingCovers.ecLife), "excess" : moneyFormat.to(Math.abs(resultS1.life-existingCovers.ecLife))},
+            { "cover": "TPD Cover", "est": moneyFormat.to(resultS1.TPD) ,"existing":moneyFormat.to(existingCovers.ecTPD), "excess" : moneyFormat.to(Math.abs(resultS1.TPD-existingCovers.ecTPD))},
+            { "cover": "Income Protection Cover", "est": moneyFormat.to(resultS1.IP) ,"existing":moneyFormat.to(existingCovers.ecIP), "excess" : moneyFormat.to(Math.abs(resultS1.IP-existingCovers.ecIP))},
+            { "cover": "Trauma Cover", "est": moneyFormat.to(resultS1.trauma),"existing": moneyFormat.to(existingCovers.ecTrauma), "excess" : moneyFormat.to(Math.abs(resultS1.trauma-existingCovers.ecTrauma))},
         ];
+      }else{
+
+        var columns7 = [
+            { title: "Covers", dataKey: "cover"},
+            { title: "Scenario One", dataKey: "one" },
+            { title: "Scenario Two", dataKey: "two" },
+            { title: "Existing Cover", dataKey: "existing" },
+        ];
+        var rows7 = [
+            { "cover": "Death Cover", "one": moneyFormat.to(resultS1.life),"two":moneyFormat.to(resultS2.life), "existing" : moneyFormat.to(existingCovers.ecLife)},
+            { "cover": "TPD Cover", "one": moneyFormat.to(resultS1.TPD) ,"two":moneyFormat.to(resultS2.TPD), "existing" : moneyFormat.to(existingCovers.ecTPD)},
+            { "cover": "Income Protection Cover", "one": moneyFormat.to(resultS1.IP) ,"two":moneyFormat.to(resultS2.IP), "existing" : moneyFormat.to(existingCovers.ecIP)},
+            { "cover": "Trauma Cover", "one": moneyFormat.to(resultS1.trauma),"two": moneyFormat.to(resultS2.trauma), "existing" : moneyFormat.to(existingCovers.ecTrauma)},
+        ];
+      }
 
         var options = {
             theme: 'grid'
@@ -154,16 +191,16 @@ app.service('PdfMaker', [function() {
             // columnWidth : 400
             },
             columnStyles:{
-            info: {columnWidth: 450},
-            value: {columnWidth: 67}
+            info: {columnWidth: 420},
+            value: {columnWidth: 97}
             },
         });
 
         doc.autoTable(columns2, rows2, {
             margin: { top: 235 },
             columnStyles:{
-            info: {columnWidth: 450},
-            value: {columnWidth: 67}
+            info: {columnWidth: 420},
+            value: {columnWidth: 97}
             },
         });
 
@@ -174,16 +211,16 @@ app.service('PdfMaker', [function() {
             halign : "left",
           },
           columnStyles:{
-            info: {columnWidth: 450},
-            value: {columnWidth: 67}
+            info: {columnWidth: 420},
+            value: {columnWidth: 97}
             },
         });
 
         doc.autoTable(columns4, rows4, {
             margin: { top: 525 },
             columnStyles:{
-            info: {columnWidth: 450},
-            value: {columnWidth: 67}
+            info: {columnWidth: 420},
+            value: {columnWidth: 97}
             },
         });
 
@@ -206,8 +243,8 @@ app.service('PdfMaker', [function() {
         doc.autoTable(columns5, rows5, {
             margin: { top: 20 },
             columnStyles:{
-            info: {columnWidth: 450},
-            value: {columnWidth: 67}
+            info: {columnWidth: 420},
+            value: {columnWidth: 97}
             },
         }); 
 
@@ -262,6 +299,16 @@ app.service('PdfMaker', [function() {
               fontSize : 15
             }
         });
+
+          doc.autoTable(columnsP5,[], {
+            margin: { top: 200 },
+            styles:{
+              rowHeight:20,
+              halign : 'center',
+              valign : 'middle',
+              fontSize : 10
+            }
+        });  
 
         doc.autoTable(columns7,rows7,{
             margin: { top: 80 },

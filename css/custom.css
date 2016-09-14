@@ -395,7 +395,7 @@ input[type=number] {
     font-family: Helvetica, Verdana, Arial, Sans-serif;
     font-size: 13px;
     text-align: left;
-    margin-left: -10px;
+    margin-left: 0px;
     margin-right: 10px;
     max-width:600px;
 		margin-top:20px;
