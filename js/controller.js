@@ -56,8 +56,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
 
     $scope.sickLeaves =10;
 
-    $scope.waitingPeriod = 30;
-
     $scope.calculateWaitingPeriod = function(leaves){
         if(leaves <= 30){
           return 30;
@@ -69,6 +67,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
           return 90;
         }   
     }
+
+    $scope.waitingPeriod = $scope.calculateWaitingPeriod($scope.sickLeaves);
 
     String.prototype.replaceAll = function(search, replacement) {
         var target = this;
@@ -651,7 +651,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.inflation],
         range: {
             'min': [0],
-            'max': [100]
+            'max': [10]
         },
         step: 1,
         format: wNumb({
@@ -665,7 +665,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.rateOfReturn],
         range: {
             'min': [0],
-            'max': [100]
+            'max': [50]
         },
         step: 1,
         format: wNumb({
@@ -1442,10 +1442,11 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         moneyToBeBorrowed1 = Number($scope.moneyToBeBorrowed.replaceAll("$", "").replaceAll(",", ""));
         valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
         spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
-
-
-
-
+        
+        $scope.ecL = ecLife1;
+        $scope.ecT = ecTPD1;
+        $scope.ecI = ecIP1;
+        $scope.ecTr = ecTrauma1;
 
         function PV(rate, periods, payment, future, type) {
             // Initialize type
@@ -1710,7 +1711,12 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
             realRate: $scope.realRateOfReturn
         }
 
-        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, assetsObject, liabilitiesObject, otherExpenses, existingCovers, assumptions, $scope.resultTemp);
+        if($scope.buyOption){
+        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, assetsObject, liabilitiesObject, otherExpenses, existingCovers, assumptions, $scope.resultS1,$scope.resultS2,$scope.buyOption,$scope.waitingPeriod);
+        }else{
+        PdfMaker.createChart($scope.dob, $scope.age, $scope.genderOption, $scope.spouseOption, $scope.numChildren, assetsObject, liabilitiesObject, otherExpenses, existingCovers, assumptions, $scope.resultS1,{},$scope.buyOption,$scope.waitingPeriod);
+ 
+        }
     });
 
 

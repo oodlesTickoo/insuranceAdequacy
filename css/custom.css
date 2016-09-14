@@ -395,7 +395,7 @@ input[type=number] {
     font-family: Helvetica, Verdana, Arial, Sans-serif;
     font-size: 13px;
     text-align: left;
-    margin-left: -10px;
+    margin-left: 0px;
     margin-right: 10px;
     max-width:600px;
 		margin-top:20px;
@@ -992,6 +992,12 @@ i.fa-floppy-o{
   padding:0px !important;
 }
 
-.mTop40{
-  margin-top:55px !important;
+.wpText{
+      text-align: center;
+    font-size: 16px;
+    color: #666;
+    background-color: #ddd;
+    line-height: 32px;
+    /*width: 500px;*/
+    margin: 0 auto;
 }

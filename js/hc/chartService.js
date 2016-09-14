@@ -38,7 +38,7 @@ app.service('ChartServiceHc', function() {
             series = [{
                 colorByPoint: true,
                 data: [{
-                    name: 'Scenario One',
+                    name: 'Existing Cover',
                     y: Required,
                 }]
             }];

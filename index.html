@@ -456,21 +456,6 @@
                                 </div>
                             </div>
                             <div class="row second-row-mobile">
-                                <div class="col-xs-12 col-sm-6 form-heading">
-                                    How many days of accrued sick leave do you have ?
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4">
-                                            <div class="form-group">
-                                                <input type="text" onClick="this.select();" class="form-control" id="sickLeavesInput" name="sickLeavesInput" ng-model="sickLeaves">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 col-sm-8 form-group">
-                                            <div id="sickLeavesSlider" style="margin-top:8px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row second-row-mobile">
                                 <div class="col-xs-12 col-sm-12 form-heading">
                                     <div class="row">
                                         <div class="col-xs-12">
@@ -630,6 +615,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row second-row-mobile">
+                                <div class="col-xs-12 col-sm-6 form-heading">
+                                    How many days of accrued sick leave do you have ?
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div class="form-group">
+                                                <input type="text" onClick="this.select();" class="form-control" id="sickLeavesInput" name="sickLeavesInput" ng-model="sickLeaves">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8 form-group">
+                                            <div id="sickLeavesSlider" style="margin-top:8px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-xs-12">
                                     <button class="btn btn-primary next-btn" ng-click="nextDiv(5)">Next</button>
@@ -718,19 +718,19 @@
                                         <div class="row divider"></div>
                                         <div class="row">
                                             <div class="col-xs-6 res-des">Existing cover</div>
-                                            <div class="col-xs-6 res-value">{{ ecLife }}</div>
+                                            <div class="col-xs-6 res-value">{{ecL | currency}}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row res-1">
                                     <div class="col-xs-12">
                                         <div class="row dd" ng-show="needLife1 && !buyOption">
-                                            <div class="col-xs-8 col-sm-12 res-head">Estimated shortfall</div>
-                                            <div class="col-xs-4 col-sm-12 res-head-value">{{ sfLife1 | currency }}</div>
+                                            <div class="col-xs-6 col-sm-12 res-head">Estimated shortfall</div>
+                                            <div class="col-xs-6 col-sm-12 res-head-value">{{ sfLife1 | currency }}</div>
                                         </div>
                                         <div class="row dd" ng-show="!needLife1 && !buyOption">
-                                            <div class="col-xs-8 col-sm-12 res-head">Estimated excess</div>
-                                            <div class="col-xs-4 col-sm-12 res-head-value">{{ sfLife1 | currency }}</div>
+                                            <div class="col-xs-6 col-sm-12 res-head">Estimated excess</div>
+                                            <div class="col-xs-6 col-sm-12 res-head-value">{{ sfLife1 | currency }}</div>
                                         </div>
                                         <div class="row res-head" ng-show="buyOption"><strong>Excess/Shortfall</strong></div>
                                         <div class="row divider" ng-show="buyOption"></div>
@@ -778,19 +778,19 @@
                                         <div class="row divider"></div>
                                         <div class="row">
                                             <div class="col-xs-6 res-des">Existing cover</div>
-                                            <div class="col-xs-6 res-value">{{ ecTPD }}</div>
+                                            <div class="col-xs-6 res-value">{{ ecT | currency }}</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row res-1">
                                     <div class="col-xs-12">
                                         <div class="row dd" ng-show="needTPD1 && !buyOption">
-                                            <div class="col-xs-8 col-sm-12 res-head">Estimated shortfall</div>
-                                            <div class="col-xs-4 col-sm-12 res-head-value">{{ sfTPD1 | currency }}</div>
+                                            <div class="col-xs-6 col-sm-12 res-head">Estimated shortfall</div>
+                                            <div class="col-xs-6 col-sm-12 res-head-value">{{ sfTPD1 | currency }}</div>
                                         </div>
                                         <div class="row dd" ng-show="!needTPD1 && !buyOption">
-                                            <div class="col-xs-8 col-sm-12 res-head">Estimated excess</div>
-                                            <div class="col-xs-4 col-sm-12 res-head-value">{{ sfTPD1 | currency }}</div>
+                                            <div class="col-xs-6 col-sm-12 res-head">Estimated excess</div>
+                                            <div class="col-xs-6 col-sm-12 res-head-value">{{ sfTPD1 | currency }}</div>
                                         </div>
                                         <div class="row res-head" ng-show="buyOption"><strong>Excess/Shortfall</strong></div>
                                         <div class="row divider" ng-show="buyOption"></div>
@@ -838,19 +838,19 @@
                                             <div class="row divider"></div>
                                             <div class="row">
                                                 <div class="col-xs-6 res-des">Existing cover</div>
-                                                <div class="col-xs-6 res-value">{{ ecIP }}</div>
+                                                <div class="col-xs-6 res-value">{{ ecI | currency }}</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row res-1">
                                         <div class="col-xs-12">
                                             <div class="row dd" ng-show="needIP1 && !buyOption">
-                                                <div class="col-xs-8 col-sm-12 res-head">Estimated shortfall</div>
-                                                <div class="col-xs-4 col-sm-12 res-head-value">{{ sfIP1 | currency }}</div>
+                                                <div class="col-xs-6 col-sm-12 res-head">Estimated shortfall</div>
+                                                <div class="col-xs-6 col-sm-12 res-head-value">{{ sfIP1 | currency }}</div>
                                             </div>
                                             <div class="row dd" ng-show="!needIP1 && !buyOption">
-                                                <div class="col-xs-8 col-sm-12 res-head">Estimated excess</div>
-                                                <div class="col-xs-4 col-sm-12 res-head-value">{{ sfIP1 | currency }}</div>
+                                                <div class="col-xs-6 col-sm-12 res-head">Estimated excess</div>
+                                                <div class="col-xs-6 col-sm-12 res-head-value">{{ sfIP1 | currency }}</div>
                                             </div>
                                             <div class="row res-head" ng-show="buyOption"><strong>Excess/Shortfall</strong></div>
                                             <div class="row divider" ng-show="buyOption"></div>
@@ -898,19 +898,19 @@
                                                 <div class="row divider"></div>
                                                 <div class="row">
                                                     <div class="col-xs-6 res-des">Existing cover</div>
-                                                    <div class="col-xs-6 res-value">{{ ecTrauma }}</div>
+                                                    <div class="col-xs-6 res-value">{{ ecTr | currency }}</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row res-1">
                                             <div class="col-xs-12">
                                                 <div class="row dd" ng-show="needTrauma1 && !buyOption">
-                                                    <div class="col-xs-8 col-sm-12 res-head">Estimated shortfall</div>
-                                                    <div class="col-xs-4 col-sm-12 res-head-value">{{ sfTrauma1 | currency }}</div>
+                                                    <div class="col-xs-6 col-sm-12 res-head">Estimated shortfall</div>
+                                                    <div class="col-xs-6 col-sm-12 res-head-value">{{ sfTrauma1 | currency }}</div>
                                                 </div>
                                                 <div class="row dd" ng-show="!needTrauma1 && !buyOption">
-                                                    <div class="col-xs-8 col-sm-12 res-head">Estimated excess</div>
-                                                    <div class="col-xs-4 col-sm-12 res-head-value">{{ sfTrauma1 | currency }}</div>
+                                                    <div class="col-xs-6 col-sm-12 res-head">Estimated excess</div>
+                                                    <div class="col-xs-6 col-sm-12 res-head-value">{{ sfTrauma1 | currency }}</div>
                                                 </div>
                                                 <div class="row res-head" ng-show="buyOption"><strong>Excess/Shortfall</strong></div>
                                                 <div class="row divider" ng-show="buyOption"></div>
@@ -928,8 +928,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                            <div class="col-xs-12 wpText">
+                            The Waiting Period For Income Protection is {{waitingPeriod }} days.  
+                            </div>
+                            </div>
                             <div class="row disclaimer">
+                            <div class="col-xs-12">
                                 <span class="calculator-disclaimer">Information provided by Financial Choice Pty Ltd is general financial advice only. General advice is defined under the new regulations to include information about financial products and financial markets and our current views and outlook for those products and markets. The general advice we provide includes the information you have requested from us directly or via our web site.</span>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
@@ -953,19 +960,27 @@
                                 <div class="col-xs-12 col-sm-12 col-lg-12">
                                     <ol>
                                         <li>
-                                            Salary indicated here does not include superannuation guarantee contribution, fringe benefit or non-standard agreed employment benefit, and is the salary before any salary sacrifice.
+                                            Home value is the gross valuation of your residential property, you don’t need to reduce it by the mortgage.
                                         </li>
                                         <li>
-                                            SGC will gradually increase to 12.00% in the future
+                                            Cash at bank equals to the saving your family has in place.
                                         </li>
                                         <li>
-                                            It is assumed that the superannuation balance is boosted up by the net concessional contribution in the financial year.
+                                            Other investment includes but not limit to shares, managed funds, investment property and so on.
                                         </li>
                                         <li>
-                                            This calculator takes into the consideration of both the personal tax and concessional contribution tax charged from the super.
+                                            Super balance refers to your superannuation only.
                                         </li>
+                                        <li>Home mortgage is the outstanding borrowing on your own property.</li>
+                                        <li>All the other debt refers to the current outstanding you have yet to repay to the lender.</li>
+                                        <li>Financially dependent children are assumed to rely on your support till they turn 25.</li>
+                                        <li>Family living expense is assumed to be supported by you till you turn 65.</li>
+                                        <li>If the client selects to downsize the property in the event of death, the property would be sold at the price that the client indicated in the asset valuation, and the home mortgage will be fully repaid.</li>
+                                        <li> If the new mortgage upon downsize plus the sale proceeds exceed the valuation of the new property that the spouse is going to buy, the surplus will be kept as an additional asset.</li>
+                                        <li> Real rate of return and effective rate of return are used in the calculation.</li>
+                                        <li>Asset excludes the home valuation since the family is assumed to continue living there and cannot cash out the equity.</li>
                                         <li>
-                                            Divison 293 tax reduces the tax benefit on low tax contributions (also referred to as concessional contributions) of very high income earners. It was legislated in June 2013 and backdated to July 2012.
+                                            Scenario Two comes into account only when the client has a spouse who would like to move to a smaller property in case the insured event occurs.
                                         </li>
                                         </ul>
                                 </div>
