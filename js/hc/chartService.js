@@ -38,7 +38,7 @@ app.service('ChartServiceHc', function() {
             series = [{
                 colorByPoint: true,
                 data: [{
-                    name: 'Existing Cover',
+                    name: 'Suggested Cover',
                     y: Required,
                 }]
             }];
@@ -70,7 +70,7 @@ app.service('ChartServiceHc', function() {
             },
             yAxis: {
                 title: {
-                    text: 'Amount Cover ($)'
+                    text: 'Suggested Cover Amount($)'
                 }
 
             },

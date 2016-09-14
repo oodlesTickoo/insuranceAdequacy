@@ -352,7 +352,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.grossAnnualIncome],
         range: {
             'min': [0],
-            'max': [1000000]
+            'max': [2000000]
         },
         step: 500,
         format: wNumb({
@@ -475,7 +475,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.cashAtBank],
         range: {
             'min': [0],
-            'max': [1000000]
+            'max': [10000000]
         },
         step: 500,
         format: wNumb({
@@ -550,7 +550,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.ecIP],
         range: {
             'min': [0],
-            'max': [20000]
+            'max': [200000]
         },
         step: 500,
         format: wNumb({
@@ -565,7 +565,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.ecTrauma],
         range: {
             'min': [0],
-            'max': [100000000]
+            'max': [10000000]
         },
         step: 500,
         format: wNumb({
@@ -621,7 +621,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.educationExpensePerYearPerChild],
         range: {
             'min': [0],
-            'max': [5000000]
+            'max': [200000]
         },
         step: 500,
         format: wNumb({
@@ -636,7 +636,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.familyLivingCostPerYear],
         range: {
             'min': [0],
-            'max': [5000000]
+            'max': [500000]
         },
         step: 500,
         format: wNumb({
@@ -722,7 +722,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.spouseSalary],
         range: {
             'min': [0],
-            'max': [5000000]
+            'max': [2000000]
         },
         step: 500,
         format: wNumb({
