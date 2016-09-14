@@ -56,8 +56,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
 
     $scope.sickLeaves =10;
 
-    $scope.waitingPeriod = 30;
-
     $scope.calculateWaitingPeriod = function(leaves){
         if(leaves <= 30){
           return 30;
@@ -69,6 +67,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
           return 90;
         }   
     }
+
+    $scope.waitingPeriod = $scope.calculateWaitingPeriod($scope.sickLeaves);
 
     String.prototype.replaceAll = function(search, replacement) {
         var target = this;
