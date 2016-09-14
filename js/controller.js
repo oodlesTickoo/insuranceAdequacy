@@ -343,9 +343,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
     ageChildren3Slider = document.getElementById('ageChildren3Slider');
     ageChildren4Slider = document.getElementById('ageChildren4Slider');
     ageChildren5Slider = document.getElementById('ageChildren5Slider');
-    ageChildren6Slider = document.getElementById('ageChildren6Slider');
-    ageChildren7Slider = document.getElementById('ageChildren7Slider');
-    ageChildren8Slider = document.getElementById('ageChildren8Slider');
+    // ageChildren6Slider = document.getElementById('ageChildren6Slider');
+    // ageChildren7Slider = document.getElementById('ageChildren7Slider');
+    // ageChildren8Slider = document.getElementById('ageChildren8Slider');
 
 
     noUiSlider.create(grossAnnualIncomeSlider, {
@@ -580,7 +580,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.numChildren],
         range: {
             'min': [0],
-            'max': [8]
+            'max': [5]
         },
         step: 1,
         format: wNumb({
@@ -793,42 +793,42 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         }),
         connect: 'lower'
     });
-    noUiSlider.create(ageChildren6Slider, {
-        start: [$scope.ageChildren6],
-        range: {
-            'min': [0],
-            'max': [75]
-        },
-        step: 1,
-        format: wNumb({
-            decimals: 0
-        }),
-        connect: 'lower'
-    });
-    noUiSlider.create(ageChildren7Slider, {
-        start: [$scope.ageChildren7],
-        range: {
-            'min': [0],
-            'max': [75]
-        },
-        step: 1,
-        format: wNumb({
-            decimals: 0
-        }),
-        connect: 'lower'
-    });
-    noUiSlider.create(ageChildren8Slider, {
-        start: [$scope.ageChildren8],
-        range: {
-            'min': [0],
-            'max': [75]
-        },
-        step: 1,
-        format: wNumb({
-            decimals: 0
-        }),
-        connect: 'lower'
-    });
+    // noUiSlider.create(ageChildren6Slider, {
+    //     start: [$scope.ageChildren6],
+    //     range: {
+    //         'min': [0],
+    //         'max': [75]
+    //     },
+    //     step: 1,
+    //     format: wNumb({
+    //         decimals: 0
+    //     }),
+    //     connect: 'lower'
+    // });
+    // noUiSlider.create(ageChildren7Slider, {
+    //     start: [$scope.ageChildren7],
+    //     range: {
+    //         'min': [0],
+    //         'max': [75]
+    //     },
+    //     step: 1,
+    //     format: wNumb({
+    //         decimals: 0
+    //     }),
+    //     connect: 'lower'
+    // });
+    // noUiSlider.create(ageChildren8Slider, {
+    //     start: [$scope.ageChildren8],
+    //     range: {
+    //         'min': [0],
+    //         'max': [75]
+    //     },
+    //     step: 1,
+    //     format: wNumb({
+    //         decimals: 0
+    //     }),
+    //     connect: 'lower'
+    // });
 
     var ageInput = document.getElementById('ageInput'),
         grossAnnualIncomeInput = document.getElementById('grossAnnualIncomeInput'),
@@ -914,17 +914,17 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         ageChildren5Slider.noUiSlider.set($scope.ageChildren5);
     });
 
-    ageChildren6Input.addEventListener("change", function() {
-        ageChildren6Slider.noUiSlider.set($scope.ageChildren6);
-    });
+    // ageChildren6Input.addEventListener("change", function() {
+    //     ageChildren6Slider.noUiSlider.set($scope.ageChildren6);
+    // });
 
-    ageChildren7Input.addEventListener("change", function() {
-        ageChildren7Slider.noUiSlider.set($scope.ageChildren7);
-    });
+    // ageChildren7Input.addEventListener("change", function() {
+    //     ageChildren7Slider.noUiSlider.set($scope.ageChildren7);
+    // });
 
-    ageChildren8Input.addEventListener("change", function() {
-        ageChildren8Slider.noUiSlider.set($scope.ageChildren8);
-    });
+    // ageChildren8Input.addEventListener("change", function() {
+    //     ageChildren8Slider.noUiSlider.set($scope.ageChildren8);
+    // });
 
     homeMortgageInput.addEventListener("change", function() {
         homeMortgageSlider.noUiSlider.set($scope.homeMortgage);
@@ -1002,7 +1002,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         for (var i = 1; i <= num; i++) {
             document.getElementsByClassName("c" + i)[0].style.display = 'block';
         }
-        for (var i = (num + 1); i <= 8; i++) {
+        for (var i = (num + 1); i <= 5; i++) {
             document.getElementsByClassName("c" + i)[0].style.display = 'none';
         }
     }
@@ -1159,18 +1159,18 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         ageChildren5Input.value = values[handle];
         $scope.ageChildren5 = Number(values[handle]);
     });
-    ageChildren6Slider.noUiSlider.on('update', function(values, handle) {
-        ageChildren6Input.value = values[handle];
-        $scope.ageChildren6 = Number(values[handle]);
-    });
-    ageChildren7Slider.noUiSlider.on('update', function(values, handle) {
-        ageChildren7Input.value = values[handle];
-        $scope.ageChildren7 = Number(values[handle]);
-    });
-    ageChildren8Slider.noUiSlider.on('update', function(values, handle) {
-        ageChildren8Input.value = values[handle];
-        $scope.ageChildren8 = Number(values[handle]);
-    });
+    // ageChildren6Slider.noUiSlider.on('update', function(values, handle) {
+    //     ageChildren6Input.value = values[handle];
+    //     $scope.ageChildren6 = Number(values[handle]);
+    // });
+    // ageChildren7Slider.noUiSlider.on('update', function(values, handle) {
+    //     ageChildren7Input.value = values[handle];
+    //     $scope.ageChildren7 = Number(values[handle]);
+    // });
+    // ageChildren8Slider.noUiSlider.on('update', function(values, handle) {
+    //     ageChildren8Input.value = values[handle];
+    //     $scope.ageChildren8 = Number(values[handle]);
+    // });
 
     numChildrenInput.addEventListener("change", function() {
         numChildrenSlider.noUiSlider.set($scope.numChildren);
@@ -1393,24 +1393,24 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         calculateFinal();
         $timeout(0);
     });
-    ageChildren6Slider.noUiSlider.on('set', function(values, handle) {
-        ageChildren6Input.value = values[handle];
-        $scope.ageChildren6 = Number(values[handle]);
-        calculateFinal();
-        $timeout(0);
-    });
-    ageChildren7Slider.noUiSlider.on('set', function(values, handle) {
-        ageChildren7Input.value = values[handle];
-        $scope.ageChildren7 = Number(values[handle]);
-        calculateFinal();
-        $timeout(0);
-    });
-    ageChildren8Slider.noUiSlider.on('set', function(values, handle) {
-        ageChildren8Input.value = values[handle];
-        $scope.ageChildren8 = Number(values[handle]);
-        calculateFinal();
-        $timeout(0);
-    });
+    // ageChildren6Slider.noUiSlider.on('set', function(values, handle) {
+    //     ageChildren6Input.value = values[handle];
+    //     $scope.ageChildren6 = Number(values[handle]);
+    //     calculateFinal();
+    //     $timeout(0);
+    // });
+    // ageChildren7Slider.noUiSlider.on('set', function(values, handle) {
+    //     ageChildren7Input.value = values[handle];
+    //     $scope.ageChildren7 = Number(values[handle]);
+    //     calculateFinal();
+    //     $timeout(0);
+    // });
+    // ageChildren8Slider.noUiSlider.on('set', function(values, handle) {
+    //     ageChildren8Input.value = values[handle];
+    //     $scope.ageChildren8 = Number(values[handle]);
+    //     calculateFinal();
+    //     $timeout(0);
+    // });
 
     var grossAnnualIncome1, homeMortgage1, investmentPropertyMortgage1, creditCardDebt1, carLoan1, personalLoan1,
         otherLoan1, homeValue1, cashAtBank1, otherInvestment1, superBalance1, ecLife1, ecTPD1, ecIP1, ecTrauma1,
@@ -1480,7 +1480,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         //PVExpenseSpouse=1243994.6;
         console.log("PVExpenseSpouse", PVExpenseSpouse);
         var PVExpenseChildren = 0;
-        var ageChild = [$scope.ageChildren1, $scope.ageChildren2, $scope.ageChildren3, $scope.ageChildren4, $scope.ageChildren5, $scope.ageChildren6, $scope.ageChildren7, $scope.ageChildren8]
+        var ageChild = [$scope.ageChildren1, $scope.ageChildren2, $scope.ageChildren3, $scope.ageChildren4, $scope.ageChildren5]
 
         if ($scope.numChildren == 0) {
             PVExpenseChildren = 0;
@@ -1488,7 +1488,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
 
             for (var i = 0; i < $scope.numChildren; i++) {
                 var temp = Math.abs(PV($scope.realRateOfReturn, 25 - ageChild[i], educationExpensePerYearPerChild1, 0, 0));
-                console.log("temp", temp);
+                
                 PVExpenseChildren = PVExpenseChildren + temp;
             }
         }
