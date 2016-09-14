@@ -651,7 +651,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.inflation],
         range: {
             'min': [0],
-            'max': [100]
+            'max': [10]
         },
         step: 1,
         format: wNumb({
@@ -665,7 +665,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.rateOfReturn],
         range: {
             'min': [0],
-            'max': [100]
+            'max': [50]
         },
         step: 1,
         format: wNumb({

@@ -105,11 +105,14 @@ app.service('PdfMaker', [function() {
             { "expenses": "Funeral Cost", "value": moneyFormat.to(otherExpenses.funeralCost)},
             { "expenses": "Education Expense Per Year Per Child", "value": moneyFormat.to(otherExpenses.educationExpense)},
             { "expenses": "Family Living Cost", "value": moneyFormat.to(otherExpenses.familyLivingCost)},
-            { "expenses": "In the event of death, is your spouse considering to move to a smaller property?", "value": otherExpenses.moveProperty},
-            { "expenses": "Value Of The Property You Want To Buy", "value": moneyFormat.to(otherExpenses.newPropertyValue)},
-            { "expenses": "Money Your Spouse Would Like To Borrow", "value": moneyFormat.to(otherExpenses.moneyBorrowed)},
-            { "expenses": "Sale Proceeds of existing Property", "value": moneyFormat.to(otherExpenses.saleProceeds)},
+            { "expenses": "In the event of death, is your spouse considering to move to a smaller property?", "value": otherExpenses.moveProperty},    
         ];
+
+        if(buyOption){
+          rows4.push({ "expenses": "Value Of The Property You Want To Buy", "value": moneyFormat.to(otherExpenses.newPropertyValue)});
+          rows4.push({ "expenses": "Money Your Spouse Would Like To Borrow", "value": moneyFormat.to(otherExpenses.moneyBorrowed)});
+          rows4.push({ "expenses": "Sale Proceeds of existing Property", "value": moneyFormat.to(otherExpenses.saleProceeds)});
+        }
 
         var columns5 = [
             { title: "Existing Cover", dataKey: "cover" },
@@ -286,7 +289,7 @@ app.service('PdfMaker', [function() {
 
         doc.addImage(imgData2,'PNG',40,780);
         doc.setFontSize(10);
-        doc.text(510,810,'PAGE ' + 3); 
+        doc.text(510,810,'PAGE ' + 2); 
 
         doc.addPage();
 
@@ -323,7 +326,7 @@ app.service('PdfMaker', [function() {
         });
 
         doc.autoTable(columnsP3,rowsP3,{
-            margin: { top: 240 },
+            margin: { top: 270 },
             styles:{
             //   rowHeight:40,
             //   halign : 'left',
