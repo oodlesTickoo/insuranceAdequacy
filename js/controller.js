@@ -352,7 +352,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.grossAnnualIncome],
         range: {
             'min': [0],
-            'max': [2000000]
+            'max': [600000]
         },
         step: 500,
         format: wNumb({
@@ -384,7 +384,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.investmentPropertyMortgage],
         range: {
             'min': [0],
-            'max': [10000000]
+            'max': [5000000]
         },
         step: 500,
         format: wNumb({
@@ -399,7 +399,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.personalLoan],
         range: {
             'min': [0],
-            'max': [1000000]
+            'max': [200000]
         },
         step: 500,
         format: wNumb({
@@ -414,7 +414,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.creditCardDebt],
         range: {
             'min': [0],
-            'max': [200000]
+            'max': [100000]
         },
         step: 500,
         format: wNumb({
@@ -429,7 +429,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.carLoan],
         range: {
             'min': [0],
-            'max': [1000000]
+            'max': [200000]
         },
         step: 500,
         format: wNumb({
@@ -460,7 +460,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.homeValue],
         range: {
             'min': [0],
-            'max': [10000000]
+            'max': [5000000]
         },
         step: 500,
         format: wNumb({
@@ -475,7 +475,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.cashAtBank],
         range: {
             'min': [0],
-            'max': [10000000]
+            'max': [1000000]
         },
         step: 500,
         format: wNumb({
@@ -490,7 +490,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.otherInvestment],
         range: {
             'min': [0],
-            'max': [10000000]
+            'max': [1000000]
         },
         step: 500,
         format: wNumb({
@@ -505,7 +505,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.superBalance],
         range: {
             'min': [0],
-            'max': [10000000]
+            'max': [3000000]
         },
         step: 500,
         format: wNumb({
@@ -520,7 +520,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.ecLife],
         range: {
             'min': [0],
-            'max': [10000000]
+            'max': [5000000]
         },
         step: 500,
         format: wNumb({
@@ -535,7 +535,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.ecTPD],
         range: {
             'min': [0],
-            'max': [10000000]
+            'max': [5000000]
         },
         step: 500,
         format: wNumb({
@@ -550,7 +550,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.ecIP],
         range: {
             'min': [0],
-            'max': [200000]
+            'max': [50000]
         },
         step: 500,
         format: wNumb({
@@ -565,7 +565,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         start: [$scope.ecTrauma],
         range: {
             'min': [0],
-            'max': [10000000]
+            'max': [2000000]
         },
         step: 500,
         format: wNumb({

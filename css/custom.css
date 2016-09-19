@@ -329,7 +329,8 @@ span.pension-note{
 	border-radius: 0px;
       font-size: 12px;
           height: 26px;
-             padding: 6px 6px !important;
+             padding: 0px;
+             padding-left:3px;
 }
 
 .err-border .input-group-addon{
