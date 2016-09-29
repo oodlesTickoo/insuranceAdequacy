@@ -1,4 +1,4 @@
-app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRateCalculator', 'SGCRate', 'WithoutSSCalculator', 'WithSSCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', function($scope, $timeout, AgeCalculator, TaxRateCalculator, SGCRate, WithoutSSCalculator, WithSSCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker) {
+app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator','ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', function($scope, $timeout, AgeCalculator,ChartServiceHc, DonutChartServiceHc, PdfMaker) {
 
     $scope.grossAnnualIncome = 120000;
     $scope.homeMortgage = 500000;
@@ -1495,7 +1495,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'TaxRate
         // PVExpenseChildren=80156.1983032635+74793.54924005;
         console.log("PVExpenseChildren", PVExpenseChildren);
 
-        $scope.D34 = Math.pow(1 + rateOfReturn1, Number((100 / 1200).toFixed(2))) - 1;
+        $scope.D34 = Math.pow(1 + rateOfReturn1/100, Number((100 / 1200).toFixed(2))) - 1;
         $scope.saleProceeds = homeValue1 - homeMortgage1;
 
 
