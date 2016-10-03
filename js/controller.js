@@ -278,7 +278,9 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator','ChartSer
 
         return '';
     }
-    $scope.fy = 2017;
+     var dt = new Date();
+
+    $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear()-1;
 
     $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
 
@@ -289,7 +291,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator','ChartSer
         var dateString = dobText.value;
         var dateArr = dateString.split("/");
 
-        var date_regex = /^([1-9]|0[1-9]|1\d|2\d|3[01])\/(0[1-9]|[1-9]|1[0-2])\/(19[5-9][0-8])$/;
+        var date_regex = /^([1-9]|0[1-9]|1\d|2\d|3[01])\/(0[1-9]|[1-9]|1[0-2])\/(19[5-9][0-9])$/;
         var correct = date_regex.test(dobText.value);
         var fd = new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
         // console.log("fd",fd);
