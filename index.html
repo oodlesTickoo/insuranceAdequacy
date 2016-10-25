@@ -24,7 +24,7 @@
                 <h1>Insurance Adequacy Calculator</h1>
             </div>
             <div print-hide class=" button-wrapper col-xs-4 col-sm-3 col-md-3">
-                <button type="button" class="button print-icon" onclick="window.print()"></button>
+                <button type="button" class="button print-icon print-doc"></button>
                 <button type="button" class="buttons button save-button" id="download" title="Save as PDF" role="button" aria-controls="email-overlay"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                 <button type="button" class="button info-icon" ng-click="infoShow(true)" title="Information"></button>
             </div>
@@ -32,7 +32,7 @@
         <div class="row content">
             <div class="col-xs-12 col-sm-12 col-lg-12">
                 <div class="row input-div ">
-                    <div class="col-xs-12 col-sm-12 col-lg-12">
+                    <form name="forms.ttrForm" class="col-xs-12 col-sm-12 col-lg-12" novalidate ng-submit="calculateFinal(forms.ttrForm.$valid)">
                         <div class="row title-div" ng-click="menuDrop1();">
                             <span class="number-wrapper">1</span>
                             <span class="title-wrapper">Personal Details</span>
@@ -41,8 +41,40 @@
                             </div>
                             <div class="otrp-clear"></div>
                         </div>
-                        <form name="ttrForm" class="form-1" ng-class="{menuDrop: isMenuDrop1}" novalidate ng-submit="submitForm(ttrForm.$valid)">
+                        <div name="ttrForm" class="form-1" ng-class="{menuDrop: isMenuDrop1}">
                             <div class="row first-row-mobile">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="first-name">First Name *</label>
+                                        <input type="text" class="form-control" ng-model="personalDetails.firstName" name="firstName" id="first-name" ng-pattern="/^[a-zA-Z\s]*$/" onClick="this.select();" required>
+                                        <p class="err-msg" ng-show="!forms.ttrForm.firstName.$pristine && forms.ttrForm.firstName.$invalid">Please provide a valid first name.</p>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="last-name">Last Name *</label>
+                                        <input type="text" name="lastName" ng-model="personalDetails.lastName" class="form-control" id="last-name" ng-pattern="/^[a-zA-Z\s]*$/" onClick="this.select();" required>
+                                        <p class="err-msg" ng-show="(!forms.ttrForm.lastName.$pristine && forms.ttrForm.lastName.$invalid)">Please provide a valid last name.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row second-row-mobile">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="email">Email Address *</label>
+                                        <input type="email" name="email" ng-model="personalDetails.email" class="form-control" id="email" onClick="this.select();" required>
+                                        <p class="err-msg" ng-show="(!forms.ttrForm.email.$pristine && forms.ttrForm.email.$invalid)">Enter a valid email address</p>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="mobile-number">Mobile Number *</label>
+                                        <input type="number" name="mobile" ng-model="personalDetails.mobile" class="form-control mob-input" id="mobile-number" required onClick="this.select();" ng-pattern="/^(04)\d{8}$/g">
+                                        <p class="err-msg" ng-show="(!forms.ttrForm.mobile.$pristine && forms.ttrForm.mobile.$invalid)">Enter a valid mobile number</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row second-row-mobile">
                                 <div class="col-xs-8 col-sm-4 form-heading">
                                     Date Of Birth
                                     <div class="row">
@@ -87,8 +119,8 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             Gender
-                                            <button class="option-l-btn btn btn-primary " ng-click="genderOption = true" ng-disabled="genderOption">Male</button>
-                                            <button class="option-r-btn btn btn-primary " ng-click="genderOption = false" ng-disabled="!genderOption">Female</button>
+                                            <button class="option-l-btn btn  " ng-click="genderOption = true" ng-disabled="genderOption">Male</button>
+                                            <button class="option-r-btn btn  " ng-click="genderOption = false" ng-disabled="!genderOption">Female</button>
                                         </div>
                                     </div>
                                 </div>
@@ -96,18 +128,33 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             Smoker
-                                            <button class="option-l-btn btn btn-primary " ng-click="smokeOption = true" ng-disabled="smokeOption">Yes</button>
-                                            <button class="option-r-btn btn btn-primary " ng-click="smokeOption = false" ng-disabled="!smokeOption">No</button>
+                                            <button class="option-l-btn btn  " ng-click="smokeOption = true" ng-disabled="smokeOption">Yes</button>
+                                            <button class="option-r-btn btn  " ng-click="smokeOption = false" ng-disabled="!smokeOption">No</button>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row second-row-mobile">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <textarea class="form-control" name="address" ng-model="personalDetails.address" id="address"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="postal-code">Postal Code</label>
+                                        <input type="number" name="postalCode" ng-model="personalDetails.postalCode" class="form-control" id="postal-code" ng-minlength="4" ng-maxlength="4" onClick="this.select();">
+                                        <p class="err-msg" ng-show="!forms.ttrForm.postalCode.$pristine &&forms.ttrForm.postalCode.$invalid">Enter a valid 4-Digit postal code</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-primary next-btn" ng-click="nextDiv(1)">Next</button>
+                                    <button class="btn btn-primary next-btn" type="button" ng-click="event.preventDefault();nextDiv(1)">Next</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                         <div class="row title-div" ng-click="menuDrop2();">
                             <span class="number-wrapper">2</span>
                             <span class="title-wrapper">Assets</span>
@@ -116,7 +163,7 @@
                             </div>
                             <div class="otrp-clear"></div>
                         </div>
-                        <form name="ttrForm" class="form-2" ng-class="{menuDrop: isMenuDrop2}" novalidate ng-submit="submitForm(ttrForm.$valid)">
+                        <div name="ttrForm" class="form-2" ng-class="{menuDrop: isMenuDrop2}">
                             <div class="row first-row-mobile">
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Home Value
@@ -175,10 +222,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-primary next-btn" ng-click="nextDiv(2)">Next</button>
+                                    <button class="btn btn-primary next-btn" type="button" ng-click="nextDiv(2)">Next</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                         <div class="row title-div" ng-click="menuDrop3();">
                             <span class="number-wrapper">3</span>
                             <span class="title-wrapper">Liability</span>
@@ -187,7 +234,7 @@
                             </div>
                             <div class="otrp-clear"></div>
                         </div>
-                        <form name="ttrForm" class="form-3" ng-class="{menuDrop: isMenuDrop3}" novalidate ng-submit="submitForm(ttrForm.$valid)">
+                        <div name="ttrForm" class="form-3" ng-class="{menuDrop: isMenuDrop3}">
                             <div class="row first-row-mobile">
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Home Mortgage
@@ -274,10 +321,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-primary next-btn" ng-click="nextDiv(3)">Next</button>
+                                    <button class="btn btn-primary next-btn" type="button" ng-click="nextDiv(3)">Next</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                         <div class="row title-div" ng-click="menuDrop4();">
                             <span class="number-wrapper">4</span>
                             <span class="title-wrapper">Other Expense</span>
@@ -286,7 +333,7 @@
                             </div>
                             <div class="otrp-clear"></div>
                         </div>
-                        <form name="ttrForm" class="form-4" ng-class="{menuDrop: isMenuDrop4}" novalidate ng-submit="submitForm(ttrForm.$valid)">
+                        <div name="ttrForm" class="form-4" ng-class="{menuDrop: isMenuDrop4}">
                             <div class="row first-row-mobile">
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Number of Financially Dependent Children
@@ -385,48 +432,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-xs-12 col-sm-6 form-heading c6">
-                                    Age of Sixth Child
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4">
-                                            <div class="form-group">
-                                                <input type="number" onClick="this.select();" class="form-control" id="ageChildren6Input" name="ageChildren6Input" ng-model="ageChildren6">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 col-sm-8 form-group">
-                                            <div id="ageChildren6Slider" style="margin-top:8px;"></div>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
-                            <!-- <div class="row second-row-mobile">
-                                <div class="col-xs-12 col-sm-6 form-heading c7">
-                                    Age of Seventh Child
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4">
-                                            <div class="form-group">
-                                                <input type="number" onClick="this.select();" class="form-control" id="ageChildren7Input" name="ageChildren7Input" ng-model="ageChildren7">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 col-sm-8 form-group">
-                                            <div id="ageChildren7Slider" style="margin-top:8px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6 form-heading c8">
-                                    Age of Eigth Child
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4">
-                                            <div class="form-group">
-                                                <input type="number" onClick="this.select();" class="form-control" id="ageChildren8Input" name="ageChildren8Input" ng-model="ageChildren8">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 col-sm-8 form-group">
-                                            <div id="ageChildren8Slider" style="margin-top:8px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="row second-row-mobile">
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Education Expense per year per child
@@ -460,8 +466,8 @@
                                     <div class="row">
                                         <div class="col-xs-12">
                                             Do you have a spouse?
-                                            <button class="option-l-btn btn btn-primary " ng-click="spouseOptionChange(true)" ng-disabled="spouseOption">Yes</button>
-                                            <button class="option-r-btn btn btn-primary " ng-click="spouseOptionChange(false)" ng-disabled="!spouseOption">No</button>
+                                            <button class="option-l-btn btn " ng-click="spouseOptionChange(true)" ng-disabled="spouseOption">Yes</button>
+                                            <button class="option-r-btn btn  " ng-click="spouseOptionChange(false)" ng-disabled="!spouseOption">No</button>
                                         </div>
                                     </div>
                                 </div>
@@ -546,10 +552,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-primary next-btn" ng-click="nextDiv(4)">Next</button>
+                                    <button class="btn btn-primary next-btn" type="button" ng-click="nextDiv(4)">Next</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                         <div class="row title-div" ng-click="menuDrop5();">
                             <span class="number-wrapper">5</span>
                             <span class="title-wrapper">Existing Cover</span>
@@ -558,7 +564,7 @@
                             </div>
                             <div class="otrp-clear"></div>
                         </div>
-                        <form name="ttrForm" class="form-5" ng-class="{menuDrop: isMenuDrop5}" novalidate ng-submit="submitForm(ttrForm.$valid)">
+                        <div name="ttrForm" class="form-5" ng-class="{menuDrop: isMenuDrop5}">
                             <div class="row first-row-mobile">
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Life
@@ -632,10 +638,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-primary next-btn" ng-click="nextDiv(5)">Next</button>
+                                    <button class="btn btn-primary next-btn" type="button" ng-click="nextDiv(5)">Next</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                         <div class="row title-div" ng-click="menuDrop6();">
                             <span class="number-wrapper">6</span>
                             <span class="title-wrapper">Assumptions</span>
@@ -644,7 +650,7 @@
                             </div>
                             <div class="otrp-clear"></div>
                         </div>
-                        <form name="ttrForm" class="form-6" ng-class="{menuDrop: isMenuDrop6}" novalidate ng-submit="submitForm(ttrForm.$valid)">
+                        <div name="ttrForm" class="form-6" ng-class="{menuDrop: isMenuDrop6}">
                             <div class="row first-row-mobile">
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Wage/living cost inflation
@@ -675,11 +681,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button class="btn btn-primary next-btn" ng-click="nextDiv(6)">Next</button>
+                                    <button print-remove class="btn btn-block btn-primary" type="submit" style="width:initial ; margin:0 auto; margin-bottom:10px;">Calculate Result</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="row result-head">
                     <h3 class="results-title">Your Results</h3>
@@ -980,6 +986,30 @@
                             <img src="images/client-logo.png" class="comp-logo" />
                         </div>
                     </div>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 style="text-align:center;" class="modal-title">Your Form Inputs Are Incorrect/Incomplete</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <ul class="modal-list">
+                                        <li ng-show="forms.ttrForm.firstName.$pristine ">Please provide your first name.</li>
+                                        <li ng-show="!forms.ttrForm.firstName.$pristine && forms.ttrForm.firstName.$invalid">Please provide a valid first name.</li>
+                                        <li ng-show="forms.ttrForm.lastName.$pristine">Please provide your last name.</li>
+                                        <li ng-show="(!forms.ttrForm.lastName.$pristine && forms.ttrForm.lastName.$invalid)">Please provide a valid last name.</li>
+                                        <li ng-show="(forms.ttrForm.email.$pristine || forms.ttrForm.email.$invalid)">Please provide a valid email address.</li>
+                                        <li ng-show="(forms.ttrForm.mobile.$pristine || forms.ttrForm.mobile.$invalid)">Please provide a valid mobile number.</li>
+                                        <li ng-show="forms.ttrForm.postalCode.$invalid">Please provide a valid 4-Digit postal code.</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <h5 style="text-align:center">Please provide the correct inputs to calculate new result, generate the result as PDF and print the result.</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row information-overlay" print-hide>
@@ -1028,6 +1058,22 @@
         <script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
         <script src="js/angular.min.js" type="text/javascript"></script>
         <script src="js/bootstrap-select.min.js" type="text/javascript"></script>
+        <script>
+        $(document).ready(function() {
+            $("input").keydown(function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+            $(".mob-input").keydown(function(event) {
+                if (event.keyCode === 38 || event.keyCode === 40) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+        });
+        </script>
         <script src="js/ui-bootstrap-tpls-1.3.3.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/app.js" type="text/javascript"></script>
