@@ -5,10 +5,10 @@ app.service('PdfMaker', [function() {
         var cdob = personalDetailsObject.dob.toString().split(" ")[1] + " " + personalDetailsObject.dob.toString().split(" ")[2] + " " + personalDetailsObject.dob.toString().split(" ")[3];
 
         function reduceToCapitalize(nameArr) {
-            if (nameArr.length < 2) {
-                var name = nameArr[0];
-                return name[0].toUpperCase() + name.slice(1);
-            }
+            // if (nameArr.length < 2) {
+            //     var name = nameArr[0];
+            //     return name[0].toUpperCase() + name.slice(1);
+            // }
             return nameArr.reduce(function(first, second) {
                 return first[0].toUpperCase() + first.slice(1) + " " + second[0].toUpperCase() + second.slice(1)
             })
@@ -77,9 +77,9 @@ app.service('PdfMaker', [function() {
             { "info": "Number Of Children", "value": personalDetailsObject.numChildren },
         ];
 
-        if (personalDetailsObject.address !== undefined && personalDetailsObject.address.length !== 0) {
-            rows1.push({ "info": "Address", "value": reduceToCapitalize(personalDetailsObject.address.trim().replaceAll('\n', ' ').replace(/\s+/g, " ").split(" ")) });
-        }
+        // if (personalDetailsObject.address !== undefined && personalDetailsObject.address.length !== 0) {
+        //     rows1.push({ "info": "Address", "value": reduceToCapitalize(personalDetailsObject.address.trim().replaceAll('\n', ' ').replace(/\s+/g, " ").split(" ")) });
+        // }
 
         if (personalDetailsObject.postalCode != undefined) {
             var postCode = personalDetailsObject.postalCode;
@@ -222,7 +222,7 @@ app.service('PdfMaker', [function() {
         var top = doc.autoTableEndPosY();
 
         doc.autoTable(columns2, rows2, {
-            margin: { top: top + 15 },
+            margin: { top: top + 25 },
             columnStyles: {
                 info: { columnWidth: 420 },
                 value: { columnWidth: 97 }
@@ -230,7 +230,7 @@ app.service('PdfMaker', [function() {
         });
         var top = doc.autoTableEndPosY();
         doc.autoTable(columns3, rows3, {
-            margin: { top: top + 15 },
+            margin: { top: top + 25 },
             styles: {
                 // fontSize:20,
                 halign: "left",
@@ -242,7 +242,7 @@ app.service('PdfMaker', [function() {
         });
         var top = doc.autoTableEndPosY();
         doc.autoTable(columns4, rows4, {
-            margin: { top: top + 15 },
+            margin: { top: top + 25 },
             columnStyles: {
                 info: { columnWidth: 420 },
                 value: { columnWidth: 97 }
