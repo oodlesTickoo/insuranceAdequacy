@@ -80,17 +80,17 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
     $scope.spouseOptionChange = function(spouse) {
         $scope.spouseOption = spouse;
         $scope.buyOption = false;
-        calculateFinal();
+        // calculateFinal();
     }
 
     $scope.buyOptionChange = function(buy) {
         $scope.buyOption = buy;
-        calculateFinal();
+        // calculateFinal();
     }
 
     $scope.workOptionChange = function(works) {
         $scope.spouseWorkOption = works;
-        calculateFinal();
+        // calculateFinal();
     }
 
     $scope.menuDrop1 = function() {
@@ -303,7 +303,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             $scope.dob = initDate;
         }
         $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
-        calculateFinal();
+        // calculateFinal();
     }
 
 
