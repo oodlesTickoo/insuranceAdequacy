@@ -513,6 +513,19 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         $timeout(0);
     }
 
+    function updatedSchoolValue() {
+        var spEducationOption = $('.spEducationOption option:selected').val();
+        if (Number(spEducationOption) == 0) {
+            var spSchool = $('.spSchool option:selected').val();
+            if (Number($('.spSchoolType option:selected').val()) == 0) {
+                $scope.educationExpensePerYearPerChild = $scope.privateSchoolObjects[spSchool].annualFee;
+            } else {
+                $scope.educationExpensePerYearPerChild = $scope.publicSchoolObjects[spSchool].annualFee;
+            }
+        } else {
+        }
+    }
+
 
 
     $scope.personalDetails = {
@@ -1871,7 +1884,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             if ($scope.ut == true) {
                 $scope.ut = false;
             } else {
-                //schoolOperation();
+                updatedSchoolValue();
             }
             grossAnnualIncome1 = Number($scope.grossAnnualIncome.replaceAll("$", "").replaceAll(",", ""));
             homeMortgage1 = Number($scope.homeMortgage.replaceAll("$", "").replaceAll(",", ""));
@@ -1889,7 +1902,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             ecIP1 = Number($scope.ecIP.replaceAll("$", "").replaceAll(",", ""));
             ecTrauma1 = Number($scope.ecTrauma.replaceAll("$", "").replaceAll(",", ""));
             funeralCost1 = Number($scope.funeralCost.replaceAll("$", "").replaceAll(",", ""));
-            $scope.educationExpensePerYearPerChild=$scope.educationExpensePerYearPerChild+"";
+            $scope.educationExpensePerYearPerChild = $scope.educationExpensePerYearPerChild + "";
             educationExpensePerYearPerChild1 = Number($scope.educationExpensePerYearPerChild.replaceAll("$", "").replaceAll(",", ""));
             familyLivingCostPerYear1 = Number($scope.familyLivingCostPerYear.replaceAll("$", "").replaceAll(",", ""));
             inflation1 = Number($scope.inflation.replaceAll("%", "").replaceAll(",", ""));
@@ -1898,7 +1911,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
             spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
 
-            console.log("educationExpensePerYearPerChild1",educationExpensePerYearPerChild1);
+            console.log("educationExpensePerYearPerChild1", educationExpensePerYearPerChild1);
 
 
 
