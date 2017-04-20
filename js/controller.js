@@ -406,7 +406,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         } else {
             $scope.diffSchoolOption = true;
         }
-        console.log(" $scope.diffSchoolOption", $scope.diffSchoolOption);
+        // console.log(" $scope.diffSchoolOption", $scope.diffSchoolOption);
         $timeout(0);
     });
 
@@ -424,7 +424,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
         } else {
             $scope.educationExpensePerYearPerChild = $scope.publicSchoolObjects[spSchool].annualFee;
         }
-        console.log("educationExpensePerYearPerChildSchool", $scope.privateSchoolObjects[spSchool].name);
+        // console.log("educationExpensePerYearPerChildSchool", $scope.privateSchoolObjects[spSchool].name);
     });
 
     function schoolOperation() {
@@ -1892,7 +1892,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
             spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
 
-            console.log("educationExpensePerYearPerChild1", educationExpensePerYearPerChild1);
 
 
 
@@ -1931,7 +1930,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                 }
             }
             //PVExpenseSpouse=1243994.6;
-            console.log("PVExpenseSpouse", PVExpenseSpouse);
             var PVExpenseChildren = 0;
             var ageChild = [$scope.ageChildren1, $scope.ageChildren2, $scope.ageChildren3, $scope.ageChildren4, $scope.ageChildren5]
 
@@ -1946,7 +1944,6 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                 }
             }
             // PVExpenseChildren=80156.1983032635+74793.54924005;
-            console.log("PVExpenseChildren", PVExpenseChildren);
 
             $scope.D34 = Math.pow(1 + rateOfReturn1 / 100, Number((100 / 1200).toFixed(2))) - 1;
             $scope.saleProceeds = homeValue1 - homeMortgage1;
@@ -1994,8 +1991,8 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                     waiting: 30
                 };
             };
-            console.log("Result 1", $scope.resultS1);
-            console.log("Result 2", $scope.resultS2);
+            // console.log("Result 1", $scope.resultS1);
+            // console.log("Result 2", $scope.resultS2);
 
             $scope.resultTemp = $scope.buyOption ? $scope.resultS2 : $scope.resultS1;
 
