@@ -508,14 +508,20 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
                     break;
             };
         }
-        console.log("sel", $scope.schoolObjectsShow);
+        // console.log("sel", $scope.schoolObjectsShow);
         $('.spSchool').selectpicker('refresh');
         $timeout(0);
     }
 
 
 
-    $scope.personalDetails = {};
+    $scope.personalDetails = {
+        firstName: "Dexter",
+        lastName: "Payne",
+        email: "dexter@gmail.com",
+        mobile: 412121212,
+        postalCode: 1234
+    };
     $scope.forms = {};
     $scope.grossAnnualIncome = 120000;
     $scope.homeMortgage = 500000;
@@ -1865,8 +1871,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             if ($scope.ut == true) {
                 $scope.ut = false;
             } else {
-                sp1Change();
-                sp2Change();
+                //schoolOperation();
             }
             grossAnnualIncome1 = Number($scope.grossAnnualIncome.replaceAll("$", "").replaceAll(",", ""));
             homeMortgage1 = Number($scope.homeMortgage.replaceAll("$", "").replaceAll(",", ""));
@@ -1884,6 +1889,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             ecIP1 = Number($scope.ecIP.replaceAll("$", "").replaceAll(",", ""));
             ecTrauma1 = Number($scope.ecTrauma.replaceAll("$", "").replaceAll(",", ""));
             funeralCost1 = Number($scope.funeralCost.replaceAll("$", "").replaceAll(",", ""));
+            $scope.educationExpensePerYearPerChild=$scope.educationExpensePerYearPerChild+"";
             educationExpensePerYearPerChild1 = Number($scope.educationExpensePerYearPerChild.replaceAll("$", "").replaceAll(",", ""));
             familyLivingCostPerYear1 = Number($scope.familyLivingCostPerYear.replaceAll("$", "").replaceAll(",", ""));
             inflation1 = Number($scope.inflation.replaceAll("%", "").replaceAll(",", ""));
@@ -1892,6 +1898,7 @@ app.controller("TTRController", ['$scope', '$timeout', 'AgeCalculator', 'ChartSe
             valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
             spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
 
+            console.log("educationExpensePerYearPerChild1",educationExpensePerYearPerChild1);
 
 
 
