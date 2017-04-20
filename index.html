@@ -435,18 +435,11 @@
                                 </div>
                             </div>
                             <div class="row ">
-                                <div class="col-xs-12 col-sm-6 form-heading">
+                                <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
                                     Education Expense per year per child
-                                    <div class="row">
-                                        <div class="col-xs-4 col-sm-4">
-                                            <div class="form-group">
-                                                <input type="text" onClick="this.select();" class="form-control" id="educationExpensePerYearPerChildInput" name="educationExpensePerYearPerChildInput" ng-model="educationExpensePerYearPerChild">
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-8 col-sm-8 form-group">
-                                            <div id="educationExpensePerYearPerChildSlider" style="margin-top:8px;"></div>
-                                        </div>
-                                    </div>
+                                    <select class="selectpickerSingle selectpicker spEducationOption">
+                                        <option ng-repeat="x in eductionOptionOb" value="{{x.id}}">{{x.name}}</option>
+                                    </select>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Family Living Cost per year
@@ -462,6 +455,43 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row " ng-show="diffSchoolOption">
+                                <div class="col-xs-12 col-sm-6 form-heading">
+                                    Education Expense per year per child
+                                    <div class="row">
+                                        <div class="col-xs-4 col-sm-4">
+                                            <div class="form-group">
+                                                <input type="text" onClick="this.select();" class="form-control" id="educationExpensePerYearPerChildInput" name="educationExpensePerYearPerChildInput" ng-model="educationExpensePerYearPerChild">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8 form-group">
+                                            <div id="educationExpensePerYearPerChildSlider" style="margin-top:8px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row " ng-show="! diffSchoolOption">
+                                <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
+                                    Which state are you living in?
+                                    <select class="selectpickerSingle selectpicker spState">
+                                        <option ng-repeat="x in stateListOb" value="{{x.id}}">{{x.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
+                                    Which type of school is your child going to?
+                                    <select class="selectpickerSingle selectpicker spSchoolType">
+                                        <option ng-repeat="x in schoolTypeOb" value="{{x.id}}">{{x.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row " ng-show="! diffSchoolOption">
+                                <div class="col-lg-6 col-xs-12 col-sm-6 col-md-6">
+                                    Which school is your child be enrolled at?
+                                    <select class="selectpickerSingle selectpicker spSchool">
+                                        <option ng-repeat="x in schoolObjectsShow" value="{{x.id}}">{{x.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="row ">
                                 <div class="col-xs-12 col-sm-12 form-heading">
                                     <div class="row">
@@ -473,7 +503,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row  yes-spouse" ng-class="{optionDrop: (!spouseOption)}">
+                            <div class="row  yes-spouse" ng-show="spouseOption" >
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Age of Spouse
                                     <div class="row">
@@ -497,7 +527,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row  yes-work" ng-class="{optionDrop: (!spouseWorkOption || !spouseOption)}">
+                            <div class="row  yes-work" ng-show="(spouseWorkOption && spouseOption)">
                                 <div class="col-xs-12 col-sm-6 form-heading">
                                     Income of Spouse
                                     <div class="row">
@@ -512,20 +542,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row  yes-spouse" ng-class="{optionDrop: (!spouseOption)}">
+                            <div class="row  yes-spouse" ng-show="spouseOption">
                                 <div class="col-xs-12 col-sm-12 form-heading">
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            In the event of death, is your spouse considering to move to a smaller property?
+                                            In the event of one death, will the surviving spouse consider moving to a smaller property to reduce the outstanding mortgage?
                                             <button class="option-l-btn btn " ng-click="buyOptionChange(true)" ng-disabled="buyOption">Yes</button>
                                             <button class="option-r-btn btn " ng-click="buyOptionChange(false)" ng-disabled="!buyOption">No</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row  yes-buy" ng-class="{optionDrop: (!buyOption || !spouseOption)}">
+                            <div class="row  yes-buy" ng-show="(buyOption && spouseOption)">
                                 <div class="col-xs-12 col-sm-6 form-heading">
-                                    Value of the property you want to buy?
+                                    Estimated value of the small property?
                                     <div class="row">
                                         <div class="col-xs-4 col-sm-4">
                                             <div class="form-group">
@@ -538,7 +568,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 form-heading">
-                                    Money your spouse would like to borrow?
+                                    Outstanding mortgage after sale of the primary residence
                                     <div class="row">
                                         <div class="col-xs-4 col-sm-4">
                                             <div class="form-group">
@@ -635,6 +665,17 @@
                                             <div id="sickLeavesSlider" style="margin-top:8px;"></div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-6 col-md-6">
+                                    <h4 class="bold">Who own's the life cover?</h4>
+                                    <select name="sp1" class="selectpicker sp1" id="sp1">
+                                        <option ng-repeat="x in lifeOptions" value="{{x.id}}">{{x.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 form-heading" style="color: #0a4271;">
+                                    Note: Please note that trauma cover is only permitted to be owned personally
                                 </div>
                             </div>
                             <div class="row">
