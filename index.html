@@ -24,9 +24,9 @@
                 <h1>Insurance Adequacy Calculator</h1>
             </div>
             <div print-hide class=" button-wrapper col-xs-4 col-sm-3 col-md-3">
-                <button type="button" class="button print-icon print-doc"></button>
-                <button type="button" class="buttons button save-button" id="download" title="Save as PDF" role="button" aria-controls="email-overlay"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                <button type="button" class="button info-icon" ng-click="infoShow(true)" title="Information"></button>
+              <button type="button" title="print" class="new-btn btn-prnt print-doc"></button>
+              <button type="button" class="new-btn btn-sav " id="download" title="Save as PDF" role="button" aria-controls="email-overlay"></button>
+              <button type="button" class="new-btn btn-info " ng-click="infoShow(true)" title="Information"></button>
             </div>
         </div>
         <div class="row content">
@@ -34,7 +34,7 @@
                 <div class="row input-div ">
                     <form name="forms.ttrForm" class="col-xs-12 col-sm-12 col-lg-12" novalidate ng-submit="calculateFinal(forms.ttrForm.$valid)">
                         <div class="row title-div" ng-click="menuDrop1();">
-                            <span class="number-wrapper">1</span>
+                            <span class="number-wrapper"><strong>01</strong></span>
                             <span class="title-wrapper">Personal Details</span>
                             <div class="img-btn-div">
                                 <button type="button" class="button img-btn"></button>
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                         <div class="row title-div" ng-click="menuDrop2();">
-                            <span class="number-wrapper">2</span>
+                            <span class="number-wrapper"><strong>02</strong></span>
                             <span class="title-wrapper">Assets</span>
                             <div class="img-btn-div">
                                 <button type="button" class="button img-btn"></button>
@@ -228,7 +228,7 @@
                             </div>
                         </div>
                         <div class="row title-div" ng-click="menuDrop3();">
-                            <span class="number-wrapper">3</span>
+                            <span class="number-wrapper"><strong>03</strong></span>
                             <span class="title-wrapper">Liability</span>
                             <div class="img-btn-div">
                                 <button type="button" class="button img-btn"></button>
@@ -327,7 +327,7 @@
                             </div>
                         </div>
                         <div class="row title-div" ng-click="menuDrop4();">
-                            <span class="number-wrapper">4</span>
+                            <span class="number-wrapper"><strong>04</strong></span>
                             <span class="title-wrapper">Other Expense</span>
                             <div class="img-btn-div">
                                 <button type="button" class="button img-btn"></button>
@@ -588,7 +588,7 @@
                             </div>
                         </div>
                         <div class="row title-div" ng-click="menuDrop5();">
-                            <span class="number-wrapper">5</span>
+                            <span class="number-wrapper"><strong>05</strong></span>
                             <span class="title-wrapper">Existing Cover</span>
                             <div class="img-btn-div">
                                 <button type="button" class="button img-btn"></button>
@@ -685,7 +685,7 @@
                             </div>
                         </div>
                         <div class="row title-div" ng-click="menuDrop6();">
-                            <span class="number-wrapper">6</span>
+                            <span class="number-wrapper"><strong>06</strong></span>
                             <span class="title-wrapper">Assumptions</span>
                             <div class="img-btn-div">
                                 <button type="button" class="button img-btn"></button>
@@ -723,14 +723,19 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <button print-remove class="btn btn-block btn-primary" type="submit" style="width:initial ; margin:0 auto; margin-bottom:10px;">Calculate Result</button>
+                                    <button print-remove class="btn btn-block btn-primary btn-calculate" type="submit">Calculate Result</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="row result-head">
+                <div class="row result-head clearfix">
                     <h3 class="results-title">Your Results</h3>
+                    <button class="btn btn-primary print-dup print-doc btn-secdry" style="float:right; background-color:#0d2f47 !important;" print-remove>
+
+                      <i class="fa fa-print" aria-hidden="true"></i>
+                        Print Result
+                    </button>
                 </div>
                 <div class="row result-div">
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -1131,6 +1136,7 @@
         <script src="js/wNumb.js" type="text/javascript"></script>
         <script src="bower_components/angularPrint/angularPrint.js" type="text/javascript"></script>
         <script src="js/hc/highcharts.js" type="text/javascript"></script>
+        <script src="js/hc/highcharts-3d.js" type="text/javascript"></script>
         <script src="js/hc/data.js" type="text/javascript"></script>
         <script src="js/hc/exporting.js" type="text/javascript"></script>
         <script src="js/hc/sand-signika.js" type="text/javascript"></script>
